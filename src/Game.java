@@ -106,6 +106,7 @@ public class Game {
         }
     }
     public static int 경험치(int 근력, int 중량) {
+
         return 근력-중량;
     }
 
@@ -164,7 +165,7 @@ public class Game {
         }
     }
     public static void 장비_슬롯() {
-        if
+
     }
     public static void 퀘스트() {
 
@@ -174,7 +175,17 @@ public class Game {
         int 랜덤_퀘스트 = 퀘스트_설정.nextInt(6);
     }
     public static void 중량() {
-
+        if(1 <= 현재_레벨 && 현재_레벨 <= 10) {
+            System.out.println("");
+        } else if (11 <= 현재_레벨 && 현재_레벨 <= 50) {
+            System.out.println("");
+        } else if (51 <= 현재_레벨 && 현재_레벨 <= 70) {
+            System.out.println("");
+        } else if (71 <= 현재_레벨 && 현재_레벨 <= 100) {
+            System.out.println("");
+        } else {
+            System.out.println("");
+        }
     }
 
 
