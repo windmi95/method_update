@@ -5,6 +5,7 @@ public class Game {
     static Boolean 게임_종료 = false;
     static int 현재_소지한_골드 = 0;
     static int 현재_레벨 = 1;
+    static int 체력 = 50;
     static int 근력 = 0;
     static int 메뉴_선택 = 0;
     static int 구매 = 0;
@@ -26,6 +27,7 @@ public class Game {
     static int 고급 = 0;
 
     static int 초월 = 0;
+    static int 중량_선택 = 0;
 
     public Game() {
 
@@ -56,8 +58,6 @@ public class Game {
                 System.out.println("게임을 종료하겠습니다.");
                 break;
             }
-
-
         }
 
     }
@@ -97,19 +97,147 @@ public class Game {
     public static void 운동하기() {
         Scanner sc = new Scanner(System.in);
         System.out.println("해당 장소로 이동하겠습니다.");
-        System.out.println("운동을 실행하고자 한다면 1번을 눌러주세요.");
-        int 운동_실행 = sc.nextInt();
-        if (운동_실행 == 1) {
-            System.out.println("");
+        System.out.println("중량을 선택해주세요.");
+        System.out.println("1.1kg 2.2kg 3.3kg 4.4kg 5.5kg 6.6kg 7.7kg 8.8kg 9.9kg 10.10kg");
+        if (중량_선택 == 1) {
+            System.out.println("1kg를 선택하셨습니다.");
+            System.out.println("운동을 실행하고자 한다면 1번을 눌러주세요. 아이템을 사용하고자 한다면 2번을 눌러주세요. 중량을 변경하고자 한다면 3번을 눌러주세요.");
+            int 운동_실행 = sc.nextInt();
+            if (운동_실행 == 1) {
+                System.out.println("운동을 실행하겠습니다.");
+            } else if (운동_실행 == 2) {
+                System.out.println("아이템을 사용합니다.");
+            } else if (운동_실행 == 3) {
+                System.out.println("중량을 변경합니다.");
+            } else {
+                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
+            }
+        } else if (중량_선택 == 2) {
+            System.out.println("2kg를 선택하셨습니다.");
+            System.out.println("운동을 실행하고자 한다면 1번을 눌러주세요. 아이템을 사용하고자 한다면 2번을 눌러주세요. 중량을 변경하고자 한다면 3번을 눌러주세요.");
+            int 운동_실행 = sc.nextInt();
+            if (운동_실행 == 1) {
+                System.out.println("운동을 실행하겠습니다.");
+            } else if (운동_실행 == 2) {
+                System.out.println("아이템을 사용합니다.");
+            } else if (운동_실행 == 3) {
+                System.out.println("중량을 변경합니다.");
+            }
+            else {
+                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
+            }
+        } else if (중량_선택 == 3) {
+            System.out.println("3kg를 선택하셨습니다.");
+            System.out.println("운동을 실행하고자 한다면 1번을 눌러주세요. 아이템을 사용하고자 한다면 2번을 눌러주세요. 중량을 변경하고자 한다면 3번을 눌러주세요.");
+            int 운동_실행 = sc.nextInt();
+            if (운동_실행 == 1) {
+                System.out.println("운동을 실행하겠습니다.");
+            } else if (운동_실행 == 2) {
+                System.out.println("아이템을 사용합니다.");
+            } else if (운동_실행 == 3) {
+                System.out.println("중량을 변경합니다.");
+            } else {
+                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
+            }
+        } else if (중량_선택 == 4) {
+            System.out.println("4kg를 선택하셨습니다.");
+            System.out.println("운동을 실행하고자 한다면 1번을 눌러주세요. 아이템을 사용하고자 한다면 2번을 눌러주세요. 중량을 변경하고자 한다면 3번을 눌러주세요.");
+            int 운동_실행 = sc.nextInt();
+            if (운동_실행 == 1) {
+                System.out.println("운동을 실행하겠습니다.");
+            } else if (운동_실행 == 2) {
+                System.out.println("아이템을 사용합니다.");
+            } else if (운동_실행 == 3) {
+                System.out.println("중량을 변경합니다.");
+            } else {
+                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
+            }
+        } else if (중량_선택 == 5) {
+            System.out.println("5kg를 선택하셨습니다.");
+            System.out.println("운동을 실행하고자 한다면 1번을 눌러주세요. 아이템을 사용하고자 한다면 2번을 눌러주세요. 중량을 변경하고자 한다면 3번을 눌러주세요.");
+            int 운동_실행 = sc.nextInt();
+            if (운동_실행 == 1) {
+                System.out.println("운동을 실행하겠습니다.");
+            } else if (운동_실행 == 2) {
+                System.out.println("아이템을 사용합니다.");
+            } else if (운동_실행 == 3) {
+                System.out.println("중량을 변경합니다.");
+            } else {
+                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
+            }
+        } else if (중량_선택 == 6) {
+            System.out.println("6kg를 선택하셨습니다.");
+            System.out.println("운동을 실행하고자 한다면 1번을 눌러주세요. 아이템을 사용하고자 한다면 2번을 눌러주세요. 중량을 변경하고자 한다면 3번을 눌러주세요.");
+            int 운동_실행 = sc.nextInt();
+            if (운동_실행 == 1) {
+                System.out.println("운동을 실행하겠습니다.");
+            } else if (운동_실행 == 2) {
+                System.out.println("아이템을 사용합니다.");
+            } else if (운동_실행 == 3) {
+                System.out.println("중량을 변경합니다.");
+            } else {
+                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
+            }
+        } else if (중량_선택 == 7) {
+            System.out.println("7kg를 선택하셨습니다.");
+            System.out.println("운동을 실행하고자 한다면 1번을 눌러주세요. 아이템을 사용하고자 한다면 2번을 눌러주세요. 중량을 변경하고자 한다면 3번을 눌러주세요.");
+            int 운동_실행 = sc.nextInt();
+            if (운동_실행 == 1) {
+                System.out.println("운동을 실행하겠습니다.");
+            } else if (운동_실행 == 2) {
+                System.out.println("아이템을 사용합니다.");
+            } else if (운동_실행 == 3) {
+                System.out.println("중량을 변경합니다.");
+            } else {
+                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
+            }
+        } else if (중량_선택 == 8) {
+            System.out.println("8kg를 선택하셨습니다.");
+            System.out.println("운동을 실행하고자 한다면 1번을 눌러주세요. 아이템을 사용하고자 한다면 2번을 눌러주세요. 중량을 변경하고자 한다면 3번을 눌러주세요.");
+            int 운동_실행 = sc.nextInt();
+            if (운동_실행 == 1) {
+                System.out.println("운동을 실행하겠습니다.");
+            } else if (운동_실행 == 2) {
+                System.out.println("아이템을 사용합니다.");
+            } else if (운동_실행 == 3) {
+                System.out.println("중량을 변경합니다.");
+            } else {
+                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
+            }
+        } else if (중량_선택 == 9) {
+            System.out.println("9kg를 선택하셨습니다.");
+            System.out.println("운동을 실행하고자 한다면 1번을 눌러주세요. 아이템을 사용하고자 한다면 2번을 눌러주세요. 중량을 변경하고자 한다면 3번을 눌러주세요.");
+            int 운동_실행 = sc.nextInt();
+            if (운동_실행 == 1) {
+                System.out.println("운동을 실행하겠습니다.");
+            } else if (운동_실행 == 2) {
+                System.out.println("아이템을 사용합니다.");
+            } else if (운동_실행 == 3) {
+                System.out.println("중량을 변경합니다.");
+            } else {
+                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
+            }
+        } else if (중량_선택 == 10) {
+            System.out.println("10kg를 선택하셨습니다.");
+            System.out.println("운동을 실행하고자 한다면 1번을 눌러주세요. 아이템을 사용하고자 한다면 2번을 눌러주세요. 중량을 변경하고자 한다면 3번을 눌러주세요.");
+            int 운동_실행 = sc.nextInt();
+            if (운동_실행 == 1) {
+                System.out.println("운동을 실행하겠습니다.");
+            } else if (운동_실행 == 2) {
+                System.out.println("아이템을 사용합니다.");
+            } else if (운동_실행 == 3) {
+                System.out.println("중량을 변경합니다.");
+            } else {
+                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
+            }
         } else {
-            System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
+            System.out.println("종료하겠습니다.");
         }
     }
     public static int 경험치(int 근력, int 중량) {
 
         return 근력-중량;
     }
-
     public static void 가방() {
         System.out.println("");
         Scanner sc = new Scanner(System.in);
@@ -187,6 +315,4 @@ public class Game {
             System.out.println("");
         }
     }
-
-
 }
