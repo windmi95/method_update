@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class Game {
     static Boolean 게임_종료 = false;
     static int 현재_소지한_골드 = 0;
-    static int 현재_레벨 = 0;
+    static int 현재_레벨 = 1;
     static int 메뉴_선택 = 0;
     static int 구매 = 0;
     static int 아이템_사용 = 0;
@@ -13,6 +13,14 @@ public class Game {
     static int 프로틴_보충제 = 0;
     static int 크레아틴 = 0;
     static int 탄수화물_보충제 = 0;
+
+    static int 초급 = 0;
+
+    static int 중급 = 0;
+
+    static int 고급 = 0;
+
+    static int 초월 = 0;
 
     public Game() {
 
@@ -92,8 +100,11 @@ public class Game {
         } else {
             System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
         }
-
     }
+    public static int 경험치(int 근력, int 중량) {
+        return 근력-중량;
+    }
+
     public static void 가방() {
         System.out.println("");
         Scanner sc = new Scanner(System.in);
@@ -106,10 +117,10 @@ public class Game {
             아이템_사용 = sc.nextInt();
             if (아이템_사용 == 1) {
                 System.out.println("bcaa를 선택하셨습니다.");
-                System.out.println("체력+1이 회복되었습니다. ");
+                System.out.println("체력+1이 회복되었습니다.");
             } else if (아이템_사용 == 2) {
                 System.out.println("탄수화물 보충제를 선택하셨습니다.");
-                System.out.println("체력+2이 회복되었습니다. ");
+                System.out.println("체력+2이 회복되었습니다.");
             } else if (아이템_사용 == 3) {
                 System.out.println("프로틴을 선택하셨습니다.");
                 System.out.println("근력+1이 증가되었습니다.");
@@ -124,24 +135,29 @@ public class Game {
         }
 
     }
-    public static void 상점() {
 
+
+    public static void 상점() {
         Scanner sc = new Scanner(System.in);
         System.out.println("어떤 것을 구매하시겠습니까?");
         System.out.println("1.bcaa 2.탄수화물 보충제 3.프로틴 4.크레아틴 5.손목 보호대 6.리프팅 웨어 7.역도화 8.복압 벨트");
-
-
-
         구매 = sc.nextInt();
-
         if (구매 == 1) {
             System.out.println("bcaa를 구매하셨습니다.");
         } else if (구매 == 2) {
-            System.out.println("프로틴을 구매하셨습니다.");
-        } else if (구매 == 3) {
-            System.out.println("크레아틴을 구매하셨습니다.");
-        } else if (구매 == 4) {
             System.out.println("탄수화물 보충제를 구매하셨습니다.");
+        } else if (구매 == 3) {
+            System.out.println("프로틴을 구매하셨습니다.");
+        } else if (구매 == 4) {
+            System.out.println("크레아틴을 구매하셨습니다.");
+        } else if (구매 == 5) {
+            System.out.println("손목 보호대를 구매하셨습니다.");
+        } else if (구매 == 6) {
+            System.out.println("리프팅 웨어를 구매하셨습니다.");
+        } else if (구매 == 7) {
+            System.out.println("역도화를 구매하셨습니다.");
+        } else if (구매 == 8) {
+            System.out.println("복압 벨트를 구매하셨습니다.");
         } else {
             System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
         }
@@ -153,4 +169,7 @@ public class Game {
         Random 퀘스트_설정 = new Random();
         int 랜덤_퀘스트 = 퀘스트_설정.nextInt(6);
     }
+    public static void 중량() {
+    }
+
 }
