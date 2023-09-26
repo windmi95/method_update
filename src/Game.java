@@ -1,3 +1,4 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class Game {
@@ -5,9 +6,13 @@ public class Game {
     static int 현재_소지한_골드 = 0;
     static int 현재_레벨 = 0;
     static int 메뉴_선택 = 0;
-    static int 가방 = 0;
     static int 구매 = 0;
     static int 아이템_사용 = 0;
+
+    static int bcaa = 0;
+    static int 프로틴_보충제 = 0;
+    static int 크레아틴 = 0;
+    static int 탄수화물_보충제 = 0;
 
     public Game() {
 
@@ -28,47 +33,48 @@ public class Game {
 
         while(!게임_종료) {
             String 이름 = 계약서(scanner);
-            if (이름.equals("")) {
+            if (!이름.equals("")) {
+                System.out.println("계약서 서명 " + 이름);
+                System.out.println("게임을 시작하겠습니다.");
+                메뉴바();
+                메뉴_선택();
+                가방();
+            } else {
                 System.out.println("게임을 종료하겠습니다.");
                 break;
             }
 
-            System.out.println("계약서 서명 " + 이름);
-            System.out.println("게임을 시작하겠습니다.");
-            메뉴_선택();
+
         }
 
     }
+    public static void 메뉴바() {
+        System.out.println("============================게임 메뉴============================");
+    }
+
     public static String 계약서(Scanner scanner) {
         String 서명 = scanner.nextLine();
         return 서명;
     }
-
     public static void 메뉴_선택() {
-        System.out.println("메뉴를 선택하세요.");
-        System.out.println("");
-
-    }
-    public static void 가방() {
-        System.out.println("==================게임 메뉴=================");
         System.out.println("");
         Scanner sc = new Scanner(System.in);
         System.out.println("1.운동하기 2.가방 3.관장에게 의뢰하러 가기 4.상점 5.퀘스트 현황 6.능력치 확인 7.장비 슬롯 8.설정 9.주머니");
         System.out.println("어떤 것을 선택하시겠습니까?");
-        가방 = sc.nextInt();
-        if (가방 == 1) {
+        메뉴_선택 = sc.nextInt();
+        if (메뉴_선택 == 1) {
             System.out.println("1번 운동하기를 선택하셨습니다.");
             운동하기();
-        } else if (가방 == 2) {
+        } else if (메뉴_선택 == 2) {
             System.out.println("2번 아이템을 선택하셨습니다.");
-            아이템();
-        } else if (가방 == 3) {
+
+        } else if (메뉴_선택 == 3) {
             System.out.println("3번 상점을 선택하셨습니다.");
             상점();
-        } else if (가방 == 4) {
+        } else if (메뉴_선택 == 4) {
             System.out.println("4번 퀘스트 현황을 선택하셨습니다.");
             퀘스트();
-        } else if (가방 == 5) {
+        } else if (메뉴_선택 == 5) {
             System.out.println("5번 능력치 확인을 선택하셨습니다.");
             능력치();
         } else {
@@ -88,37 +94,46 @@ public class Game {
         }
 
     }
-    public static void 아이템() {
-        int bcaa = 0;
-        int 프로틴_보충제 = 0;
-        int 크레아틴 = 0;
-        int 탄수화물_보충제 = 0;
+    public static void 가방() {
+        System.out.println("");
         Scanner sc = new Scanner(System.in);
-        System.out.println("어떤 아이템을 사용하시겠습니까?");
-        System.out.println("1. bcaa 2.탄수화물 보충제 3.프로틴 4.크레아틴");
-        아이템_사용 = sc.nextInt();
-        if (아이템_사용 == 1) {
-            System.out.println("bcaa를 선택하셨습니다.");
-            System.out.println("체력+1이 회복되었습니다. ");
-        } else if (아이템_사용 == 2) {
-            System.out.println("탄수화물 보충제를 선택하셨습니다.");
-            System.out.println("체력+2이 회복되었습니다. ");
-        } else if (아이템_사용 == 3) {
-            System.out.println("프로틴을 선택하셨습니다.");
-            System.out.println("근력+1이 증가되었습니다.");
-        } else if (아이템_사용 == 4) {
-            System.out.println("크레아틴을 선택하셨습니다.");
-            System.out.println("근력+2이 증가되었습니다.");
-        } else {
-            System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
+        System.out.println("어떤 것을 선택하시겠습니까?");
+        System.out.println("1.아이템 2.장비 착용");
+        int 가방_선택 = sc.nextInt();
+        if (가방_선택 == 1) {
+            System.out.println("아이템을 선택하셨습니다.");
+            System.out.println("1.bcaa 2.탄수화물 보충제 3.프로틴 4.크레아틴");
+            아이템_사용 = sc.nextInt();
+            if (아이템_사용 == 1) {
+                System.out.println("bcaa를 선택하셨습니다.");
+                System.out.println("체력+1이 회복되었습니다. ");
+            } else if (아이템_사용 == 2) {
+                System.out.println("탄수화물 보충제를 선택하셨습니다.");
+                System.out.println("체력+2이 회복되었습니다. ");
+            } else if (아이템_사용 == 3) {
+                System.out.println("프로틴을 선택하셨습니다.");
+                System.out.println("근력+1이 증가되었습니다.");
+            } else if (아이템_사용 == 4) {
+                System.out.println("크레아틴을 선택하셨습니다.");
+                System.out.println("근력+2이 증가되었습니다.");
+            } else {
+                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
+            }
+        } else if (가방_선택 == 2) {
+            System.out.println("장비 착용을 선택하셨습니다.");
         }
+
     }
     public static void 상점() {
 
         Scanner sc = new Scanner(System.in);
         System.out.println("어떤 것을 구매하시겠습니까?");
-        System.out.println("1.bcaa 2.탄수화물 보충제 3.프로틴 4.크레아틴");
+        System.out.println("1.bcaa 2.탄수화물 보충제 3.프로틴 4.크레아틴 5.손목 보호대 6.리프팅 웨어 7.역도화 8.복압 벨트");
+
+
+
         구매 = sc.nextInt();
+
         if (구매 == 1) {
             System.out.println("bcaa를 구매하셨습니다.");
         } else if (구매 == 2) {
@@ -135,6 +150,7 @@ public class Game {
 
     }
     public static void 능력치() {
-
+        Random 퀘스트_설정 = new Random();
+        int 랜덤_퀘스트 = 퀘스트_설정.nextInt(6);
     }
 }
