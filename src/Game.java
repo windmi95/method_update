@@ -5,6 +5,7 @@ public class Game {
     static Boolean 게임_종료 = false;
     static int 현재_소지한_골드 = 0;
     static int 현재_레벨 = 1;
+    static int 근력 = 0;
     static int 메뉴_선택 = 0;
     static int 구매 = 0;
     static int 아이템_사용 = 0;
@@ -13,6 +14,10 @@ public class Game {
     static int 프로틴_보충제 = 0;
     static int 크레아틴 = 0;
     static int 탄수화물_보충제 = 0;
+    static int 손목보호대 = 0;
+    static int 리프팅웨어 = 0;
+    static int 역도화 = 0;
+    static int 복압벨트 = 0;
 
     static int 초급 = 0;
 
@@ -88,7 +93,6 @@ public class Game {
         } else {
             System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
         }
-
     }
     public static void 운동하기() {
         Scanner sc = new Scanner(System.in);
@@ -133,10 +137,7 @@ public class Game {
         } else if (가방_선택 == 2) {
             System.out.println("장비 착용을 선택하셨습니다.");
         }
-
     }
-
-
     public static void 상점() {
         Scanner sc = new Scanner(System.in);
         System.out.println("어떤 것을 구매하시겠습니까?");
@@ -162,6 +163,9 @@ public class Game {
             System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
         }
     }
+    public static void 장비_슬롯() {
+        if
+    }
     public static void 퀘스트() {
 
     }
@@ -170,6 +174,8 @@ public class Game {
         int 랜덤_퀘스트 = 퀘스트_설정.nextInt(6);
     }
     public static void 중량() {
+
     }
+
 
 }
