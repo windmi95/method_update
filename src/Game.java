@@ -5,6 +5,7 @@ public class Game {
     static Boolean 게임_종료 = false;
     static int 현재_소지한_골드 = 0;
     static int 현재_레벨 = 1;
+    static int 레벨업 = 0;
     static int 체력 = 50;
     static int 근력 = 0;
     static int 메뉴_선택 = 0;
@@ -59,9 +60,9 @@ public class Game {
                 break;
             }
         }
-
     }
     public static void 메뉴바() {
+        System.out.println("");
         System.out.println("============================게임 메뉴============================");
     }
 
@@ -72,24 +73,31 @@ public class Game {
     public static void 메뉴_선택() {
         System.out.println("");
         Scanner sc = new Scanner(System.in);
-        System.out.println("1.운동하기 2.가방 3.관장에게 의뢰하러 가기 4.상점 5.퀘스트 현황 6.능력치 확인 7.장비 슬롯 8.설정 9.주머니");
+        System.out.println("1.운동하기 2.가방 3.의뢰 4.상점 5.퀘스트 현황 6.능력치 확인 7.장비 슬롯 8.설정 9.퀵슬롯");
         System.out.println("어떤 것을 선택하시겠습니까?");
         메뉴_선택 = sc.nextInt();
         if (메뉴_선택 == 1) {
             System.out.println("1번 운동하기를 선택하셨습니다.");
             운동하기();
         } else if (메뉴_선택 == 2) {
-            System.out.println("2번 아이템을 선택하셨습니다.");
-
+            System.out.println("2번 가방을 선택하셨습니다.");
         } else if (메뉴_선택 == 3) {
-            System.out.println("3번 상점을 선택하셨습니다.");
+            System.out.println("3번 의뢰를 선택하셨습니다.");
             상점();
         } else if (메뉴_선택 == 4) {
-            System.out.println("4번 퀘스트 현황을 선택하셨습니다.");
+            System.out.println("4번 상점을 선택하셨습니다.");
             퀘스트();
         } else if (메뉴_선택 == 5) {
-            System.out.println("5번 능력치 확인을 선택하셨습니다.");
+            System.out.println("5번 퀘스트 현황을 선택하셨습니다.");
             능력치();
+        } else if (메뉴_선택 == 6) {
+            System.out.println("6번 능력치 확인을 선택하셨습니다.");
+        } else if (메뉴_선택 == 7) {
+            System.out.println("7번 장비 슬롯을 선택하셨습니다.");
+        } else if (메뉴_선택 == 8) {
+            System.out.println("8번 설정을 선택하셨습니다.");
+        } else if (메뉴_선택 == 9) {
+            System.out.println("9번 퀵슬롯을 선택하셨습니다.");
         } else {
             System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
         }
@@ -235,8 +243,11 @@ public class Game {
         }
     }
     public static int 경험치(int 근력, int 중량) {
-
+        레벨업 = 현재_레벨*100;
         return 근력-중량;
+    }
+    public static void 이벤트() {
+        System.out.println("");
     }
     public static void 가방() {
         System.out.println("");
@@ -265,6 +276,8 @@ public class Game {
             }
         } else if (가방_선택 == 2) {
             System.out.println("장비 착용을 선택하셨습니다.");
+        } else {
+            System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
         }
     }
     public static void 상점() {
@@ -296,8 +309,12 @@ public class Game {
 
     }
     public static void 퀘스트() {
-
+        System.out.println("");
     }
+    public static void 승급심사() {
+        System.out.println("");
+    }
+
     public static void 능력치() {
         Random 퀘스트_설정 = new Random();
         int 랜덤_퀘스트 = 퀘스트_설정.nextInt(6);
