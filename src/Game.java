@@ -28,6 +28,7 @@ public class Game {
     static int 고급 = 0;
 
     static int 초월 = 0;
+
     static int 중량_선택 = 0;
 
     public Game() {
@@ -39,12 +40,12 @@ public class Game {
         System.out.println("");
         System.out.println("=======================프롤로그=============================");
         System.out.println("");
-        System.out.println("D-DAY 오늘부터 헬스장에서 운동 시작이다.");
-        System.out.println("헬스장 앞에 도착하여 벨을 누른다.....");
+        System.out.println("한 날, 잠을 청하던 나는 꿈 속에서 헬스장에 도착했다.");
+        System.out.println("호기심에 벨을 누르고 헬스장 안으로 들어갔다..... ");
         System.out.println("");
         System.out.println("직원: 어서오세요. 처음 방문하시나요?");
         System.out.println("네 헬스장 이용하려고 하는데 안내 부탁드립니다.");
-        System.out.println("직원: 레벨 100이 될 때 까지 여기서 나가실 수 없습니다.");
+        System.out.println("직원: 최종 승급 심사를 통과하지 못하면 여기서 빠져나올 수 없습니다.");
         System.out.println("직원: 계속 진행을 원하시면 계약서에 서명 부탁드립니다.");
 
         while(!게임_종료) {
@@ -107,6 +108,7 @@ public class Game {
         System.out.println("해당 장소로 이동하겠습니다.");
         System.out.println("중량을 선택해주세요.");
         System.out.println("1.1kg 2.2kg 3.3kg 4.4kg 5.5kg 6.6kg 7.7kg 8.8kg 9.9kg 10.10kg");
+        중량_선택 = sc.nextInt();
         if (중량_선택 == 1) {
             System.out.println("1kg를 선택하셨습니다.");
             System.out.println("운동을 실행하고자 한다면 1번을 눌러주세요. 아이템을 사용하고자 한다면 2번을 눌러주세요. 중량을 변경하고자 한다면 3번을 눌러주세요.");
@@ -115,6 +117,7 @@ public class Game {
                 System.out.println("운동을 실행하겠습니다.");
             } else if (운동_실행 == 2) {
                 System.out.println("아이템을 사용합니다.");
+                가방();
             } else if (운동_실행 == 3) {
                 System.out.println("중량을 변경합니다.");
             } else {
@@ -128,6 +131,7 @@ public class Game {
                 System.out.println("운동을 실행하겠습니다.");
             } else if (운동_실행 == 2) {
                 System.out.println("아이템을 사용합니다.");
+                가방();
             } else if (운동_실행 == 3) {
                 System.out.println("중량을 변경합니다.");
             }
@@ -142,6 +146,7 @@ public class Game {
                 System.out.println("운동을 실행하겠습니다.");
             } else if (운동_실행 == 2) {
                 System.out.println("아이템을 사용합니다.");
+                가방();
             } else if (운동_실행 == 3) {
                 System.out.println("중량을 변경합니다.");
             } else {
@@ -155,6 +160,7 @@ public class Game {
                 System.out.println("운동을 실행하겠습니다.");
             } else if (운동_실행 == 2) {
                 System.out.println("아이템을 사용합니다.");
+                가방();
             } else if (운동_실행 == 3) {
                 System.out.println("중량을 변경합니다.");
             } else {
@@ -168,6 +174,7 @@ public class Game {
                 System.out.println("운동을 실행하겠습니다.");
             } else if (운동_실행 == 2) {
                 System.out.println("아이템을 사용합니다.");
+                가방();
             } else if (운동_실행 == 3) {
                 System.out.println("중량을 변경합니다.");
             } else {
@@ -181,6 +188,7 @@ public class Game {
                 System.out.println("운동을 실행하겠습니다.");
             } else if (운동_실행 == 2) {
                 System.out.println("아이템을 사용합니다.");
+                가방();
             } else if (운동_실행 == 3) {
                 System.out.println("중량을 변경합니다.");
             } else {
@@ -194,6 +202,7 @@ public class Game {
                 System.out.println("운동을 실행하겠습니다.");
             } else if (운동_실행 == 2) {
                 System.out.println("아이템을 사용합니다.");
+                가방();
             } else if (운동_실행 == 3) {
                 System.out.println("중량을 변경합니다.");
             } else {
@@ -207,6 +216,7 @@ public class Game {
                 System.out.println("운동을 실행하겠습니다.");
             } else if (운동_실행 == 2) {
                 System.out.println("아이템을 사용합니다.");
+                가방();
             } else if (운동_실행 == 3) {
                 System.out.println("중량을 변경합니다.");
             } else {
@@ -220,6 +230,7 @@ public class Game {
                 System.out.println("운동을 실행하겠습니다.");
             } else if (운동_실행 == 2) {
                 System.out.println("아이템을 사용합니다.");
+                가방();
             } else if (운동_실행 == 3) {
                 System.out.println("중량을 변경합니다.");
             } else {
@@ -233,6 +244,7 @@ public class Game {
                 System.out.println("운동을 실행하겠습니다.");
             } else if (운동_실행 == 2) {
                 System.out.println("아이템을 사용합니다.");
+                가방();
             } else if (운동_실행 == 3) {
                 System.out.println("중량을 변경합니다.");
             } else {
@@ -244,6 +256,9 @@ public class Game {
     }
     public static int 경험치(int 근력, int 중량) {
         레벨업 = 현재_레벨*100;
+        for (int i=0; i<= 현재_레벨; 현재_레벨++) {
+            System.out.println(레벨업);
+        }
         return 근력-중량;
     }
     public static void 이벤트() {
