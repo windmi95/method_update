@@ -3,22 +3,37 @@ import java.util.Scanner;
 
 public class Game {
     static Boolean 게임_종료 = false;
+
     static int 현재_소지한_골드 = 0;
+
     static int 현재_레벨 = 1;
+
     static int 레벨업 = 0;
+
     static int 체력 = 50;
+
     static int 근력 = 0;
+
     static int 메뉴_선택 = 0;
+
     static int 구매 = 0;
+
     static int 아이템_사용 = 0;
 
     static int bcaa = 0;
+
     static int 프로틴_보충제 = 0;
+
     static int 크레아틴 = 0;
+
     static int 탄수화물_보충제 = 0;
+
     static int 손목보호대 = 0;
+
     static int 리프팅웨어 = 0;
+
     static int 역도화 = 0;
+
     static int 복압벨트 = 0;
 
     static int 초급 = 0;
@@ -29,7 +44,9 @@ public class Game {
 
     static int 초월 = 0;
 
-    static int 중량_선택 = 0;
+    static String 중량_선택 = "";
+
+    static int 경험치 = 0;
 
     public Game() {
 
@@ -42,10 +59,10 @@ public class Game {
         System.out.println("");
         System.out.println("한 날, 잠을 청하던 나는 꿈 속에서 헬스장에 도착했다.");
         System.out.println("호기심에 벨을 누르고 헬스장 안으로 들어갔다..... ");
+        System.out.println("헬스장 안으로 들어가자 심상치 않은 느낌에 나가고자 했을 때 문이 잠기게 되었다.");
         System.out.println("");
-        System.out.println("심상치 않은 느낌에 나가고자 했을 때 문이 잠기게 되었다.");
         System.out.println("직원: 어서오세요. 처음 방문하시나요?");
-        System.out.println("네 헬스장 이용하려고 하는데 안내 부탁드립니다.");
+        System.out.println("나: 네 헬스장 이용하려고 하는데 안내 부탁드립니다.");
         System.out.println("직원: 최종 승급 심사를 통과하지 못하면 여기서 빠져나올 수 없습니다.");
         System.out.println("직원: 계속 진행을 원하시면 계약서에 서명 부탁드립니다.");
 
@@ -54,7 +71,8 @@ public class Game {
             if (!이름.equals("")) {
                 System.out.println("계약서 서명 " + 이름);
                 System.out.println("게임을 시작하겠습니다.");
-                메뉴바();
+                String 게임_메뉴 = 메뉴바();
+                System.out.println(게임_메뉴);
                 메뉴_선택();
                 가방();
             } else {
@@ -63,9 +81,9 @@ public class Game {
             }
         }
     }
-    public static void 메뉴바() {
+    public static String 메뉴바() {
         System.out.println("");
-        System.out.println("============================게임 메뉴============================");
+        return ("============================게임 메뉴============================");
     }
 
     public static String 계약서(Scanner scanner) {
@@ -106,159 +124,27 @@ public class Game {
     }
     public static void 운동하기() {
         Scanner sc = new Scanner(System.in);
-        System.out.println("해당 장소로 이동하겠습니다.");
-        System.out.println("중량을 선택해주세요.");
-        System.out.println("1.1kg 2.2kg 3.3kg 4.4kg 5.5kg 6.6kg 7.7kg 8.8kg 9.9kg 10.10kg");
-        중량_선택 = sc.nextInt();
-        if (중량_선택 == 1) {
-            System.out.println("1kg를 선택하셨습니다.");
-            System.out.println("1.운동 실행 2.아이템 사용 3.중량 변경 4.게임에서 나가기");
-            int 운동_메뉴_선택 = sc.nextInt();
-            if (운동_메뉴_선택 == 1) {
-                System.out.println("운동을 실행하겠습니다.");
+        중량();
+        System.out.println("1.운동 실행 2.아이템 사용 3.중량 변경 4.게임에서 나가기");
+        int 운동_메뉴_선택 = sc.nextInt();
+        if (운동_메뉴_선택 == 1) {
+            System.out.println("운동을 실행하겠습니다.");
             } else if (운동_메뉴_선택 == 2) {
                 System.out.println("아이템을 사용합니다.");
                 가방();
             } else if (운동_메뉴_선택 == 3) {
                 System.out.println("중량을 변경합니다.");
-                System.out.println("1.1kg 2.2kg 3.3kg 4.4kg 5.5kg 6.6kg 7.7kg 8.8kg 9.9kg 10.10kg");
-                중량_선택 = sc.nextInt();
+                중량_선택 = sc.next();
             } else if (운동_메뉴_선택 == 4) {
                 System.out.println("게임플레이를 취소하였습니다.");
             } else {
                 System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
             }
-        } else if (중량_선택 == 2) {
-            System.out.println("2kg를 선택하셨습니다.");
-            System.out.println("1.운동 실행 2.아이템 사용 3.중량 변경 4.게임에서 나가기");
-            int 운동_메뉴_선택 = sc.nextInt();
-            if (운동_메뉴_선택 == 1) {
-                System.out.println("운동을 실행하겠습니다.");
-            } else if (운동_메뉴_선택 == 2) {
-                System.out.println("아이템을 사용합니다.");
-                가방();
-            } else if (운동_메뉴_선택 == 3) {
-                System.out.println("중량을 변경합니다.");
-            } else if (운동_메뉴_선택 == 4) {
-                System.out.println("게임플레이를 취소하였습니다.");
-            } else {
-                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
-            }
-        } else if (중량_선택 == 3) {
-            System.out.println("3kg를 선택하셨습니다.");
-            System.out.println("1.운동 실행 2.아이템 사용 3.중량 변경 4.게임에서 나가기");
-            int 운동_메뉴_선택 = sc.nextInt();
-            if (운동_메뉴_선택 == 1) {
-                System.out.println("운동을 실행하겠습니다.");
-            } else if (운동_메뉴_선택 == 2) {
-                System.out.println("아이템을 사용합니다.");
-                가방();
-            } else if (운동_메뉴_선택 == 3) {
-                System.out.println("중량을 변경합니다.");
-            } else {
-                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
-            }
-        } else if (중량_선택 == 4) {
-            System.out.println("4kg를 선택하셨습니다.");
-            System.out.println("1.운동 실행 2.아이템 사용 3.중량 변경 4.게임에서 나가기");
-            int 운동_메뉴_선택 = sc.nextInt();
-            if (운동_메뉴_선택 == 1) {
-                System.out.println("운동을 실행하겠습니다.");
-            } else if (운동_메뉴_선택 == 2) {
-                System.out.println("아이템을 사용합니다.");
-                가방();
-            } else if (운동_메뉴_선택 == 3) {
-                System.out.println("중량을 변경합니다.");
-            } else {
-                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
-            }
-        } else if (중량_선택 == 5) {
-            System.out.println("5kg를 선택하셨습니다.");
-            System.out.println("1.운동 실행 2.아이템 사용 3.중량 변경 4.게임에서 나가기");
-            int 운동_메뉴_선택 = sc.nextInt();
-            if (운동_메뉴_선택 == 1) {
-                System.out.println("운동을 실행하겠습니다.");
-            } else if (운동_메뉴_선택 == 2) {
-                System.out.println("아이템을 사용합니다.");
-                가방();
-            } else if (운동_메뉴_선택 == 3) {
-                System.out.println("중량을 변경합니다.");
-            } else {
-                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
-            }
-        } else if (중량_선택 == 6) {
-            System.out.println("6kg를 선택하셨습니다.");
-            System.out.println("1.운동 실행 2.아이템 사용 3.중량 변경 4.게임에서 나가기");
-            int 운동_메뉴_선택 = sc.nextInt();
-            if (운동_메뉴_선택 == 1) {
-                System.out.println("운동을 실행하겠습니다.");
-            } else if (운동_메뉴_선택 == 2) {
-                System.out.println("아이템을 사용합니다.");
-                가방();
-            } else if (운동_메뉴_선택 == 3) {
-                System.out.println("중량을 변경합니다.");
-            } else {
-                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
-            }
-        } else if (중량_선택 == 7) {
-            System.out.println("7kg를 선택하셨습니다.");
-            System.out.println("1.운동 실행 2.아이템 사용 3.중량 변경 4.게임에서 나가기");
-            int 운동_메뉴_선택 = sc.nextInt();
-            if (운동_메뉴_선택 == 1) {
-                System.out.println("운동을 실행하겠습니다.");
-            } else if (운동_메뉴_선택 == 2) {
-                System.out.println("아이템을 사용합니다.");
-                가방();
-            } else if (운동_메뉴_선택 == 3) {
-                System.out.println("중량을 변경합니다.");
-            } else {
-                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
-            }
-        } else if (중량_선택 == 8) {
-            System.out.println("8kg를 선택하셨습니다.");
-            System.out.println("1.운동 실행 2.아이템 사용 3.중량 변경 4.게임에서 나가기");
-            int 운동_메뉴_선택 = sc.nextInt();
-            if (운동_메뉴_선택 == 1) {
-                System.out.println("운동을 실행하겠습니다.");
-            } else if (운동_메뉴_선택 == 2) {
-                System.out.println("아이템을 사용합니다.");
-                가방();
-            } else if (운동_메뉴_선택 == 3) {
-                System.out.println("중량을 변경합니다.");
-            } else {
-                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
-            }
-        } else if (중량_선택 == 9) {
-            System.out.println("9kg를 선택하셨습니다.");
-            System.out.println("1.운동 실행 2.아이템 사용 3.중량 변경 4.게임에서 나가기");
-            int 운동_메뉴_선택 = sc.nextInt();
-            if (운동_메뉴_선택 == 1) {
-                System.out.println("운동을 실행하겠습니다.");
-            } else if (운동_메뉴_선택 == 2) {
-                System.out.println("아이템을 사용합니다.");
-                가방();
-            } else if (운동_메뉴_선택 == 3) {
-                System.out.println("중량을 변경합니다.");
-            } else {
-                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
-            }
-        } else if (중량_선택 == 10) {
-            System.out.println("10kg를 선택하셨습니다.");
-            System.out.println("1.운동 실행 2.아이템 사용 3.중량 변경 4.게임에서 나가기");
-            int 운동_메뉴_선택 = sc.nextInt();
-            if (운동_메뉴_선택 == 1) {
-                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
-            }
-        } else {
-            System.out.println("종료하겠습니다.");
-        }
+
     }
-    public static int 경험치(int 근력, int 중량) {
-        레벨업 = 현재_레벨*100;
-        for (int i=0; i<= 현재_레벨; 현재_레벨++) {
-            System.out.println(레벨업);
-        }
-        return 근력-중량;
+    public static void 경험치_설정() {
+
+
     }
     public static void 이벤트() {
         System.out.println("");
@@ -334,16 +220,32 @@ public class Game {
         int 랜덤_퀘스트 = 퀘스트_설정.nextInt(6);
     }
     public static void 중량() {
-        if(1 <= 현재_레벨 && 현재_레벨 <= 10) {
-            System.out.println("");
-        } else if (11 <= 현재_레벨 && 현재_레벨 <= 50) {
-            System.out.println("");
-        } else if (51 <= 현재_레벨 && 현재_레벨 <= 70) {
-            System.out.println("");
-        } else if (71 <= 현재_레벨 && 현재_레벨 <= 100) {
-            System.out.println("");
+        if(1 <= 현재_레벨 && 현재_레벨 < 11) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("중량 1 ~ 10를 입력해주세요.");
+            중량_선택 = sc.next();
+            System.out.println(중량_선택+"kg를 선택하셨습니다.");
+            System.out.println("운동 장소로 이동하겠습니다.");
+        } else if (11 <= 현재_레벨 && 현재_레벨 < 51) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("중량 1 ~ 50을 입력해주세요.");
+            중량_선택 = sc.next();
+            System.out.println(중량_선택+"kg를 선택하셨습니다.");
+            System.out.println("운동 장소로 이동하겠습니다.");
+        } else if (51 <= 현재_레벨 && 현재_레벨 < 71) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("중량 1 ~ 70을 입력해주세요.");
+            중량_선택 = sc.next();
+            System.out.println(중량_선택+"kg를 선택하셨습니다.");
+            System.out.println("운동 장소로 이동하겠습니다.");
+        } else if (71 <= 현재_레벨 && 현재_레벨 < 100) {
+            Scanner sc = new Scanner(System.in);
+            System.out.println("중량 1 ~ 100을 입력해주세요.");
+            중량_선택 = sc.next();
+            System.out.println(중량_선택+"kg를 선택하셨습니다.");
+            System.out.println("운동 장소로 이동하겠습니다.");
         } else {
-            System.out.println("");
+            System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
         }
     }
 }
