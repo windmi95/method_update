@@ -90,7 +90,6 @@ public class Game {
         System.out.println("");
         return ("============================게임 메뉴============================");
     }
-
     public static String 계약서(Scanner scanner) {
         String 서명 = scanner.nextLine();
         return 서명;
@@ -134,6 +133,7 @@ public class Game {
         int 운동_메뉴_선택 = sc.nextInt();
         if (운동_메뉴_선택 == 1) {
             System.out.println("운동을 실행하겠습니다.");
+
             } else if (운동_메뉴_선택 == 2) {
                 System.out.println("아이템을 사용합니다.");
                 가방();
@@ -146,7 +146,6 @@ public class Game {
             } else {
                 System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
             }
-
     }
     public static void 경험치_설정() {
         경험치 = 중량_선택 / 2;
@@ -155,7 +154,7 @@ public class Game {
     }
     public static void 레벨() {
         if (경험치양 > 현재_레벨 * 100) {
-            현재_레벨 = 현재_레벨+1;
+            현재_레벨 = 현재_레벨 + 1;
         }
     }
     public static void 이벤트() {
@@ -213,7 +212,12 @@ public class Game {
             System.out.println("몇 개를 구매하시겠습니까?");
             구매개수 = sc.nextInt();
             int 총금액 = bcaa * 구매개수;
-            int 계산 = 현재_소지한_골드-(bcaa * 구매개수);
+            if (현재_소지한_골드 > 총금액) {
+                int 계산 = 현재_소지한_골드-(bcaa * 구매개수);
+                System.out.println(계산);
+            } else {
+                System.out.println("골드가 부족합니다.");
+            }
         } else if (구매 == 2) {
             System.out.println("탄수화물 보충제 몇 개를 구매하시겠습니까?");
         } else if (구매 == 3) {
@@ -232,12 +236,6 @@ public class Game {
             System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
         }
     }
-    public static void 물품구매() {
-        if (현재_소지한_골드>bcaa) {
-
-        }
-    }
-
     public static void 장비_슬롯() {//만약 아이템 ~을 소지하고 있을 경우 ~을 착용하고 있습니다
 
     }
