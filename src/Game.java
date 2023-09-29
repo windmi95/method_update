@@ -57,6 +57,10 @@ public class Game {
 
     static int 구매개수 = 0;
 
+    static int 랜덤뽑기 = 0;
+
+    static int 당첨금뽑기 = 0;
+
     public Game() {
 
     }
@@ -173,11 +177,21 @@ public class Game {
     }
     public static void 이벤트() {
         Scanner sc = new Scanner(System.in);
+        Random 뽑기 = new Random();
         System.out.println("골드를 획득할 수 있는 깜짝 이벤트가 있습니다.참여를 하실 것인지 선택해주세요.");
         System.out.println("1.참여한다. 2.참가하지 않는다.");
         참여여부 = sc.nextInt();
-        if (참여여부 == 1) {
-            System.out.println("이벤트의 경우 랜덤으로 당첨 혹은 꽝 두 가지로 실행됩니다.");
+        if (참여여부 == 1) {//꽝일 경우 아닐 경우
+            System.out.println("이벤트의 경우 랜덤으로 1.당첨 혹은 2.꽝 두 가지로 실행됩니다.");
+            System.out.println("꽝일 경우 체력의 1/2가 감소됩니다.");
+            랜덤뽑기 = 뽑기.nextInt(2);
+            if (랜덤뽑기 == 1) {
+                System.out.println("당첨이 되었습니다.");
+            } else {
+                System.out.println("꽝을 고르셨기 때문에 체력의 1/2이 감소되었습니다.");
+                체력 = 체력/2;
+                운동하기();
+            }
         } else if (참여여부 == 2) {
             System.out.println("게임을 계속 진행하겠습니다.");
         } else {
@@ -319,7 +333,7 @@ public class Game {
             int 금액;
             System.out.println("");
         } else {
-            체력 = 체력/2;
+            체력 = 체력 / 2;
         }
     }
     public static void 승급심사() {
