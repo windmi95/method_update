@@ -2,6 +2,8 @@ import javax.swing.colorchooser.AbstractColorChooserPanel;
 import java.util.Random;
 import java.util.Scanner;
 
+import static java.lang.System.out;
+
 public class Game {
     static Boolean 게임_종료 = false;
 
@@ -10,6 +12,8 @@ public class Game {
     static int 현재_레벨 = 1;
 
     static int 체력 = 50;
+
+    static int 체력감소 = 0;
 
     static int 근력 = 1;
 
@@ -79,7 +83,7 @@ public class Game {
                 String 게임_메뉴 = 메뉴바();
                 System.out.println(게임_메뉴);
                 메뉴_선택();
-
+                운동하기();
             } else {
                 System.out.println("게임을 종료하겠습니다.");
                 break;
@@ -103,17 +107,18 @@ public class Game {
         if (메뉴_선택 == 1) {
             System.out.println("1번 운동하기를 선택하셨습니다.");
             운동하기();
+            체력_설정();
+            경험치_설정();
         } else if (메뉴_선택 == 2) {
             System.out.println("2번 가방을 선택하셨습니다.");
+            가방();
         } else if (메뉴_선택 == 3) {
             System.out.println("3번 의뢰를 선택하셨습니다.");
-            상점();
         } else if (메뉴_선택 == 4) {
             System.out.println("4번 상점을 선택하셨습니다.");
-            퀘스트();
+            상점();
         } else if (메뉴_선택 == 5) {
             System.out.println("5번 퀘스트 현황을 선택하셨습니다.");
-            능력치();
         } else if (메뉴_선택 == 6) {
             System.out.println("6번 능력치 확인을 선택하셨습니다.");
         } else if (메뉴_선택 == 7) {
@@ -133,6 +138,7 @@ public class Game {
         int 운동_메뉴_선택 = sc.nextInt();
         if (운동_메뉴_선택 == 1) {
             System.out.println("운동을 실행하겠습니다.");
+            System.out.println("남은 체력 => "+체력);
             } else if (운동_메뉴_선택 == 2) {
                 System.out.println("아이템을 사용합니다.");
                 가방();
@@ -146,6 +152,13 @@ public class Game {
                 System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
             }
     }
+    public static void 체력_설정() {
+        if (체력 > 0) {
+            체력 = 중량_선택 - 근력;
+        } else {
+            메뉴_선택();
+        }
+    }
     public static void 경험치_설정() {
         경험치 = 중량_선택 / 2;
         경험치양 = 경험치 + 경험치양;
@@ -154,6 +167,8 @@ public class Game {
     public static void 레벨() {
         if (경험치양 > 현재_레벨 * 100) {
             현재_레벨 = 현재_레벨 + 1;
+        } else {
+            System.out.println("");
         }
     }
     public static void 이벤트() {
@@ -297,8 +312,15 @@ public class Game {
     public static void 장비_슬롯() {//만약 아이템 ~을 소지하고 있을 경우 ~을 착용하고 있습니다
 
     }
-    public static void 퀘스트() {
-        System.out.println("");
+    public static void 의뢰() {
+        Random 퀘스트_설정 = new Random();
+        int 랜덤_퀘스트 = 퀘스트_설정.nextInt(2);
+        if (랜덤_퀘스트 == 1) {
+            int 금액;
+            System.out.println("");
+        } else {
+            체력 = 체력/2;
+        }
     }
     public static void 승급심사() {
         if (30 <= 현재_레벨 && 현재_레벨 < 31) {
@@ -309,14 +331,8 @@ public class Game {
             System.out.println("초월 심사를 진행하실 수 있습니다.");
         }
     }
-
-    public static void 능력치() {
-        Random 퀘스트_설정 = new Random();
-        int 랜덤_퀘스트 = 퀘스트_설정.nextInt(2);
-
-    }
     public static void 중량() {
-        if(1 <= 현재_레벨 && 현재_레벨 < 11) {
+        if(1 <= 현재_레벨 && 현재_레벨 <= 10) {
             Scanner sc = new Scanner(System.in);
             System.out.println("중량 1 ~ 10를 입력해주세요.");
             중량_선택 = sc.nextInt();
