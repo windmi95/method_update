@@ -88,6 +88,7 @@ public class Game {
                 System.out.println(게임_메뉴);
                 메뉴_선택();
                 운동하기();
+                이벤트();
             } else {
                 System.out.println("게임을 종료하겠습니다.");
                 break;
@@ -111,8 +112,6 @@ public class Game {
         if (메뉴_선택 == 1) {
             System.out.println("1번 운동하기를 선택하셨습니다.");
             운동하기();
-            체력_설정();
-            경험치_설정();
         } else if (메뉴_선택 == 2) {
             System.out.println("2번 가방을 선택하셨습니다.");
             가방();
@@ -187,6 +186,9 @@ public class Game {
             랜덤뽑기 = 뽑기.nextInt(2);
             if (랜덤뽑기 == 1) {
                 System.out.println("당첨이 되었습니다.");
+                Random 당첨금 = new Random();
+                당첨금뽑기 = 당첨금.nextInt(10)*100;
+                System.out.println(당첨금뽑기);
             } else {
                 System.out.println("꽝을 고르셨기 때문에 체력의 1/2이 감소되었습니다.");
                 체력 = 체력/2;
@@ -211,7 +213,7 @@ public class Game {
             if (아이템_사용 == 1) {
                 System.out.println("bcaa를 선택하셨습니다.");
                 System.out.println("체력+1이 회복되었습니다.");
-                체력++;
+                체력 = 체력+1;
             } else if (아이템_사용 == 2) {
                 System.out.println("탄수화물 보충제를 선택하셨습니다.");
                 System.out.println("체력+3이 회복되었습니다.");
@@ -336,7 +338,7 @@ public class Game {
             체력 = 체력 / 2;
         }
     }
-    public static void 승급심사() {
+    public static void 승급심사조건() {
         if (30 <= 현재_레벨 && 현재_레벨 < 31) {
             System.out.println("중급 심사를 진행하실 수 있습니다.");
         } else if (50 <= 현재_레벨 && 현재_레벨 <51) {
@@ -346,7 +348,7 @@ public class Game {
         }
     }
     public static void 중량() {
-        if(1 <= 현재_레벨 && 현재_레벨 <= 10) {
+        if(1 <= 현재_레벨 && 현재_레벨 <= 10) {// 1~10 11 이상일 경우 진행 불가
             Scanner sc = new Scanner(System.in);
             System.out.println("중량 1 ~ 10를 입력해주세요.");
             중량_선택 = sc.nextInt();
