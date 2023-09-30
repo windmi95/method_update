@@ -82,7 +82,6 @@ public class Game {
                 System.out.println(게임_메뉴);
                 메뉴_선택();
                 운동하기();
-                continue;
 
             } else {
                 System.out.println("게임을 종료하겠습니다.");
@@ -157,7 +156,6 @@ public class Game {
             System.out.println("남은 체력 => "+ 체력);
         } else {
             System.out.println("체력 부족합니다.");
-            메뉴_선택();
         }
     }
     public static void 경험치_설정() {
@@ -234,7 +232,6 @@ public class Game {
             }
         } else if (가방_선택 == 2) {
             System.out.println("장비 착용을 선택하셨습니다.");
-
         } else {
             System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
         }
@@ -260,7 +257,7 @@ public class Game {
             구매개수 = sc.nextInt();
             int 총금액 = 탄수화물_보충제 * 구매개수;
             if (현재_소지한_골드 > 총금액) {
-                int 계산 = 현재_소지한_골드-(bcaa * 구매개수);
+                int 계산 = 현재_소지한_골드-(탄수화물_보충제 * 구매개수);
                 System.out.println(계산);
             } else {
                 System.out.println("골드가 부족합니다.");
@@ -270,7 +267,7 @@ public class Game {
             구매개수 = sc.nextInt();
             int 총금액 = 프로틴 * 구매개수;
             if (현재_소지한_골드 > 총금액) {
-                int 계산 = 현재_소지한_골드-(bcaa * 구매개수);
+                int 계산 = 현재_소지한_골드-(프로틴 * 구매개수);
                 System.out.println(계산);
             } else {
                 System.out.println("골드가 부족합니다.");
@@ -280,36 +277,31 @@ public class Game {
             구매개수 = sc.nextInt();
             int 총금액 = 크레아틴 * 구매개수;
             if (현재_소지한_골드 > 총금액) {
-                int 계산 = 현재_소지한_골드 - (bcaa * 구매개수);
+                int 계산 = 현재_소지한_골드 - (크레아틴 * 구매개수);
                 System.out.println(계산);
             } else {
                 System.out.println("골드가 부족합니다.");
             }
         } else if (구매 == 5) {
             System.out.println("손목 보호대를 구매하셨습니다.");
-            구매개수 = sc.nextInt();
-            int 총금액 = 손목보호대 * 구매개수;
-            if (현재_소지한_골드 > 총금액) {
-                int 계산 = 현재_소지한_골드-(bcaa * 구매개수);
+            if (현재_소지한_골드 > 손목보호대) {
+                int 계산 = 현재_소지한_골드-손목보호대;
                 System.out.println(계산);
             } else {
                 System.out.println("골드가 부족합니다.");
             }
         } else if (구매 == 6) {
             System.out.println("리프팅 웨어를 구매하셨습니다.");
-            구매개수 = sc.nextInt();
-            int 총금액 = 리프팅웨어 * 구매개수;
-            if (현재_소지한_골드 > 총금액) {
-                int 계산 = 현재_소지한_골드-(bcaa * 구매개수);
+            if (현재_소지한_골드 > 리프팅웨어) {
+                int 계산 = 현재_소지한_골드-리프팅웨어;
                 System.out.println(계산);
             } else {
                 System.out.println("골드가 부족합니다.");
             }
         } else if (구매 == 7) {
             System.out.println("역도화를 구매하셨습니다.");
-            구매개수 = sc.nextInt();
             if (현재_소지한_골드 > 역도화) {
-                int 계산 = 현재_소지한_골드-(bcaa * 구매개수);
+                int 계산 = 현재_소지한_골드-역도화;
                 System.out.println(계산);
             } else {
                 System.out.println("골드가 부족합니다.");
