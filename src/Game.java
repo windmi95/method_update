@@ -82,7 +82,8 @@ public class Game {
                 System.out.println(게임_메뉴);
                 메뉴_선택();
                 운동하기();
-                이벤트();
+                continue;
+
             } else {
                 System.out.println("게임을 종료하겠습니다.");
                 break;
@@ -137,7 +138,6 @@ public class Game {
             System.out.println("운동을 실행하겠습니다.");
             체력_설정();
             경험치_설정();
-            return;
             } else if (운동_메뉴_선택 == 2) {
                 System.out.println("아이템을 사용합니다.");
                 가방();
@@ -163,7 +163,7 @@ public class Game {
     public static void 경험치_설정() {
         경험치 = 중량_선택 / 2;
         경험치양 = 경험치 + 경험치양;
-        System.out.println("현재 경험치 => "+경험치);
+        System.out.println("현재 경험치 => "+경험치양);
 
         if (경험치양 > 현재_레벨 * 100) {//레벨 상승 조건
             현재_레벨 = 현재_레벨 + 1;
