@@ -326,6 +326,8 @@ public class Game {
     public static void 의뢰() {
         Random 퀘스트_설정 = new Random();
         int 랜덤_퀘스트 = 퀘스트_설정.nextInt(2);
+        Random 운동횟수 = new Random();
+        int 랜덤_운동횟수 = 운동횟수.nextInt(5)*100;
         if (랜덤_퀘스트 == 1) {
             int 금액;
             System.out.println("");
@@ -336,7 +338,13 @@ public class Game {
     }
     public static void 승급심사조건() {
 
+
     }
+    public static void 승급심사() {
+        Random 승급퀘스트 = new Random();
+
+    }
+
     public static void 중량() {
         if(1 <= 현재_레벨 && 현재_레벨 <= 10) {// 1~10 11 이상일 경우 진행 불가
             Scanner sc = new Scanner(System.in);
