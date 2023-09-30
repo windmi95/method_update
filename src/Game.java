@@ -39,13 +39,7 @@ public class Game {
 
     static int 복압벨트 = 10000;
 
-    static int 초급 = 0;
-
-    static int 중급 = 0;
-
-    static int 고급 = 0;
-
-    static int 초월 = 0;
+    static String 현재_등급 = "";
 
     static int 중량_선택 = 0;
 
@@ -134,20 +128,22 @@ public class Game {
             System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
         }
     }
-    public static void 운동하기() {
+    public static void 운동하기() {// 게임으로 이동하여 운동 실행
         Scanner sc = new Scanner(System.in);
-        중량();
+        중량();// 중량을 선택하는 메소드
         System.out.println("1.운동 실행 2.아이템 사용 3.중량 변경 4.게임에서 나가기");
         int 운동_메뉴_선택 = sc.nextInt();
         if (운동_메뉴_선택 == 1) {
             System.out.println("운동을 실행하겠습니다.");
-            System.out.println("남은 체력 => "+체력);
+            체력_설정();
+            경험치_설정();
+            return;
             } else if (운동_메뉴_선택 == 2) {
                 System.out.println("아이템을 사용합니다.");
                 가방();
             } else if (운동_메뉴_선택 == 3) {
                 System.out.println("중량을 변경합니다.");
-                중량_선택 = sc.nextInt();
+                중량();
             } else if (운동_메뉴_선택 == 4) {
                 System.out.println("게임플레이를 취소하였습니다.");
                 메뉴_선택();
@@ -157,21 +153,29 @@ public class Game {
     }
     public static void 체력_설정() {
         if (체력 > 0) {
-            체력 = 중량_선택 - 근력;
+            체력 = 체력 - (중량_선택 - 근력);
+            System.out.println("남은 체력 => "+ 체력);
         } else {
+            System.out.println("체력 부족합니다.");
             메뉴_선택();
         }
     }
     public static void 경험치_설정() {
         경험치 = 중량_선택 / 2;
         경험치양 = 경험치 + 경험치양;
+        System.out.println("현재 경험치 => "+경험치);
 
+        if (경험치양 > 현재_레벨 * 100) {//레벨 상승 조건
+            현재_레벨 = 현재_레벨 + 1;
+        }
     }
     public static void 레벨() {
-        if (경험치양 > 현재_레벨 * 100) {
-            현재_레벨 = 현재_레벨 + 1;
-        } else {
-            System.out.println("");
+        if (30 <= 현재_레벨 && 현재_레벨 < 31) {//초급
+            System.out.println("중급 심사를 진행하실 수 있습니다.");
+        } else if (50 <= 현재_레벨 && 현재_레벨 <51) {//중급
+            System.out.println("고급 심사를 진행하실 수 있습니다.");
+        } else if (70 <= 현재_레벨 && 현재_레벨 <71) {//고급
+            System.out.println("초월 심사를 진행하실 수 있습니다.");
         }
     }
     public static void 이벤트() {
@@ -181,18 +185,17 @@ public class Game {
         System.out.println("1.참여한다. 2.참가하지 않는다.");
         참여여부 = sc.nextInt();
         if (참여여부 == 1) {//꽝일 경우 아닐 경우
-            System.out.println("이벤트의 경우 랜덤으로 1.당첨 혹은 2.꽝 두 가지로 실행됩니다.");
-            System.out.println("꽝일 경우 체력의 1/2가 감소됩니다.");
+            System.out.println("이벤트의 경우 랜덤으로 당첨 혹은 꽝이 나옵니다.");
+            System.out.println("추가적으로 꽝일 경우 체력의 1/2가 감소됩니다.");
             랜덤뽑기 = 뽑기.nextInt(2);
             if (랜덤뽑기 == 1) {
                 System.out.println("당첨이 되었습니다.");
                 Random 당첨금 = new Random();
                 당첨금뽑기 = 당첨금.nextInt(10)*100;
-                System.out.println(당첨금뽑기);
+                System.out.println(당첨금뽑기+ "골드를 획득하셨습니다.");
             } else {
                 System.out.println("꽝을 고르셨기 때문에 체력의 1/2이 감소되었습니다.");
                 체력 = 체력/2;
-                운동하기();
             }
         } else if (참여여부 == 2) {
             System.out.println("게임을 계속 진행하겠습니다.");
@@ -231,6 +234,7 @@ public class Game {
             }
         } else if (가방_선택 == 2) {
             System.out.println("장비 착용을 선택하셨습니다.");
+
         } else {
             System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
         }
@@ -304,8 +308,7 @@ public class Game {
         } else if (구매 == 7) {
             System.out.println("역도화를 구매하셨습니다.");
             구매개수 = sc.nextInt();
-            int 총금액 = 역도화 * 구매개수;
-            if (현재_소지한_골드 > 총금액) {
+            if (현재_소지한_골드 > 역도화) {
                 int 계산 = 현재_소지한_골드-(bcaa * 구매개수);
                 System.out.println(계산);
             } else {
@@ -336,16 +339,11 @@ public class Game {
             System.out.println("");
         } else {
             체력 = 체력 / 2;
+            System.out.println(체력);
         }
     }
     public static void 승급심사조건() {
-        if (30 <= 현재_레벨 && 현재_레벨 < 31) {
-            System.out.println("중급 심사를 진행하실 수 있습니다.");
-        } else if (50 <= 현재_레벨 && 현재_레벨 <51) {
-            System.out.println("고급 심사를 진행하실 수 있습니다.");
-        } else if (70 <= 현재_레벨 && 현재_레벨 <71) {
-            System.out.println("초월 심사를 진행하실 수 있습니다.");
-        }
+
     }
     public static void 중량() {
         if(1 <= 현재_레벨 && 현재_레벨 <= 10) {// 1~10 11 이상일 경우 진행 불가
