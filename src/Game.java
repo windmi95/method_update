@@ -55,7 +55,7 @@ public class Game {
 
     static int 당첨금뽑기 = 0;
 
-    static boolean 상품구매 = true;
+    static boolean 상품구매 = false;
 
     public Game() {
 
@@ -169,7 +169,7 @@ public class Game {
             현재_레벨 = 현재_레벨 + 1;
         }
     }
-    public static void 레벨() {
+    public static void 승급_레벨() {
         if (30 <= 현재_레벨 && 현재_레벨 < 31) {//초급
             System.out.println("중급 심사를 진행하실 수 있습니다.");
         } else if (50 <= 현재_레벨 && 현재_레벨 <51) {//중급
@@ -293,12 +293,17 @@ public class Game {
                 System.out.println("골드가 부족합니다.");
             }
         } else if (구매 == 6) {
+            if (현재_등급 == "중급" && 상품구매 == false) {
             System.out.println("리프팅 웨어를 구매하셨습니다.");
-            if (현재_소지한_골드 >= 리프팅웨어) {
-                int 계산 = 현재_소지한_골드-리프팅웨어;
-                System.out.println(계산);
+                if (현재_소지한_골드 >= 리프팅웨어) {
+                    int 계산 = 현재_소지한_골드 - 리프팅웨어;
+                    System.out.println();
+                    System.out.println(계산);
+                } else {
+                    System.out.println("골드가 부족합니다.");
+                }
             } else {
-                System.out.println("골드가 부족합니다.");
+                System.out.println("등급이 낮기 때문에 구매하실 수 없습니다.");
             }
         } else if (구매 == 7) {
             System.out.println("역도화를 구매하셨습니다.");
@@ -310,10 +315,9 @@ public class Game {
             }
         } else if (구매 == 8) {
             System.out.println("복압 벨트를 구매하셨습니다.");
-            구매개수 = sc.nextInt();
-            int 총금액 = 복압벨트 * 구매개수;
-            if (현재_소지한_골드 >= 총금액) {
-                int 계산 = 현재_소지한_골드-(bcaa * 구매개수);
+            int 총금액 = 복압벨트;
+            if (현재_소지한_골드 >= 복압벨트) {
+                int 계산 = 현재_소지한_골드- 복압벨트;
                 System.out.println(계산);
             } else {
                 System.out.println("골드가 부족합니다.");
@@ -346,7 +350,6 @@ public class Game {
         Random 승급퀘스트 = new Random();
 
     }
-
     public static void 중량() {
         if(1 <= 현재_레벨 && 현재_레벨 <= 10) {// 1~10 11 이상일 경우 진행 불가
             Scanner sc = new Scanner(System.in);
