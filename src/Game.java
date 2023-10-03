@@ -45,6 +45,14 @@ public class Game {
 
     static int 경험치 = 0;
 
+    static int bcaa_개수 = 0;
+
+    static int 탄수화물_보충제_개수 = 0;
+
+    static int 프로틴_보충제_개수 = 0;
+
+    static int 크레아틴_개수 = 0;
+
     static int 경험치양 = 0;
 
     static int 참여여부 = 0;
@@ -368,9 +376,10 @@ public class Game {
                         System.out.println("승급 심사를 통과하셨습니다.");
                         System.out.println("중급으로 등급이 상승되었습니다.");
                         현재_등급 = 1;
+                    } else {
+                        System.out.println("승급 심사를 통과하지 못하였습니다.");
                     }
                 }
-
             }
         } else if (승급_심사_메뉴_선택 == 2) {
 
@@ -399,8 +408,6 @@ public class Game {
                 int 초 = 분 * 60;
                 for(int i = 초; i > 0; i--) {
                     System.out.println(i / 60+ " 분"+ i % 60 + " 초");
-
-
                 }
             } else if (승급_심사_선택 == 2) {
                 System.out.println("메뉴로 돌아가겠습니다.");
