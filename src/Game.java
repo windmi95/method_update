@@ -13,8 +13,6 @@ public class Game {
 
     static int 체력 = 50;
 
-    static int 체력감소 = 0;
-
     static int 근력 = 1;
 
     static int 메뉴_선택 = 0;
@@ -39,9 +37,11 @@ public class Game {
 
     static int 복압벨트 = 10000;
 
-    static String 현재_등급 = "";
+    static int 현재_등급 = 0;
 
     static int 중량_선택 = 0;
+
+    static int 승급_심사_선택 = 0;
 
     static int 경험치 = 0;
 
@@ -84,7 +84,6 @@ public class Game {
                 System.out.println(게임_메뉴);
                 메뉴_선택();
                 운동하기();
-
             } else {
                 System.out.println("게임을 종료하겠습니다.");
                 break;
@@ -130,7 +129,7 @@ public class Game {
             System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
         }
     }
-    public static void 운동하기() {// 게임으로 이동하여 운동 실행
+    public static void 운동하기() {
         Scanner sc = new Scanner(System.in);
         중량();// 중량을 선택하는 메소드
         System.out.println("1.운동 실행 2.아이템 사용 3.중량 변경 4.게임에서 나가기");
@@ -139,6 +138,7 @@ public class Game {
             System.out.println("운동을 실행하겠습니다.");
             체력_설정();
             경험치_설정();
+
             } else if (운동_메뉴_선택 == 2) {
                 System.out.println("아이템을 사용합니다.");
                 가방();
@@ -172,9 +172,9 @@ public class Game {
     public static void 승급_레벨() {
         if (30 <= 현재_레벨 && 현재_레벨 < 31) {//초급
             System.out.println("중급 심사를 진행하실 수 있습니다.");
-        } else if (50 <= 현재_레벨 && 현재_레벨 <51) {//중급
+        } else if (50 <= 현재_레벨 && 현재_레벨 < 51) {//중급
             System.out.println("고급 심사를 진행하실 수 있습니다.");
-        } else if (70 <= 현재_레벨 && 현재_레벨 <71) {//고급
+        } else if (70 <= 현재_레벨 && 현재_레벨 < 71) {//고급
             System.out.println("초월 심사를 진행하실 수 있습니다.");
         }
     }
@@ -293,7 +293,7 @@ public class Game {
                 System.out.println("골드가 부족합니다.");
             }
         } else if (구매 == 6) {
-            if (현재_등급 == "중급" && 상품구매 == false) {
+            if (상품구매 == false) {
             System.out.println("리프팅 웨어를 구매하셨습니다.");
                 if (현재_소지한_골드 >= 리프팅웨어) {
                     int 계산 = 현재_소지한_골드 - 리프팅웨어;
@@ -305,8 +305,8 @@ public class Game {
             } else {
                 System.out.println("등급이 낮기 때문에 구매하실 수 없습니다.");
             }
-        } else if (구매 == 7) {
-            if (현재_등급 == "고급" && 상품구매 == false) {
+        } else if (구매 == 7) {// 상품구매 + 등급 조건
+            if (상품구매 == false) {
                 System.out.println("역도화를 구매하셨습니다.");
                 if (현재_소지한_골드 >= 역도화) {
                     int 계산 = 현재_소지한_골드 - 역도화;
@@ -316,7 +316,7 @@ public class Game {
                 }
             }
         } else if (구매 == 8) {
-            if (현재_등급 == "고급" && 상품구매 == false) {
+            if (상품구매 == false) {
                 System.out.println("복압 벨트를 구매하셨습니다.");
                 int 총금액 = 복압벨트;
                 if (현재_소지한_골드 >= 복압벨트) {
@@ -339,7 +339,6 @@ public class Game {
         Random 운동횟수 = new Random();
         int 랜덤_운동횟수 = 운동횟수.nextInt(5)*100;
         if (랜덤_퀘스트 == 1) {
-            int 금액;
             System.out.println("");
         } else {
             체력 = 체력 / 2;
@@ -352,13 +351,67 @@ public class Game {
     }
     public static void 승급심사() {
         Scanner sc = new Scanner(System.in);
-        if (현재_등급 == "초급") {
+        if (30 <= 현재_레벨 && 현재_레벨 < 31) {//초급
+            System.out.println("승급 심사를 진행하실 수 있습니다.");
             System.out.println("승급 심사를 진행하시겠습니까?");
             System.out.println("1번 진행한다. 2번 진행하지 않는다.");
+            승급_심사_선택 = sc.nextInt();
+            if (승급_심사_선택 == 1) {
+                System.out.println("승급 심사를 진행하겠습니다.");
+
+            } else if (승급_심사_선택 == 2) {
+                System.out.println("");
+            } else {
+                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
+            }
+        } else if (50 <= 현재_레벨 && 현재_레벨 < 51) {//중급
+            System.out.println("승급 심사를 진행하실 수 있습니다.");
+            System.out.println("승급 심사를 진행하시겠습니까?");
+            System.out.println("1번 진행한다. 2번 진행하지 않는다.");
+            승급_심사_선택 = sc.nextInt();
+            if (승급_심사_선택 == 1) {
+                System.out.println("");
+            } else if (승급_심사_선택 == 2) {
+                System.out.println("");
+            } else {
+                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
+            }
+        } else if (70 <= 현재_레벨 && 현재_레벨 < 101) {//고급
+            System.out.println("승급 심사를 진행하실 수 있습니다.");
+            System.out.println("승급 심사를 진행하시겠습니까?");
+            System.out.println("1번 진행한다. 2번 진행하지 않는다.");
+            승급_심사_선택 = sc.nextInt();
+            if (승급_심사_선택 == 1) {
+                System.out.println("");
+            } else if (승급_심사_선택 == 2) {
+                System.out.println("");
+            } else {
+                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
+            }
+        } else if (현재_레벨 >= 100) {
+            System.out.println("승급 심사를 진행하실 수 있습니다.");
+            System.out.println("승급 심사를 진행하시겠습니까?");
+            System.out.println("1번 진행한다. 2번 진행하지 않는다.");
+            승급_심사_선택 = sc.nextInt();
+            if (승급_심사_선택 == 1) {
+                System.out.println("");
+            } else if (승급_심사_선택 == 2) {
+                System.out.println("");
+            } else {
+                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
+            }
+        }
+        if (현재_등급 == 1) {
+            Random 승급심사_운동횟수_결정 = new Random();
+            승급_레벨();
+            long 타이머 = System.currentTimeMillis();
+
+        } else {
+            System.out.println("게임 메뉴로 이동합니다.");
         }
     }
     public static void 중량() {
-        if(현재_등급 == "초급") {
+        if(현재_등급 == 1) {
             Scanner sc = new Scanner(System.in);
             System.out.println("중량 1 ~ 10를 입력해주세요.");
             중량_선택 = sc.nextInt();
@@ -367,7 +420,7 @@ public class Game {
             if (중량_선택 >= 11) {
                 System.out.println("현재 등급이 초급이기 때문에 중급 등급의 무게를 이용하실 수 없습니다.");
             }
-        } else if (현재_등급 == "중급") {
+        } else if (현재_등급 == 2) {
             Scanner sc = new Scanner(System.in);
             System.out.println("중량 1 ~ 50을 입력해주세요.");
             중량_선택 = sc.nextInt();
@@ -376,7 +429,7 @@ public class Game {
             if (중량_선택 >= 51) {
                 System.out.println("현재 등급이 중급이기 때문에 고급 등급의 무게를 이용하실 수 없습니다.");
             }
-        } else if (현재_등급 == "고급") {
+        } else if (현재_등급 == 3) {
             Scanner sc = new Scanner(System.in);
             System.out.println("중량 1 ~ 70을 입력해주세요.");
             중량_선택 = sc.nextInt();
@@ -385,7 +438,7 @@ public class Game {
             if (중량_선택 >= 71) {
                 System.out.println("현재 등급이 고급이기 때문에 초월 등급의 무게를 이용하실 수 없습니다.");
             }
-        } else if (현재_등급 == "초월") {
+        } else if (현재_등급 == 4) {
             Scanner sc = new Scanner(System.in);
             System.out.println("중량 1 ~ 100을 입력해주세요.");
             중량_선택 = sc.nextInt();
@@ -394,5 +447,8 @@ public class Game {
         } else {
             System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
         }
+    }
+    public static void 등급() {
+
     }
 }
