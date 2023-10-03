@@ -358,11 +358,23 @@ public class Game {
             승급_심사_선택 = sc.nextInt();
             if (승급_심사_선택 == 1) {
                 System.out.println("승급 심사를 진행하겠습니다.");
+                System.out.println("제한시간 5분이 주어지고 100개를 실행하지 못할 경우 다시 도전해야합니다.");
+                System.out.println("분 입력: ");
+                int min = sc.nextInt();
+                int sec = min * 60;
+                for(int i = sec; i>0; i--) {
+                    System.out.println(i / 60+ " 분"+ i % 60 + " 초");
+
+                }
 
             } else if (승급_심사_선택 == 2) {
-                System.out.println("");
+                System.out.println("메뉴로 돌아가겠습니다.");
             } else {
                 System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
+                System.out.println("승급 심사를 진행하실 수 있습니다.");
+                System.out.println("승급 심사를 진행하시겠습니까?");
+                System.out.println("1번 진행한다. 2번 진행하지 않는다.");
+                return;
             }
         } else if (50 <= 현재_레벨 && 현재_레벨 < 51) {//중급
             System.out.println("승급 심사를 진행하실 수 있습니다.");
@@ -404,7 +416,7 @@ public class Game {
         if (현재_등급 == 1) {
             Random 승급심사_운동횟수_결정 = new Random();
             승급_레벨();
-            long 타이머 = System.currentTimeMillis();
+
 
         } else {
             System.out.println("게임 메뉴로 이동합니다.");
