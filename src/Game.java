@@ -102,7 +102,7 @@ public class Game {
     public static void 메뉴_선택() {
         System.out.println("");
         Scanner sc = new Scanner(System.in);
-        System.out.println("1.운동하기 2.가방 3.의뢰 4.상점 5.퀘스트 현황 6.능력치 확인 7.장비 슬롯 8.설정 9.퀵슬롯");
+        System.out.println("1.운동하기 2.가방 3.의뢰 4.상점 5.퀘스트 현황 6.능력치 확인 7.장비 슬롯 8.게임 설정 9.퀵슬롯");
         System.out.println("어떤 것을 선택하시겠습니까?");
         메뉴_선택 = sc.nextInt();
         if (메뉴_선택 == 1) {
@@ -351,30 +351,40 @@ public class Game {
 
     }
     public static void 승급심사() {
-        if (현재_등급 == "초보") {
+        Scanner sc = new Scanner(System.in);
+        if (현재_등급 == "초급") {
             System.out.println("승급 심사를 진행하시겠습니까?");
             System.out.println("1번 진행한다. 2번 진행하지 않는다.");
         }
     }
     public static void 중량() {
-        if(현재_등급 == "초보") {
+        if(현재_등급 == "초급") {
             Scanner sc = new Scanner(System.in);
             System.out.println("중량 1 ~ 10를 입력해주세요.");
             중량_선택 = sc.nextInt();
             System.out.println(중량_선택+"kg를 선택하셨습니다.");
             System.out.println("운동 장소로 이동하겠습니다.");
+            if (중량_선택 >= 11) {
+                System.out.println("현재 등급이 초급이기 때문에 중급 등급의 무게를 이용하실 수 없습니다.");
+            }
         } else if (현재_등급 == "중급") {
             Scanner sc = new Scanner(System.in);
             System.out.println("중량 1 ~ 50을 입력해주세요.");
             중량_선택 = sc.nextInt();
             System.out.println(중량_선택+"kg를 선택하셨습니다.");
             System.out.println("운동 장소로 이동하겠습니다.");
+            if (중량_선택 >= 51) {
+                System.out.println("현재 등급이 중급이기 때문에 고급 등급의 무게를 이용하실 수 없습니다.");
+            }
         } else if (현재_등급 == "고급") {
             Scanner sc = new Scanner(System.in);
             System.out.println("중량 1 ~ 70을 입력해주세요.");
             중량_선택 = sc.nextInt();
             System.out.println(중량_선택+"kg를 선택하셨습니다.");
             System.out.println("운동 장소로 이동하겠습니다.");
+            if (중량_선택 >= 71) {
+                System.out.println("현재 등급이 고급이기 때문에 초월 등급의 무게를 이용하실 수 없습니다.");
+            }
         } else if (현재_등급 == "초월") {
             Scanner sc = new Scanner(System.in);
             System.out.println("중량 1 ~ 100을 입력해주세요.");
