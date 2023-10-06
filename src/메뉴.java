@@ -3,8 +3,10 @@ import java.util.Scanner;
 public class 메뉴 {
 
     static int 메뉴_선택;
+    String 메뉴바;
 
     public void 게임메뉴_선택() {
+        운동 운동메뉴결정 = new 운동();
         this.메뉴_선택 = 메뉴_선택;
         System.out.println("");
         Scanner sc = new Scanner(System.in);
@@ -13,6 +15,7 @@ public class 메뉴 {
         메뉴_선택 = sc.nextInt();
         if (메뉴_선택 == 1) {
             System.out.println("1번 운동하기를 선택하셨습니다.");
+            운동메뉴결정.운동실행();
         } else if (메뉴_선택 == 2) {
             System.out.println("2번 가방을 선택하셨습니다.");
         } else if (메뉴_선택 == 3) {
@@ -33,4 +36,10 @@ public class 메뉴 {
             System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
         }
     }
+    public static String 게임메뉴_꾸미기() {
+        System.out.println("");
+        return ("============================게임 메뉴============================");
+    }
+
+
 }

@@ -1,8 +1,5 @@
-import javax.swing.colorchooser.AbstractColorChooserPanel;
 import java.util.Random;
 import java.util.Scanner;
-
-import static java.lang.System.out;
 
 public class Game {
     static Boolean 게임_종료 = false;
@@ -91,10 +88,8 @@ public class Game {
 
     static int 초보_심사_중량 = 10;
 
-    public Game() {
-
-    }
     public static void main(String[] args) {
+
         Scanner scanner = new Scanner(System.in);
         System.out.println("");
         System.out.println("");
@@ -109,28 +104,25 @@ public class Game {
         System.out.println("직원: 최종 승급 심사를 통과하지 못하면 여기서 빠져나올 수 없습니다.");
         System.out.println("직원: 계속 진행을 원하시면 계약서에 서명 부탁드립니다.");
 
+        메뉴 메뉴결정 = new 메뉴();
+        메뉴 메뉴바 = new 메뉴();
+        String 메뉴_꾸미기 = 메뉴.게임메뉴_꾸미기();
+
+
         while(!게임_종료) {
-            String 이름 = 계약서(scanner);
+            String 이름 = Game.계약서();
             if (!이름.equals("")) {
                 System.out.println("계약서 서명 " + 이름);
                 System.out.println("게임을 시작하겠습니다.");
-                String 게임_메뉴 = 메뉴바();
-                System.out.println(게임_메뉴);
-                메뉴_선택();
-                운동하기();
+                System.out.println();
+                System.out.println(메뉴_꾸미기);
+                메뉴결정.게임메뉴_선택();
+
             } else {
                 System.out.println("게임을 종료하겠습니다.");
                 break;
             }
         }
-    }
-    public static String 메뉴바() {
-        System.out.println("");
-        return ("============================게임 메뉴============================");
-    }
-    public static String 계약서(Scanner scanner) {
-        String 서명 = scanner.nextLine();
-        return 서명;
     }
     public static void 메뉴_선택() {
         System.out.println("");
@@ -163,6 +155,11 @@ public class Game {
             System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
         }
     }
+    public static String 계약서() {
+        Scanner sc = new Scanner(System.in);
+        String 서명 = sc.nextLine();
+        return 서명;
+    }
     public static void 운동하기() {
         Scanner sc = new Scanner(System.in);
         중량();// 중량을 선택하는 메소드
@@ -172,18 +169,18 @@ public class Game {
             System.out.println("운동을 실행하겠습니다.");
             체력_설정();
             경험치_설정();
-            } else if (운동_메뉴_선택 == 2) {
-                System.out.println("아이템을 사용합니다.");
-                가방();
-            } else if (운동_메뉴_선택 == 3) {
-                System.out.println("중량을 변경합니다.");
-                중량();
-            } else if (운동_메뉴_선택 == 4) {
-                System.out.println("게임플레이를 취소하였습니다.");
-                메뉴_선택();
-            } else {
-                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
-            }
+        } else if (운동_메뉴_선택 == 2) {
+            System.out.println("아이템을 사용합니다.");
+            가방();
+        } else if (운동_메뉴_선택 == 3) {
+            System.out.println("중량을 변경합니다.");
+            중량();
+        } else if (운동_메뉴_선택 == 4) {
+            System.out.println("게임플레이를 취소하였습니다.");
+            메뉴_선택();
+        } else {
+            System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
+        }
     }
     public static void 체력_설정() {
         if (체력 > 0) {
@@ -351,7 +348,7 @@ public class Game {
             }
         } else if (구매 == 6) {
             if (상품구매 == false) {
-            System.out.println("리프팅 웨어를 구매하셨습니다.");
+                System.out.println("리프팅 웨어를 구매하셨습니다.");
                 if (현재_소지한_골드 >= 리프팅웨어) {
                     int 계산 = 현재_소지한_골드 - 리프팅웨어;
                     System.out.println();
