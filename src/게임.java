@@ -1,126 +1,93 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Game {
-    static Boolean 게임_종료 = false;
+public class 게임 {
+     Boolean 게임_종료 = false;
 
-    static int 현재_소지한_골드 = 5000;
+     int 현재_소지한_골드 = 5000;
 
-    static int 현재_레벨 = 1;
+     int 현재_레벨 = 1;
 
-    static int 체력 = 50;
+     int 체력 = 50;
 
-    static int 근력 = 1;
+     int 근력 = 1;
 
-    static int 메뉴_선택 = 0;
+     int 메뉴_선택 = 0;
 
-    static int 구매 = 0;
+     int 구매 = 0;
 
-    static int 아이템_사용 = 0;
+     int 아이템_사용 = 0;
 
-    static int bcaa = 500;
+     int bcaa = 500;
 
-    static int 프로틴 = 500;
+     int 프로틴 = 500;
 
-    static int 크레아틴 = 700;
+     int 크레아틴 = 700;
 
-    static int 탄수화물_보충제 = 700;
+     int 탄수화물_보충제 = 700;
 
-    static int 손목보호대 = 3000;
+     int 손목보호대 = 3000;
 
-    static int 리프팅웨어 = 5000;
+     int 리프팅웨어 = 5000;
 
-    static int 역도화 = 8000;
+     int 역도화 = 8000;
 
-    static int 복압벨트 = 10000;
+     int 복압벨트 = 10000;
 
-    static int 현재_등급 = 1;
+     int 현재_등급 = 1;
 
-    static int 중량_선택 = 0;
+     int 중량_선택 = 0;
 
-    static int 승급_심사_선택 = 0;
+     int 승급_심사_선택 = 0;
 
-    static int 경험치 = 0;
+     int 경험치 = 0;
 
-    static int bcaa_개수 = 0;
+     int bcaa_개수 = 0;
 
-    static int 탄수화물_보충제_개수 = 0;
+     int 탄수화물_보충제_개수 = 0;
 
-    static int 프로틴_개수 = 0;
+     int 프로틴_개수 = 0;
 
-    static int 크레아틴_개수 = 0;
+     int 크레아틴_개수 = 0;
 
-    static int bcaa_사용한_개수 = 0;
+     int bcaa_사용한_개수 = 0;
 
-    static int 탄수화물_보충제_사용한_개수 = 0;
+     int 탄수화물_보충제_사용한_개수 = 0;
 
-    static int 프로틴_사용한_개수 = 0;
+     int 프로틴_사용한_개수 = 0;
 
-    static int 크레아틴_사용한_개수 = 0;
+     int 크레아틴_사용한_개수 = 0;
 
-    static int bcaa_메뉴_선택 = 0;
+     int bcaa_메뉴_선택 = 0;
 
-    static int 탄수화물_보충제_메뉴_선택 = 0;
+     int 탄수화물_보충제_메뉴_선택 = 0;
 
-    static int 프로틴_메뉴_선택 = 0;
+     int 프로틴_메뉴_선택 = 0;
 
-    static int 크레아틴_메뉴_선택 = 0;
+     int 크레아틴_메뉴_선택 = 0;
 
-    static int bcaa_사용_계산 = 0;
+     int bcaa_사용_계산 = 0;
 
-    static int 경험치양 = 0;
+     int 경험치양 = 0;
 
-    static int 참여여부 = 0;
+     int 참여여부 = 0;
 
-    static int 구매개수 = 0;
+     int 구매개수 = 0;
 
-    static int 랜덤뽑기 = 0;
+     int 랜덤뽑기 = 0;
 
-    static int 당첨금뽑기 = 0;
+     int 당첨금뽑기 = 0;
 
-    static boolean 상품구매 = false;
+     boolean 상품구매 = false;
 
-    static int 남은_횟수 = 0;
+    int 남은_횟수 = 0;
 
-    static int 현재_횟수 = 0;
+    int 현재_횟수 = 0;
 
-    static int 승급_심사_메뉴_선택 = 0;
+    int 승급_심사_메뉴_선택 = 0;
 
-    static int 초보_심사_중량 = 10;
+    int 초보_심사_중량 = 10;
 
-    public static void main(String[] args) {
-
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("");
-        System.out.println("");
-        System.out.println("=======================프롤로그=============================");
-        System.out.println("");
-        System.out.println("한 날, 잠을 청하던 나는 꿈 속에서 헬스장에 도착했다.");
-        System.out.println("호기심에 벨을 누르고 헬스장 안으로 들어갔다..... ");
-        System.out.println("헬스장 안으로 들어가자 심상치 않은 느낌에 나가고자 했을 때 문이 잠기게 되었다.");
-        System.out.println("");
-        System.out.println("직원: 어서오세요. 처음 방문하시나요?");
-        System.out.println("나: 네 헬스장 이용하려고 하는데 안내 부탁드립니다.");
-        System.out.println("직원: 최종 승급 심사를 통과하지 못하면 여기서 빠져나올 수 없습니다.");
-        System.out.println("직원: 계속 진행을 원하시면 계약서에 서명 부탁드립니다.");
-
-        Game 메뉴 = new Game();
-        String 메뉴_꾸미기 = Game.게임메뉴_꾸미기();
-        String 이름 = Game.계약서();
-
-        while(!게임_종료) {
-            if (!이름.equals("")) {
-                System.out.println("계약서 서명 " + 이름);
-                System.out.println("게임을 시작하겠습니다.");
-                System.out.println("");
-                System.out.println(메뉴_꾸미기);
-                메뉴.게임메뉴_선택();
-
-            } else {
-                System.out.println("게임을 종료하겠습니다.");
-                break;
-            }
-        }
     }
     public static void 게임메뉴_선택() {
         System.out.println("");

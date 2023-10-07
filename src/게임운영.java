@@ -1,10 +1,10 @@
 import java.util.Scanner;
+//게임 전반적인 운영을 담당하는 클래스
 
-public class 운동 {
+public class 게임운영 {
     static int 운동_메뉴_선택;
     int 중량;
-
-public void 운동실행() {
+    public void 운동실행() {
         int 운동메뉴선택 = this.운동_메뉴_선택;
         운동_메뉴_선택 = 운동_메뉴_선택;
         Scanner sc = new Scanner(System.in);
@@ -22,7 +22,4 @@ public void 운동실행() {
             System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
         }
     }
-
 }
-
-
