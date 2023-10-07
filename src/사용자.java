@@ -1,3 +1,4 @@
+/*
 public class 사용자 {
     int 체력;
     int 골드;
@@ -13,3 +14,4 @@ public class 사용자 {
         }
     }
 }
+*/

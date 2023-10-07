@@ -2,7 +2,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class 게임 {
-     Boolean 게임_종료 = false;
 
      int 현재_소지한_골드 = 5000;
 
@@ -12,7 +11,7 @@ public class 게임 {
 
      int 근력 = 1;
 
-     int 메뉴_선택 = 0;
+     static int 메뉴_선택 = 0;
 
      int 구매 = 0;
 
@@ -97,15 +96,13 @@ public class 게임 {
         메뉴_선택 = sc.nextInt();
         if (메뉴_선택 == 1) {
             System.out.println("1번 운동하기를 선택하셨습니다.");
-            운동하기();
         } else if (메뉴_선택 == 2) {
             System.out.println("2번 가방을 선택하셨습니다.");
-            가방();
+
         } else if (메뉴_선택 == 3) {
             System.out.println("3번 의뢰를 선택하셨습니다.");
         } else if (메뉴_선택 == 4) {
             System.out.println("4번 상점을 선택하셨습니다.");
-            상점();
         } else if (메뉴_선택 == 5) {
             System.out.println("5번 퀘스트 현황을 선택하셨습니다.");
         } else if (메뉴_선택 == 6) {
@@ -123,11 +120,6 @@ public class 게임 {
     public static String 게임메뉴_꾸미기() {
         System.out.println("");
         return ("============================게임 메뉴============================");
-    }
-    public static String 계약서() {
-        Scanner sc = new Scanner(System.in);
-        String 서명 = sc.nextLine();
-        return 서명;
     }
     public static void 운동하기() {
         Scanner sc = new Scanner(System.in);
