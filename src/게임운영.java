@@ -83,4 +83,5 @@ public class 게임운영 {
         }
         return 운동_메뉴_선택지;
     }
+
 }
