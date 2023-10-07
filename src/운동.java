@@ -2,6 +2,7 @@ import java.util.Scanner;
 
 public class 운동 {
     static int 운동_메뉴_선택;
+    int 중량;
 
 public void 운동실행() {
         int 운동메뉴선택 = this.운동_메뉴_선택;

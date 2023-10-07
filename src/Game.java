@@ -104,19 +104,17 @@ public class Game {
         System.out.println("직원: 최종 승급 심사를 통과하지 못하면 여기서 빠져나올 수 없습니다.");
         System.out.println("직원: 계속 진행을 원하시면 계약서에 서명 부탁드립니다.");
 
-        메뉴 메뉴결정 = new 메뉴();
-        메뉴 메뉴바 = new 메뉴();
-        String 메뉴_꾸미기 = 메뉴.게임메뉴_꾸미기();
-
+        Game 메뉴 = new Game();
+        String 메뉴_꾸미기 = Game.게임메뉴_꾸미기();
+        String 이름 = Game.계약서();
 
         while(!게임_종료) {
-            String 이름 = Game.계약서();
             if (!이름.equals("")) {
                 System.out.println("계약서 서명 " + 이름);
                 System.out.println("게임을 시작하겠습니다.");
-                System.out.println();
+                System.out.println("");
                 System.out.println(메뉴_꾸미기);
-                메뉴결정.게임메뉴_선택();
+                메뉴.게임메뉴_선택();
 
             } else {
                 System.out.println("게임을 종료하겠습니다.");
@@ -124,7 +122,7 @@ public class Game {
             }
         }
     }
-    public static void 메뉴_선택() {
+    public static void 게임메뉴_선택() {
         System.out.println("");
         Scanner sc = new Scanner(System.in);
         System.out.println("1.운동하기 2.가방 3.의뢰 4.상점 5.퀘스트 현황 6.능력치 확인 7.장비 슬롯 8.게임 설정 9.퀵슬롯");
@@ -155,6 +153,10 @@ public class Game {
             System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
         }
     }
+    public static String 게임메뉴_꾸미기() {
+        System.out.println("");
+        return ("============================게임 메뉴============================");
+    }
     public static String 계약서() {
         Scanner sc = new Scanner(System.in);
         String 서명 = sc.nextLine();
@@ -177,7 +179,7 @@ public class Game {
             중량();
         } else if (운동_메뉴_선택 == 4) {
             System.out.println("게임플레이를 취소하였습니다.");
-            메뉴_선택();
+
         } else {
             System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
         }
@@ -426,7 +428,7 @@ public class Game {
 
         } else if (승급_심사_메뉴_선택 == 3) {
             System.out.println("메인 메뉴로 이동합니다.");
-            메뉴_선택();
+
         } else {
             System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
         }
