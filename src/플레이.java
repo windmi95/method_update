@@ -5,7 +5,6 @@ public class 플레이 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         게임 메뉴 = new 게임();
-        String 메뉴_꾸미기 = 게임.게임메뉴_꾸미기();
         게임운영 게임_운영_설정 = new 게임운영();
 
 

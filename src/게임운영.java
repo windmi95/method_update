@@ -33,8 +33,32 @@ public class 게임운영 {
         메인_메뉴_선택지 = sc.nextInt();
         switch (메인_메뉴_선택지) {
             case 1:
-                System.out.println();
-
+                System.out.println("1번 운동하기를 선택하셨습니다.");
+                break;
+            case 2:
+                System.out.println("2번 가방을 선택하셨습니다.");
+                break;
+            case 3:
+                System.out.println("3번 의뢰를 선택하셨습니다.");
+                break;
+            case 4:
+                System.out.println("4번 상점을 선택하셨습니다.");
+                break;
+            case 5:
+                System.out.println("5번 퀘스트 현황을 선택하셨습니다.");
+                break;
+            case 6:
+                System.out.println("6번 능력치 확인을 선택하셨습니다.");
+                break;
+            case 7:
+                System.out.println("7번 장비 슬롯을 선택하셨습니다.");
+                break;
+            case 8:
+                System.out.println("8번 설정을 선택하셨습니다.");
+                break;
+            case 9:
+                System.out.println("9번 퀵슬롯을 선택하셨습니다.");
+                break;
         }
         return 메인_메뉴_선택지;
     }
