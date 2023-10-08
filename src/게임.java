@@ -7,12 +7,6 @@ public class 게임 {
 
      int 현재_레벨 = 1;
 
-     int 체력 = 50;
-
-     int 근력 = 1;
-
-     static int 메뉴_선택 = 0;
-
      int 구매 = 0;
 
      int 아이템_사용 = 0;

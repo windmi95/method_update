@@ -8,6 +8,8 @@ public class 이벤트 {
     if(이벤트확률 < 5) {
         System.out.println("이벤트가 실행됩니다. ");
 
+    } else if (이벤트확률 > 5) {
+
     }
         return 이벤트확률;
     }
