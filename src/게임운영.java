@@ -33,13 +33,13 @@ public class 게임운영 {
         메인_메뉴_선택지 = sc.nextInt();
         switch (메인_메뉴_선택지) {
             case 1:
-                System.out.println("1번 운동하기를 선택하셨습니다.");
+                System.out.println("1번 운동을 하러 장소를 이동한다.");
                 break;
             case 2:
                 System.out.println("2번 가방을 선택하셨습니다.");
                 break;
             case 3:
-                System.out.println("3번 의뢰를 선택하셨습니다.");
+                System.out.println("3번 퀘스트를 받으러 이동한다.");
                 break;
             case 4:
                 System.out.println("4번 상점을 선택하셨습니다.");
@@ -77,11 +77,29 @@ public class 게임운영 {
             case 3:
                 System.out.println("중량을 변경합니다.");
                 break;
+
             case 4:
                 System.out.println("게임플레이를 취소하였습니다.");
                 break;
         }
         return 운동_메뉴_선택지;
     }
+    public void 승급_레벨() {
+        if (30 <= 현재_레벨 && 현재_레벨 < 31) {//초급
+            System.out.println("중급 심사를 진행하실 수 있습니다.");
+        } else if (50 <= 현재_레벨 && 현재_레벨 < 51) {//중급
+            System.out.println("고급 심사를 진행하실 수 있습니다.");
+        } else if (70 <= 현재_레벨 && 현재_레벨 < 71) {//고급
+            System.out.println("초월 심사를 진행하실 수 있습니다.");
+        }
+    }
+    public void 등급_오류() {
+        if (현재_등급 == 1) {
+            System.out.println("현재 등급이 맞지 않아서 진행할 수 없습니다.");
+        } else if (현재_등급 == 2) {
+            System.out.println("");
+        }
+    }
+
 
 }

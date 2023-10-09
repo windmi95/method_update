@@ -3,17 +3,11 @@ import java.util.Scanner;
 
 public class 게임 {
 
-     int 현재_소지한_골드 = 5000;
-
      int 현재_레벨 = 1;
 
      int 구매 = 0;
 
      int 아이템_사용 = 0;
-
-
-
-
 
      int 현재_등급 = 1;
 
@@ -76,7 +70,7 @@ public class 게임 {
         System.out.println("1.운동 실행 2.아이템 사용 3.중량 변경 4.게임에서 나가기");
         int 운동_메뉴_선택 = sc.nextInt();
         if (운동_메뉴_선택 == 1) {
-            System.out.println("운동을 실행하겠습니다.");
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     System.out.println("운동을 실행하겠습니다.");
             체력_설정();
             경험치_설정();
         } else if (운동_메뉴_선택 == 2) {
@@ -286,7 +280,7 @@ public class 게임 {
                 if (현재_소지한_골드 >= 복압벨트) {
                     int 계산 = 현재_소지한_골드 - 복압벨트;
                     System.out.println(계산);
-                } else {
+                  } else {
                     System.out.println("골드가 부족합니다.");
                 }
             }
@@ -297,18 +291,7 @@ public class 게임 {
     public static void 장비_슬롯() {
 
     }
-    public static void 의뢰() {
-        Random 퀘스트_설정 = new Random();
-        int 랜덤_퀘스트 = 퀘스트_설정.nextInt(2);
-        Random 운동횟수 = new Random();
-        int 랜덤_운동횟수 = 운동횟수.nextInt(5)*100;
-        if (랜덤_퀘스트 == 1) {
-            System.out.println("");
-        } else {
-            체력 = 체력 / 2;
-            System.out.println(체력);
-        }
-    }
+
     public static void 승급심사_설정() {
         Scanner sc = new Scanner(System.in);
         승급_심사_메뉴_선택 = sc.nextInt();
@@ -410,44 +393,6 @@ public class 게임 {
 
         } else {
             System.out.println("게임 메뉴로 이동합니다.");
-        }
-    }
-    public static void 중량() {
-        if(현재_등급 == 1) {
-            Scanner sc = new Scanner(System.in);
-            System.out.println("중량 1 ~ 10를 입력해주세요.");
-            중량_선택 = sc.nextInt();
-            System.out.println(중량_선택+"kg를 선택하셨습니다.");
-            System.out.println("운동 장소로 이동하겠습니다.");
-            if (중량_선택 >= 11) {
-                System.out.println("현재 등급이 초급이기 때문에 중급 등급의 무게를 이용하실 수 없습니다.");
-            }
-        } else if (현재_등급 == 2) {
-            Scanner sc = new Scanner(System.in);
-            System.out.println("중량 1 ~ 50을 입력해주세요.");
-            중량_선택 = sc.nextInt();
-            System.out.println(중량_선택+"kg를 선택하셨습니다.");
-            System.out.println("운동 장소로 이동하겠습니다.");
-            if (중량_선택 >= 51) {
-                System.out.println("현재 등급이 중급이기 때문에 고급 등급의 무게를 이용하실 수 없습니다.");
-            }
-        } else if (현재_등급 == 3) {
-            Scanner sc = new Scanner(System.in);
-            System.out.println("중량 1 ~ 70을 입력해주세요.");
-            중량_선택 = sc.nextInt();
-            System.out.println(중량_선택+"kg를 선택하셨습니다.");
-            System.out.println("운동 장소로 이동하겠습니다.");
-            if (중량_선택 >= 71) {
-                System.out.println("현재 등급이 고급이기 때문에 초월 등급의 무게를 이용하실 수 없습니다.");
-            }
-        } else if (현재_등급 == 4) {
-            Scanner sc = new Scanner(System.in);
-            System.out.println("중량 1 ~ 100을 입력해주세요.");
-            중량_선택 = sc.nextInt();
-            System.out.println(중량_선택+"kg를 선택하셨습니다.");
-            System.out.println("운동 장소로 이동하겠습니다.");
-        } else {
-            System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
         }
     }
     public static void 등급() {

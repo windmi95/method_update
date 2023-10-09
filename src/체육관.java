@@ -1,7 +1,9 @@
 import java.util.Scanner;
 
 public class 체육관 {
-    public void 중량() {
+
+
+    public void 바벨_무게() {
         if(현재_등급 == 1) {
             Scanner sc = new Scanner(System.in);
             System.out.println("중량 1 ~ 10를 입력해주세요.");
