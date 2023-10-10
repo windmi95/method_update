@@ -3,6 +3,8 @@ import java.util.Scanner;
 
 public class 게임운영 {
     Boolean 게임_종료 = false;
+    캐릭터 현재_레벨 = new 캐릭터();
+
 
     public void 프롤로그() {
         System.out.println("");
@@ -19,7 +21,6 @@ public class 게임운영 {
         System.out.println("직원: 계속 진행을 원하시면 계약서에 서명 부탁드립니다.");
         System.out.println("캐릭터 이름을 입력해주세요 이름: ");
     }
-
     public String 캐릭터_이름_작성() {
         Scanner scanner = new Scanner(System.in);
         String 이름 = scanner.next();
@@ -84,22 +85,21 @@ public class 게임운영 {
         }
         return 운동_메뉴_선택지;
     }
-    public void 승급_레벨() {
-        if (30 <= 현재_레벨 && 현재_레벨 < 31) {//초급
-            System.out.println("중급 심사를 진행하실 수 있습니다.");
-        } else if (50 <= 현재_레벨 && 현재_레벨 < 51) {//중급
-            System.out.println("고급 심사를 진행하실 수 있습니다.");
-        } else if (70 <= 현재_레벨 && 현재_레벨 < 71) {//고급
-            System.out.println("초월 심사를 진행하실 수 있습니다.");
-        }
-    }
-    public void 등급_오류() {
+    public void 등급_제한() {//
         if (현재_등급 == 1) {
             System.out.println("현재 등급이 맞지 않아서 진행할 수 없습니다.");
         } else if (현재_등급 == 2) {
             System.out.println("");
         }
     }
-
+    public void 승급_가능_메시지_출력() {
+        if (30 <= 현재_레벨.레벨 && 현재_레벨.레벨 < 31) {//초급
+            System.out.println("중급 심사를 진행하실 수 있습니다.");
+        } else if (50 <= 현재_레벨.레벨 && 현재_레벨.레벨 < 51) {//중급
+            System.out.println("고급 심사를 진행하실 수 있습니다.");
+        } else if (70 <= 현재_레벨.레벨 && 현재_레벨.레벨 < 71) {//고급
+            System.out.println("초월 심사를 진행하실 수 있습니다.");
+        }
+    }
 
 }

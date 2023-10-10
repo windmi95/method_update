@@ -94,24 +94,8 @@ public class 게임 {
             System.out.println("체력이 부족합니다.");
         }
     }
-    public static void 경험치_설정() {
-        경험치 = 중량_선택 / 2;
-        경험치양 = 경험치 + 경험치양;
-        System.out.println("현재 경험치 => "+경험치양);
 
-        if (경험치양 > 현재_레벨 * 100) {//레벨 상승 조건
-            현재_레벨 = 현재_레벨 + 1;
-        }
-    }
-    public static void 승급_레벨() {
-        if (30 <= 현재_레벨 && 현재_레벨 < 31) {//초급
-            System.out.println("중급 심사를 진행하실 수 있습니다.");
-        } else if (50 <= 현재_레벨 && 현재_레벨 < 51) {//중급
-            System.out.println("고급 심사를 진행하실 수 있습니다.");
-        } else if (70 <= 현재_레벨 && 현재_레벨 < 71) {//고급
-            System.out.println("초월 심사를 진행하실 수 있습니다.");
-        }
-    }
+
     public static void 이벤트() {
         Scanner sc = new Scanner(System.in);
         Random 뽑기 = new Random();

@@ -1,7 +1,7 @@
 import java.util.Random;
 
 public class 퀘스트 {
-    public static void 의뢰() {
+    public void 의뢰() {
         Random 퀘스트_설정 = new Random();
         int 랜덤_퀘스트 = 퀘스트_설정.nextInt(2);
         Random 운동횟수 = new Random();
