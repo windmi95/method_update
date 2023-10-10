@@ -3,13 +3,6 @@ import java.util.Scanner;
 
 public class 게임 {
 
-     int 현재_레벨 = 1;
-
-     int 구매 = 0;
-
-     int 아이템_사용 = 0;
-
-     int 현재_등급 = 1;
 
      int 중량_선택 = 0;
 
@@ -51,7 +44,6 @@ public class 게임 {
 
      int 랜덤뽑기 = 0;
 
-     int 당첨금뽑기 = 0;
 
      boolean 상품구매 = false;
 
@@ -66,7 +58,7 @@ public class 게임 {
     }
     public static void 이벤트() {
         Scanner sc = new Scanner(System.in);
-        Random 뽑기 = new Random();
+
         System.out.println("골드를 획득할 수 있는 깜짝 이벤트가 있습니다. 참여를 하실 것인지 선택해주세요.");
         System.out.println("1.참여한다. 2.참가하지 않는다.");
         참여여부 = sc.nextInt();

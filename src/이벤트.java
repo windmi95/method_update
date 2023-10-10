@@ -6,6 +6,11 @@ public class 이벤트 {
     게임운영 운동메뉴선택 = new 게임운영();
     Scanner scanner = new Scanner(System.in);
     int 이벤트_참여_선택;
+    int 랜덤뽑기;
+    Random 뽑기 = new Random();
+
+    캐릭터 캐릭터_설정 = new 캐릭터();
+
 
     public int 이벤트_실행() {
     Random random  = new Random();
@@ -16,7 +21,20 @@ public class 이벤트 {
         System.out.println("1.참여한다. 2번 참여하지 않는다.");
         이벤트_참여_선택 = scanner.nextInt();
         if (이벤트_참여_선택 == 1) {
-            System.out.println("");
+            System.out.println("이벤트를 진행하겠습니다.");
+            System.out.println("이벤트의 경우 랜덤으로 당첨 혹은 꽝이 나옵니다.");
+            System.out.println("추가적으로 꽝일 경우 체력의 1/2가 감소됩니다.");
+            랜덤뽑기 = 뽑기.nextInt(10);
+            if (랜덤뽑기 <= 4) {
+                Random 당첨금 = new Random();
+                int 당첨금_뽑기 = 당첨금.nextInt(100)*100;
+                System.out.println(당첨금_뽑기+ "골드를 획득하셨습니다.");
+            } else if (랜덤뽑기 >= 5) {
+                캐릭터_설정.체력 = 캐릭터_설정.체력 - 10;
+                System.out.println("체력이 " + 캐릭터_설정.체력 + " 차감되었습니다." );
+            }
+        } else if (이벤트_참여_선택 == 2) {
+            return 운동메뉴선택.운동_메뉴_선택(scanner.nextInt());
         }
     } else if (이벤트확률 > 5) {
         운동메뉴선택.운동_메뉴_선택(scanner.nextInt());

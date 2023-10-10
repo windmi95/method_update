@@ -13,8 +13,7 @@ public class 퀘스트 {
         if (랜덤_퀘스트 == 1) {
             System.out.println("");
         } else {
-            체력 = 체력 / 2;
-            System.out.println(체력);
+
         }
     }
     public void 승급_심사 () {
