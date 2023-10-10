@@ -1,6 +1,10 @@
 import java.util.Random;
 
 public class 퀘스트 {
+
+    캐릭터 현재_등급 = new 캐릭터();
+
+
     public void 의뢰() {
         Random 퀘스트_설정 = new Random();
         int 랜덤_퀘스트 = 퀘스트_설정.nextInt(2);
@@ -12,5 +16,8 @@ public class 퀘스트 {
             체력 = 체력 / 2;
             System.out.println(체력);
         }
+    }
+    public void 승급_심사 () {
+
     }
 }

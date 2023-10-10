@@ -4,6 +4,8 @@ import java.util.Scanner;
 public class 게임운영 {
     Boolean 게임_종료 = false;
     캐릭터 현재_레벨 = new 캐릭터();
+    캐릭터 현재_등급 = new 캐릭터();
+    이벤트 이벤트_선택지 = new 이벤트();
 
 
     public void 프롤로그() {
@@ -70,10 +72,12 @@ public class 게임운영 {
         운동_메뉴_선택지 = sc.nextInt();
         switch (운동_메뉴_선택지) {
             case 1:
-                System.out.println("운동을 실행하러 이동");
+                int 이벤트;
+                System.out.println("운동 실행");
+                이벤트_선택지.이벤트_실행();
                 break;
             case 2:
-                System.out.println("아이템을 사용");
+                System.out.println("아이템 사용");
                 break;
             case 3:
                 System.out.println("중량을 변경합니다.");
@@ -85,10 +89,12 @@ public class 게임운영 {
         }
         return 운동_메뉴_선택지;
     }
-    public void 등급_제한() {//
-        if (현재_등급 == 1) {
+    public void 등급_제한() {
+        if (현재_등급.등급 == 1) {//초급 이상의 등급을 선택했을 때 결과
             System.out.println("현재 등급이 맞지 않아서 진행할 수 없습니다.");
-        } else if (현재_등급 == 2) {
+        } else if (현재_등급.등급 == 2) {//중급 이상의 등급을 선택했을 때 결과
+            System.out.println("");
+        } else if (현재_등급.등급 == 3) {
             System.out.println("");
         }
     }

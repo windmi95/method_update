@@ -64,38 +64,6 @@ public class 게임 {
     int 초보_심사_중량 = 10;
 
     }
-    public static void 운동하기() {
-        Scanner sc = new Scanner(System.in);
-        중량();// 중량을 선택하는 메소드
-        System.out.println("1.운동 실행 2.아이템 사용 3.중량 변경 4.게임에서 나가기");
-        int 운동_메뉴_선택 = sc.nextInt();
-        if (운동_메뉴_선택 == 1) {
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     System.out.println("운동을 실행하겠습니다.");
-            체력_설정();
-            경험치_설정();
-        } else if (운동_메뉴_선택 == 2) {
-            System.out.println("아이템을 사용합니다.");
-            가방();
-        } else if (운동_메뉴_선택 == 3) {
-            System.out.println("중량을 변경합니다.");
-            중량();
-        } else if (운동_메뉴_선택 == 4) {
-            System.out.println("게임플레이를 취소하였습니다.");
-
-        } else {
-            System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
-        }
-    }
-    public static void 체력_설정() {
-        if (체력 > 0) {
-            체력 = 체력 - (중량_선택 - 근력);
-            System.out.println("남은 체력 => "+ 체력);
-        } else {
-            System.out.println("체력이 부족합니다.");
-        }
-    }
-
-
     public static void 이벤트() {
         Scanner sc = new Scanner(System.in);
         Random 뽑기 = new Random();
