@@ -6,6 +6,11 @@ public class 게임운영 {
     캐릭터 현재_레벨 = new 캐릭터();
     캐릭터 현재_등급 = new 캐릭터();
     이벤트 이벤트_선택지 = new 이벤트();
+    소모품_상점 소모품 = new 소모품_상점();
+    캐릭터 소모품_구매_개수_입력받기 = new 캐릭터();
+    캐릭터 현재_소지한_골드 = new 캐릭터();
+    캐릭터 현재_소지한_bcaa = new 캐릭터();
+    Scanner sc = new Scanner(System.in);
 
 
     public void 프롤로그() {
@@ -29,7 +34,6 @@ public class 게임운영 {
         return 이름;
     }
     public int 메인_메뉴_선택(int 메인_메뉴_선택지) {
-        Scanner sc = new Scanner(System.in);
         System.out.println("==================================================");
         System.out.println("1.운동하기 2.가방 3.의뢰 4.상점 5.퀘스트 현황 6.능력치 확인 7.장비 슬롯 8.게임 설정");
         System.out.println("어떤 것을 선택하시겠습니까?");
@@ -37,6 +41,7 @@ public class 게임운영 {
         switch (메인_메뉴_선택지) {
             case 1:
                 System.out.println("1번 운동을 하러 장소를 이동한다.");
+                운동_메뉴_선택(sc.nextInt());
                 break;
             case 2:
                 System.out.println("2번 가방을 선택하셨습니다.");
@@ -66,7 +71,6 @@ public class 게임운영 {
         return 메인_메뉴_선택지;
     }
     public int 운동_메뉴_선택(int 운동_메뉴_선택지) {
-        Scanner sc = new Scanner(System.in);
         System.out.println("==================================================");
         System.out.println("1.운동 실행 2.아이템 사용 3.중량 변경 4.게임에서 나가기");
         운동_메뉴_선택지 = sc.nextInt();
@@ -100,12 +104,48 @@ public class 게임운영 {
     }
     public void 승급_가능_메시지_출력() {
         if (30 <= 현재_레벨.레벨 && 현재_레벨.레벨 < 31) {//초급
-            System.out.println("중급 심사를 진행하실 수 있습니다.");
+            System.out.println("승급 심사를 진행하실 수 있습니다.");
+            System.out.println("승급 심사를 진행하시겠습니까?");
+            System.out.println("1번 진행한다. 2번 진행하지 않는다.");
+            int 승급_심사_선택 = sc.nextInt();
+            if (승급_심사_선택 == 1) {
+                System.out.println("");
+            }
         } else if (50 <= 현재_레벨.레벨 && 현재_레벨.레벨 < 51) {//중급
             System.out.println("고급 심사를 진행하실 수 있습니다.");
         } else if (70 <= 현재_레벨.레벨 && 현재_레벨.레벨 < 71) {//고급
             System.out.println("초월 심사를 진행하실 수 있습니다.");
         }
     }
+    public void 소모품_안내_메시지() {
+        System.out.println("어떤 것을 구매하시겠습니까?");
+        System.out.println("1.bcaa 2.탄수화물 보충제 3.프로틴 4.크레아틴");
+        int 소모품_구매 = sc.nextInt();
+        if (소모품_구매 == 1) {
+            System.out.println("bcaa를 선택하셨습니다.");
+            System.out.println("몇 개를 구매하시겠습니까?");
+            int 총금액 = 소모품.bcaa * 소모품_구매_개수_입력받기.소모품_구매();
+            if (현재_소지한_골드.골드 >= 총금액) {
+                int 계산 = 현재_소지한_골드.골드 - 소모품.bcaa * 소모품_구매_개수_입력받기.소모품_구매();
+                System.out.println(계산);
+                int bcaa_개수 = 현재_소지한_bcaa.소지한_bcaa_개수 + 소모품_구매_개수_입력받기.소모품_구매();
+            } else {
+                System.out.println("골드가 부족합니다.");
+            }
+        } else if (소모품_구매 == 2) {
+            System.out.println("탄수화물 보충제를 선택하셨습니다.");
+            System.out.println("몇 개를 구매하시겠습니까?");
+        } else if (소모품_구매 == 3) {
+            System.out.println("프로틴을 선택하셨습니다.");
+            System.out.println("몇 개를 구매하시겠습니까?");
+        } else if (소모품_구매 == 4) {
+            System.out.println("크레아틴을 선택하셨습니다.");
+            System.out.println("몇 개를 구매하시겠습니까?");
+        }
+
+    }
+    /*public int 장비_안내_메시지(int 소모품_구매_개수, int 구매한_장비) {
+        return 구매한_장비 - 구매개수;
+    }*/
 
 }

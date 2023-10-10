@@ -21,7 +21,7 @@ public class 이벤트 {
         System.out.println("1.참여한다. 2번 참여하지 않는다.");
         이벤트_참여_선택 = scanner.nextInt();
         if (이벤트_참여_선택 == 1) {
-            System.out.println("이벤트를 진행하겠습니다.");
+            System.out.println("이벤트를 실행하겠습니다.");
             System.out.println("이벤트의 경우 랜덤으로 당첨 혹은 꽝이 나옵니다.");
             System.out.println("추가적으로 꽝일 경우 체력의 1/2가 감소됩니다.");
             랜덤뽑기 = 뽑기.nextInt(10);
