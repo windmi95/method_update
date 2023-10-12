@@ -2,28 +2,32 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class 퀘스트 {
-
+    Scanner sc = new Scanner(System.in);
     캐릭터 현재_등급 = new 캐릭터();
-
+    캐릭터 현재_레벨 = new 캐릭터();
 
     public void 의뢰() {
-        Random 퀘스트_설정 = new Random();
-        int 랜덤_퀘스트 = 퀘스트_설정.nextInt(2);
         Random 운동횟수 = new Random();
         int 랜덤_운동횟수 = 운동횟수.nextInt(5)*100;
-        if (랜덤_퀘스트 == 1) {
-            System.out.println("");
-        } else {
 
+        System.out.println("관장: 퀘스트를 진행하겠는가?");
+        System.out.println("1. 진행 2. 거부");
+        int 퀘스트_선택 = sc.nextInt();
+        if (퀘스트_선택 == 1) {
+            System.out.println("");
+        } else if (퀘스트_선택 == 2) {
+            System.out.println("");
         }
+            return 랜덤_운동횟수();
+
+
     }
     public void 승급심사() {
-        Scanner sc = new Scanner(System.in);
-        if (30 <= 현재_레벨 && 현재_레벨 < 31) {//초급
+        if (30 <= 현재_레벨.레벨 && 현재_레벨.레벨 < 31) {//초급
             System.out.println("승급 심사를 진행하실 수 있습니다.");
             System.out.println("승급 심사를 진행하시겠습니까?");
             System.out.println("1번 진행한다. 2번 진행하지 않는다.");
-            승급_심사_선택 = sc.nextInt();
+            int 승급_심사_선택 = sc.nextInt();
             if (승급_심사_선택 == 1) {
                 System.out.println("승급 심사를 진행하겠습니다.");
                 System.out.println("제한시간 5분이 주어지고 100개를 실행하지 못할 경우 다시 도전해야합니다.");
@@ -42,11 +46,11 @@ public class 퀘스트 {
                 System.out.println("1번 진행한다. 2번 진행하지 않는다.");
                 return;
             }
-        } else if (50 <= 현재_레벨 && 현재_레벨 < 51) {//중급
+        } else if (50 <= 현재_레벨.레벨 && 현재_레벨.레벨 < 51) {//중급
             System.out.println("승급 심사를 진행하실 수 있습니다.");
             System.out.println("승급 심사를 진행하시겠습니까?");
             System.out.println("1번 진행한다. 2번 진행하지 않는다.");
-            승급_심사_선택 = sc.nextInt();
+            int 승급_심사_선택 = sc.nextInt();
             if (승급_심사_선택 == 1) {
                 System.out.println("");
             } else if (승급_심사_선택 == 2) {
@@ -54,11 +58,11 @@ public class 퀘스트 {
             } else {
                 System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
             }
-        } else if (70 <= 현재_레벨 && 현재_레벨 < 101) {//고급
+        } else if (70 <= 현재_레벨.레벨 && 현재_레벨.레벨 < 101) {//고급
             System.out.println("승급 심사를 진행하실 수 있습니다.");
             System.out.println("승급 심사를 진행하시겠습니까?");
             System.out.println("1번 진행한다. 2번 진행하지 않는다.");
-            승급_심사_선택 = sc.nextInt();
+            int 승급_심사_선택 = sc.nextInt();
             if (승급_심사_선택 == 1) {
                 System.out.println("");
             } else if (승급_심사_선택 == 2) {
@@ -66,11 +70,11 @@ public class 퀘스트 {
             } else {
                 System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
             }
-        } else if (현재_레벨 >= 100) {
+        } else if (현재_레벨.레벨 >= 101) {
             System.out.println("승급 심사를 진행하실 수 있습니다.");
             System.out.println("승급 심사를 진행하시겠습니까?");
             System.out.println("1번 진행한다. 2번 진행하지 않는다.");
-            승급_심사_선택 = sc.nextInt();
+            int 승급_심사_선택 = sc.nextInt();
             if (승급_심사_선택 == 1) {
                 System.out.println("");
             } else if (승급_심사_선택 == 2) {
@@ -79,7 +83,7 @@ public class 퀘스트 {
                 System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
             }
         }
-        if (현재_등급 == 1) {
+        if (현재_등급.등급 == 1) {
             Random 승급심사_운동횟수_결정 = new Random();
             승급_레벨();
 

@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.ServiceLoader;
 //게임 전반적인 운영을 담당하는 클래스
 
 public class 게임운영 {
@@ -10,6 +11,10 @@ public class 게임운영 {
     소모품_상점 소모품_탄수화물_보충제_가격 = new 소모품_상점();
     소모품_상점 소모품_프로틴_가격 = new 소모품_상점();
     소모품_상점 소모품_크레아틴_가격 = new 소모품_상점();
+    장비_상점 장비_손목_보호대 = new 장비_상점();
+    장비_상점 장비_리프팅웨어 = new 장비_상점();
+    장비_상점 장비_역도화 = new 장비_상점();
+    장비_상점 장비_복압_벨트 = new 장비_상점();
     캐릭터 bcaa_구매_개수_입력받기 = new 캐릭터();
     캐릭터 탄수화물_보충제_구매_개수_입력받기 = new 캐릭터();
     캐릭터 프로틴_구매_개수_입력받기 = new 캐릭터();
@@ -102,7 +107,7 @@ public class 게임운영 {
         }
         return 운동_메뉴_선택지;
     }
-    public void 등급_제한() {
+    /*public void 등급_제한() {
         if (현재_등급.등급 == 1) {//초급 이상의 등급을 선택했을 때 결과
             System.out.println("현재 등급이 맞지 않아서 진행할 수 없습니다.");
         } else if (현재_등급.등급 == 2) {//중급 이상의 등급을 선택했을 때 결과
@@ -110,7 +115,7 @@ public class 게임운영 {
         } else if (현재_등급.등급 == 3) {
             System.out.println("");
         }
-    }
+    }*/
     public void 승급_가능_메시지_출력() {
         if (30 <= 현재_레벨.레벨 && 현재_레벨.레벨 < 31) {//초급
             System.out.println("승급 심사를 진행하실 수 있습니다.");
@@ -118,7 +123,9 @@ public class 게임운영 {
             System.out.println("1번 진행한다. 2번 진행하지 않는다.");
             int 승급_심사_선택 = sc.nextInt();
             if (승급_심사_선택 == 1) {
-                System.out.println("");
+                System.out.println("승급 심사를 진행하겠습니다.");
+            } else {
+
             }
         } else if (50 <= 현재_레벨.레벨 && 현재_레벨.레벨 < 51) {//중급
             System.out.println("고급 심사를 진행하실 수 있습니다.");
@@ -127,8 +134,8 @@ public class 게임운영 {
         }
     }
     public void 소모품_안내_메시지() {
-        System.out.println("어떤 것을 구매하시겠습니까?");
         System.out.println("1.bcaa 2.탄수화물 보충제 3.프로틴 4.크레아틴");
+        System.out.println("어떤 것을 구매하시겠습니까?");
         int 소모품_구매 = sc.nextInt();
         if (소모품_구매 == 1) {
             System.out.println("bcaa를 선택하셨습니다.");
@@ -175,8 +182,34 @@ public class 게임운영 {
                 System.out.println("골드가 부족합니다.");
             }
         }
-
     }
+    public void 장비_안내_메시지_출력() {
+        System.out.println("1.손목보호대 2.리프팅웨어 3.역도화 4.복압벨트");
+        System.out.println("어떤 것을 구매하시겠습니까?");
+        int 장비_구매 = sc.nextInt();
+        if (장비_구매 == 1) {
+            System.out.println("손목보호대를 선택하셨습니다.");
+            if (현재_소지한_골드.골드 >= 장비_손목_보호대.손목보호대) {
+                int 계산 = 현재_소지한_골드.골드 - 장비_손목_보호대.손목보호대;
+            }
+        } else if (장비_구매 == 2) {
+            if (현재_등급.등급 == 2) {
+                if (현재_소지한_골드.골드 >= 장비_리프팅웨어.리프팅웨어) {
+                    int 계산 = 현재_소지한_골드.골드 - 장비_손목_보호대.손목보호대;
+                }
+            }
+        } else if (장비_구매 == 3) {
+            if (현재_등급.등급 == 3) {
+                if (현재_소지한_골드.골드 >= 장비_역도화.역도화) {
+
+                }
+            }
+        } else if (장비_구매 == 4) {
+            System.out.println("");
+        }
+        return;
+    }
+
     /*public int 장비_안내_메시지(int 소모품_구매_개수, int 구매한_장비) {
         return 구매한_장비 - 구매개수;
     }*/
