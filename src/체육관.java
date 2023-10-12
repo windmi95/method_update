@@ -2,13 +2,18 @@ import java.util.Scanner;
 
 public class 체육관 {
     int 바벨_무게;
+    Scanner scanner = new Scanner(System.in);
+    캐릭터 등급_무게_구별 = new 캐릭터();
 
     public void 바벨() {//중량 1~ 10 -> 초급 중량 1 ~ 50 -> 중급 중량
-
+        if (등급_무게_구별.등급 == 1) {
+            System.out.println("중량 1 ~ 10kg");
+        } else if (등급_무게_구별.등급 == 2) {
+            System.out.println("중량 1 ~ 50kg");
+        } else if (등급_무게_구별.등급 == 3) {
+            System.out.println("중량 1 ~ 100kg");
+        }
 
     }
-    //체육관의 경우 원판 무게만 소유하고 있음 -> 캐릭터가 중량을 선택해서 운동을 진행하는 과정
-    //바벨의 무게만 소지하는 클래스인데 등급을 나눠야 할까?
-    //캐릭터의 객체 변수에서 등급을 가져와서 등급이 1일 경우
 
 }
