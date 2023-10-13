@@ -4,12 +4,13 @@ import java.util.Scanner;
 //운동 실행 중 랜덤으로 이벤트가 실행되는 클래스
 public class 이벤트 {
     게임운영 운동메뉴선택 = new 게임운영();
+    캐릭터 캐릭터_설정 = new 캐릭터();
     Scanner scanner = new Scanner(System.in);
-    int 이벤트_참여_선택;
-    int 랜덤뽑기;
     Random 뽑기 = new Random();
 
-    캐릭터 캐릭터_설정 = new 캐릭터();
+    int 이벤트_참여_선택;
+    int 랜덤뽑기;
+
 
 
     public int 이벤트_실행() {
