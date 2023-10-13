@@ -1,9 +1,16 @@
 import java.util.Scanner;
 
-public class 가방 {
+public class 가방 {//아이템 관리하는 클래스
+    Scanner sc = new Scanner(System.in);
+
+    public void 소모품 () {
+
+    }
+
+
+
     public void 아이템_선택 () {
         System.out.println("");
-        Scanner sc = new Scanner(System.in);
         System.out.println("어떤 것을 선택하시겠습니까?");
         System.out.println("1.아이템 2.장비");
         int 가방_선택 = sc.nextInt();

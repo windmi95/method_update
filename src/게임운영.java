@@ -4,8 +4,10 @@ import java.util.ServiceLoader;
 
 public class 게임운영 {
     Boolean 게임_종료 = false;
+    캐릭터 운동_실행 = new 캐릭터();
     캐릭터 현재_레벨 = new 캐릭터();
     캐릭터 현재_등급 = new 캐릭터();
+    캐릭터 운동실행 = new 캐릭터();
     이벤트 이벤트_선택지 = new 이벤트();
     소모품_상점 소모품_bcaa_가격 = new 소모품_상점();
     소모품_상점 소모품_탄수화물_보충제_가격 = new 소모품_상점();
@@ -55,8 +57,9 @@ public class 게임운영 {
         메인_메뉴_선택지 = sc.nextInt();
         switch (메인_메뉴_선택지) {
             case 1:
-                System.out.println("1번 운동을 하러 장소를 이동한다.");
+                운동실행.무게_선택();
                 운동_메뉴_선택(sc.nextInt());
+                운동실행.운동진행();
                 break;
             case 2:
                 System.out.println("2번 가방을 선택하셨습니다.");
@@ -91,19 +94,22 @@ public class 게임운영 {
         운동_메뉴_선택지 = sc.nextInt();
         switch (운동_메뉴_선택지) {
             case 1:
-                int 이벤트;
-                System.out.println("운동 실행");
+                운동_실행.운동진행();
+                운동_실행.무게_선택();
                 이벤트_선택지.이벤트_실행();
                 break;
             case 2:
                 System.out.println("아이템 사용");
+
                 break;
             case 3:
                 System.out.println("중량을 변경합니다.");
+                운동_실행.무게_선택();
                 break;
 
             case 4:
                 System.out.println("게임플레이를 취소하였습니다.");
+                메인_메뉴_선택(sc.nextInt());
                 break;
         }
         return 운동_메뉴_선택지;
@@ -126,7 +132,7 @@ public class 게임운영 {
             System.out.println("초월 심사를 진행하실 수 있습니다.");
         }
     }
-    public void 소모품_안내_메시지() {
+    public void 소모품_구매_안내_메시지() {
         System.out.println("1.bcaa 2.탄수화물 보충제 3.프로틴 4.크레아틴");
         System.out.println("어떤 것을 구매하시겠습니까?");
         int 소모품_구매 = sc.nextInt();
