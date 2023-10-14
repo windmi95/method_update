@@ -10,11 +10,7 @@ public class 가방 {//아이템 관리하는 클래스
     캐릭터 캐릭터_근력 = new 캐릭터();
 
     public void 소모품_목록 () {//운동 실행 시 아이템 사용
-        if(소지한_bcaa_개수 > 0 && 소지한_탄수화물_보충제_개수 > 0 && 소지한_프로틴_개수 > 0 ) {
 
-        } else {
-            System.out.print("");
-        }
     }
     public void 아이템_사용 () {
         System.out.println("");
