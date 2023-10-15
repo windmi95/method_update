@@ -3,11 +3,7 @@ import java.util.Scanner;
 
 public class 헬스장_관장 {
     Scanner sc = new Scanner(System.in);
-    캐릭터 현재_등급 = new 캐릭터();
-    캐릭터 현재_레벨 = new 캐릭터();
-    캐릭터 승급심사_운동실행 = new 캐릭터();
-    캐릭터 남은_체력 = new 캐릭터();
-    캐릭터 캐릭터_근력 = new 캐릭터();
+    캐릭터 게임_캐릭터 = new 캐릭터();
 
     int 현재_횟수;
     int 남은_횟수;
@@ -32,7 +28,7 @@ public class 헬스장_관장 {
     }
 
     public void 승급심사() {
-        if (30 <= 현재_레벨.레벨 && 현재_레벨.레벨 < 31) {//초급
+        if (30 <= 게임_캐릭터.레벨 && 게임_캐릭터.레벨 < 31) {//초급
             System.out.println("승급 심사를 진행하시겠습니까?");
             System.out.println("1번 진행한다. 2번 진행하지 않는다.");
             int 승급_심사_선택 = sc.nextInt();
@@ -56,7 +52,7 @@ public class 헬스장_관장 {
                 System.out.println("1번 진행한다. 2번 진행하지 않는다.");
                 return;
             }
-        } else if (50 <= 현재_레벨.레벨 && 현재_레벨.레벨 < 51) {//중급
+        } else if (50 <= 게임_캐릭터.레벨 && 게임_캐릭터.레벨 < 51) {//중급
             System.out.println("승급 심사를 진행하실 수 있습니다.");
             System.out.println("승급 심사를 진행하시겠습니까?");
             System.out.println("1번 진행한다. 2번 진행하지 않는다.");
@@ -68,7 +64,7 @@ public class 헬스장_관장 {
             } else {
                 System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
             }
-        } else if (70 <= 현재_레벨.레벨 && 현재_레벨.레벨 < 101) {//고급
+        } else if (70 <= 게임_캐릭터.레벨 && 게임_캐릭터.레벨 < 101) {//고급
             System.out.println("승급 심사를 진행하실 수 있습니다.");
             System.out.println("승급 심사를 진행하시겠습니까?");
             System.out.println("1번 진행한다. 2번 진행하지 않는다.");
@@ -80,7 +76,7 @@ public class 헬스장_관장 {
             } else {
                 System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
             }
-        } else if (현재_레벨.레벨 >= 101) {
+        } else if (게임_캐릭터.레벨 >= 101) {
             System.out.println("승급 심사를 진행하실 수 있습니다.");
             System.out.println("승급 심사를 진행하시겠습니까?");
             System.out.println("1번 진행한다. 2번 진행하지 않는다.");
@@ -93,7 +89,7 @@ public class 헬스장_관장 {
                 System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
             }
         }
-        if (현재_등급.등급 == 1) {
+        if (게임_캐릭터.등급 == 1) {
             Random 승급심사_운동횟수_결정 = new Random();
 
 
@@ -104,13 +100,13 @@ public class 헬스장_관장 {
 
     public void 승급심사_진행() {
         Scanner sc = new Scanner(System.in);
-        승급심사_운동실행.운동진행();
-        if (현재_등급.등급 == 1) {
-            if (남은_체력.체력 > 0) {
-                남은_체력.체력 = 남은_체력.체력 - (초보_심사_중량 - 캐릭터_근력.근력);
+        게임_캐릭터.운동진행();
+        if (게임_캐릭터.등급 == 1) {
+            if (게임_캐릭터.체력 > 0) {
+                게임_캐릭터.체력 = 게임_캐릭터.체력 - (초보_심사_중량 - 게임_캐릭터.근력);
                 현재_횟수++;
                 남은_횟수 = 100;
-                System.out.println("남은 체력 => " + 남은_체력.체력);
+                System.out.println("남은 체력 => " + 게임_캐릭터.체력);
                 System.out.println("현재 횟수 => " + 현재_횟수);
                 for (int i = 남은_횟수; i >= 0; i--) {
                     /*if (i == 0) {
