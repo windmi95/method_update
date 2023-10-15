@@ -108,7 +108,7 @@ public class 게임운영 {
 
         int 소모품_구매 = scanner.nextInt();
         if (소모품_구매 == 1) {
-            System.out.println("현재 소지하고 있는 골드 -> "+ 게임_캐릭터.골드);
+            System.out.println("현재 소지하고 있는 골드 -> " + 게임_캐릭터.골드);
             System.out.println("bcaa를 선택하셨습니다.");
             System.out.println("몇 개를 구매하시겠습니까?");
             int 총금액 = 소모품.bcaa * 게임_캐릭터.소모품_구매();
