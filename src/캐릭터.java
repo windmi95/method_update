@@ -1,3 +1,4 @@
+//게임 캐릭터의 능력치와
 import java.util.Scanner;
 
 public class 캐릭터 {
