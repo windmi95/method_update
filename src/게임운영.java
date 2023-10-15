@@ -39,9 +39,7 @@ public class 게임운영 {
     public int 메인_메뉴_선택(int 메인_메뉴_선택지) {
         switch (메인_메뉴_선택지) {
             case 1:
-                게임_캐릭터.무게_선택();
-                /*운동_메뉴_선택();*/
-                게임_캐릭터.운동진행();
+                System.out.println("1번 운동을 진행하러 이동하겠습니다.");
                 break;
             case 2:
                 System.out.println("2번 가방을 선택하셨습니다.");
@@ -74,22 +72,17 @@ public class 게임운영 {
         System.out.println("======================운동 메뉴 선택======================");
         System.out.println("1.운동 실행 2.아이템 사용 3.중량 변경 4.게임에서 나가기");
     }
-
     public int 운동_메뉴_선택(int 운동_메뉴_선택지) {
 
         switch (운동_메뉴_선택지) {
             case 1:
-                게임_캐릭터.운동진행();
-                게임_캐릭터.무게_선택();
-                게임_이벤트.이벤트_실행();
+                System.out.println("운동을 실행합니다.");
                 break;
             case 2:
                 System.out.println("아이템 사용");
-
                 break;
             case 3:
                 System.out.println("중량을 변경합니다.");
-                게임_캐릭터.무게_선택();
                 break;
 
             case 4:
@@ -160,7 +153,7 @@ public class 게임운영 {
             }
         }
     }
-    public void 장비_안내_메시지_출력() {
+    public void 장비_구매_안내_메시지_출력() {
         System.out.println("현재 소지하고 있는 골드 -> " + 게임_캐릭터.골드);
         System.out.println("1.손목보호대 2.리프팅웨어 3.역도화 4.복압벨트");
         System.out.println("어떤 것을 구매하시겠습니까?");

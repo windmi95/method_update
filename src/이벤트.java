@@ -4,7 +4,7 @@ import java.util.Scanner;
 //운동 실행 중 랜덤으로 이벤트가 실행되는 클래스
 public class 이벤트 {
     게임운영 운동메뉴선택 = new 게임운영();
-    캐릭터 캐릭터_설정 = new 캐릭터();
+    캐릭터 게임_캐릭터 = new 캐릭터();
     Scanner scanner = new Scanner(System.in);
     Random 뽑기 = new Random();
 
@@ -31,8 +31,8 @@ public class 이벤트 {
                 int 당첨금_뽑기 = 당첨금.nextInt(100)*100;
                 System.out.println(당첨금_뽑기+ "골드를 획득하셨습니다.");
             } else if (랜덤뽑기 >= 5) {
-                캐릭터_설정.체력 = 캐릭터_설정.체력 - 10;
-                System.out.println("체력이 " + 캐릭터_설정.체력 + " 차감되었습니다." );
+                게임_캐릭터.체력 = 게임_캐릭터.체력 - 10;
+                System.out.println("체력이 " + 게임_캐릭터.체력 + " 차감되었습니다." );
             }
         } else if (이벤트_참여_선택 == 2) {
             return 운동메뉴선택.운동_메뉴_선택(scanner.nextInt());
