@@ -47,41 +47,9 @@ public class 캐릭터 {
     public void 스탯_설정() {
         if (경험치양 > 레벨 * 100) {//레벨 상승 조건
             레벨 = 레벨 + 1;
-
         }
     }
-    public int 무게_선택() {
-        if(등급 == 1) {//체육관 클래스에 있는 중량 선택  -> scanner 운동실행 ->
-//        퀘스트.선택할_수_있는_무게체크(3,레벨);
-            중량_선택 = scanner.nextInt();
-            System.out.println(중량_선택+" kg 운동하러 가야겠다.");
-        } else if (등급 == 2) {
-            //무게선택.캐릭터_선택_가능한_무게체크();
-            중량_선택 = scanner.nextInt();
-            System.out.println(중량_선택+ "kg 운동하러 가야겠다.");
-        } else if (등급 == 3) {
-            //무게선택.캐릭터_선택_가능한_무게체크();
-            중량_선택 = scanner.nextInt();
-            System.out.println(중량_선택+ "kg 운동하러 가야겠다.");
-        } else if (등급 == 4) {
-            //무게선택.캐릭터_선택_가능한_무게체크();
-            중량_선택 = scanner.nextInt();
-            System.out.println(중량_선택+ "kg 운동하러 가야겠다.");
-        }
-        return 무게_선택();
-    }
-
-
-
-    //    public void 장비_구매() {// 장비 선택했을 때 안내 메시지 출력 ->
-//
-//        게임_진행.장비_구매_안내_메시지_출력();
-//    }
     public void 아이템_사용() {
 
     }
-
-
-
-
 }

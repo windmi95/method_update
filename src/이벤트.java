@@ -38,7 +38,7 @@ public class 이벤트 {
 
             }
         } else if (이벤트확률 > 5) {
-            게임_진행.운동_메뉴_선택(scanner.nextInt());
+
         }
         return 이벤트확률;
     }
