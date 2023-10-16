@@ -3,7 +3,7 @@ import java.util.Scanner;
 
 //운동 실행 중 랜덤으로 이벤트가 실행되는 클래스
 public class 이벤트 {
-    게임운영 운동메뉴선택 = new 게임운영();
+    게임운영 게임_진행 = new 게임운영();
     캐릭터 게임_캐릭터 = new 캐릭터();
     Scanner scanner = new Scanner(System.in);
     Random 뽑기 = new Random();
@@ -35,10 +35,10 @@ public class 이벤트 {
                 System.out.println("체력이 " + 게임_캐릭터.체력 + " 차감되었습니다." );
             }
         } else if (이벤트_참여_선택 == 2) {
-            return 운동메뉴선택.운동_메뉴_선택(scanner.nextInt());
+
         }
     } else if (이벤트확률 > 5) {
-        운동메뉴선택.운동_메뉴_선택(scanner.nextInt());
+        게임_진행.운동_메뉴_선택(scanner.nextInt());
     }
         return 이벤트확률;
     }

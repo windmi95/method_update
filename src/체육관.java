@@ -1,5 +1,5 @@
 import java.util.Scanner;
-
+//중량을 선택할 수 있는 클래스
 public class 체육관 {
     int 바벨_무게;
     Scanner scanner = new Scanner(System.in);
