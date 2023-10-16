@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 
 public class 헬스장_관장 {
-    
+
     Scanner sc = new Scanner(System.in);
     캐릭터 게임_캐릭터 = new 캐릭터();
 
@@ -124,6 +124,14 @@ public class 헬스장_관장 {
             }
 
         }
-
+    }
+    public void 승급_가능_메시지_출력() {
+//        if (30 <= 게임_캐릭터.레벨 && 게임_캐릭터.레벨 < 31) {//초급
+//            System.out.println("중급 심사를 진행하실 수 있습니다.");
+//        } else if (50 <= 게임_캐릭터.레벨 && 게임_캐릭터.레벨 < 51) {//중급
+//            System.out.println("고급 심사를 진행하실 수 있습니다.");
+//        } else if (70 <= 게임_캐릭터.레벨 && 게임_캐릭터.레벨 < 71) {//고급
+//            System.out.println("초월 심사를 진행하실 수 있습니다.");
+//        }
     }
 }
