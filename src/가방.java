@@ -12,6 +12,10 @@ public class 가방 {//아이템 관리하는 클래스
     ArrayList 탄수화물_보충제_list;
     ArrayList 프로틴_list;
     ArrayList 크레아틴_list;
+    ArrayList 손목보호대;
+    ArrayList 리프팅웨어;
+    ArrayList 역도화;
+    ArrayList 복압_벨트;
 
     public 가방() {
         bcaa_list = new ArrayList<bcaa>();
@@ -38,35 +42,43 @@ public class 가방 {//아이템 관리하는 클래스
         System.out.println("1.bcaa 2.탄수화물 보충제 3.프로틴 4.크레아틴");
         System.out.println("어떤 소모품을 선택하시겠습니까?");
     }
-    public int 아이템_사용 (int 사용할_소모품_선택) {
-        if (사용할_소모품_선택 == 1) {
-            System.out.println("아이템을 선택하셨습니다.");
-            int 아이템_사용 = sc.nextInt();
-            if (아이템_사용 == 1) {
-                게임_캐릭터.체력 = 게임_캐릭터.체력+1;
+    public void 아이템_사용 (int 사용할_아이템_번호_선택) {
+        if (사용할_아이템_번호_선택 == 1) {
+            System.out.println("bcaa를 선택하셨습니다.");
+            if (bcaa_list.isEmpty()) {
+                System.out.println("bcaa가 부족하여 사용하실 수 없습니다.");
+                return;
+            }
+            bcaa_list.remove(bcaa_list.size()-1);
+            System.out.println("bcaa를 섭취하였습니다.");
+
+            } else if (사용할_아이템_번호_선택 == 2) {
+                System.out.println("탄수화물 보충제를 선택하셨습니다.");
+                if (탄수화물_보충제_list.isEmpty()) {
+                    System.out.println("탄수화물 보충제가 부족하여 사용하실 수 없습니다.");
+                    return;
                 }
-            } else if (사용할_소모품_선택 == 2) {
-                if (보유한_탄수화물_보충제_개수 > 0) {
-                    System.out.println("탄수화물 보충제를 선택하셨습니다. (" +"보유한 개수 " + 보유한_탄수화물_보충제_개수 +"개"+")");
-                    System.out.println("체력+3이 회복되었습니다.");
-                    게임_캐릭터.체력 = 게임_캐릭터.체력 + 3;
+                탄수화물_보충제_list.remove(탄수화물_보충제_list.size()-1);
+                System.out.println("탄수화물 보충제를 섭취하였습니다.");
+            } else if (사용할_아이템_번호_선택 == 3) {
+                System.out.println("프로틴을 선택하셨습니다.");
+                if (프로틴_list.isEmpty()) {
+                    System.out.println("프로틴이 부족하여 사용하실 수 없습니다.");
+                    return;
                 }
-            } else if (사용할_소모품_선택 == 3) {
-                if (보유한_프로틴_개수 > 0) {
-                    System.out.println("프로틴을 선택하셨습니다. (" +"보유한 개수 " + 보유한_프로틴_개수 +"개"+")");
-                    System.out.println("근력+1이 증가되었습니다.");
-                    게임_캐릭터.근력 = 게임_캐릭터.근력 + 1;
-                }
-            } else if (사용할_소모품_선택 == 4) {
-                if (보유한_크레아틴_개수 > 0) {
-                    System.out.println("프로틴을 선택하셨습니다. (" +"보유한 개수 " + 보유한_크레아틴_개수 +"개"+")");
-                    System.out.println("근력+3이 증가되었습니다.");
-                    게임_캐릭터.근력 = 게임_캐릭터.근력 + 3;
+            프로틴_list.remove(프로틴_list.size()-1);
+            System.out.println("프로틴을 섭취하였습니다.");
+            } else if (사용할_아이템_번호_선택 == 4) {
+                System.out.println("크레아틴을 선택하셨습니다.");
+                if (크레아틴_list.isEmpty()) {
+                    System.out.println("크레아틴이 부족하여 사용하실 수 없습니다.");
                 }
             } else {
                 System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
             }
-        return 사용할_소모품_선택;
+    }
+    public void 장비_장착() {
+
     }
 
 }
