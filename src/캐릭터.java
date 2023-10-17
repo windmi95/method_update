@@ -28,7 +28,7 @@ public class 캐릭터 {
             레벨 = 레벨 + 1;
             System.out.println("체력과 근력 중 어떤 스탯을 상승시키겠습니까?");
             System.out.println("1.체력 2.근력");
-            int 스탯_선택 = scanner.nextInt();
+            int 스탯_선택 = 1;
             if (스탯_선택 == 1) {
                 체력 = 체력 + 10;
             } else if (스탯_선택 == 2) {

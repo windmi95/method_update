@@ -1,12 +1,5 @@
 //소모품을 사고 팔 수 있는 클래스
 public class 소모품_상점 {
-    int bcaa = 500;
-
-    int 탄수화물_보충제 = 700;
-
-    int 프로틴 = 500;
-
-    int 크레아틴 = 700;
 
     public void 소모품_목록() {
         System.out.println("1.bcaa 2.탄수화물 보충제 3.프로틴 4.크레아틴");
@@ -14,7 +7,7 @@ public class 소모품_상점 {
     }
 
     public void 소모품_개수체크(){
-        System.out.println("몇 개나 구매하시겠습니까?");
+        System.out.println("몇 개를 구매하시겠습니까?");
     }
     public void 소모품_구매(int 소모품_구매_선택_번호,int 소모품_구매_개수,캐릭터 내캐릭터,가방 내가방) {
         if (소모품_구매_선택_번호 == 1) {

@@ -4,6 +4,7 @@ import java.util.ServiceLoader;
 
 public class 게임운영 {
     Boolean 게임_종료 = false;
+    Boolean 운동_종료 = false;
 //    이벤트 게임_이벤트 = new 이벤트();
 //    소모품_상점 소모품 = new 소모품_상점();
 //    장비_상점 장비 = new 장비_상점();
