@@ -13,7 +13,7 @@ public class 가방 {//아이템 관리하는 클래스
     ArrayList 프로틴_list;
     ArrayList 크레아틴_list;
 
-    public 가방(){
+    public 가방() {
         bcaa_list = new ArrayList<bcaa>();
         탄수화물_보충제_list = new ArrayList<탄수화물_보충제>();
         프로틴_list = new ArrayList<프로틴>();

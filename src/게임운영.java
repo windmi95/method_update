@@ -5,11 +5,6 @@ import java.util.ServiceLoader;
 public class 게임운영 {
     Boolean 게임_종료 = false;
     Boolean 운동_종료 = false;
-//    이벤트 게임_이벤트 = new 이벤트();
-//    소모품_상점 소모품 = new 소모품_상점();
-//    장비_상점 장비 = new 장비_상점();
-//    캐릭터 게임_캐릭터 = new 캐릭터();
-//    가방 가방_소지한_아이템 = new 가방();
 
     int 계산 = 0;
 
@@ -33,6 +28,7 @@ public class 게임운영 {
         return 캐릭터_이름;
     }
     public void 메인_메뉴() {
+        System.out.println("");
         System.out.println("========================================메뉴 선택========================================");
         System.out.println("");
         System.out.println("1.운동하기 2.가방 3.의뢰 4.소모품 상점 5.장비 상점 6.퀘스트 현황 7.능력치 확인 8.장비 슬롯 9.게임 설정");
