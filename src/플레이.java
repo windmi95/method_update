@@ -35,6 +35,8 @@ public class 플레이 {
                         게임_캐릭터.경험치_설정();
                         게임_캐릭터.체력_설정();
                     } else if (운동_메뉴_선택 == 2) {
+                        가방.아이템_목록();
+                        int 사용할_아이템_선택 = scanner.nextInt();
 
                     } else if (운동_메뉴_선택 == 3) {
                         int 들고자_하는_바벨_중량선택 = scanner.nextInt();
