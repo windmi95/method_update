@@ -4,9 +4,14 @@ import java.util.Scanner;
 
 
 public class 헬스장_관장 {
+    캐릭터 게임_캐릭터;
+    Scanner sc;
 
-    Scanner sc = new Scanner(System.in);
-    캐릭터 게임_캐릭터 = new 캐릭터();
+    public 헬스장_관장() {
+        게임_캐릭터 = new 캐릭터();
+        sc = new Scanner(System.in);
+    }
+
 
     int 현재_횟수;
     int 남은_횟수;
@@ -101,8 +106,7 @@ public class 헬스장_관장 {
     }
 
     public void 승급심사_진행() {
-        Scanner sc = new Scanner(System.in);
-        게임_캐릭터.운동진행();
+        /*게임_캐릭터.운동진행();*/
         if (게임_캐릭터.등급 == 1) {
             if (게임_캐릭터.체력 > 0) {
                 게임_캐릭터.체력 = 게임_캐릭터.체력 - (초보_심사_중량 - 게임_캐릭터.근력);

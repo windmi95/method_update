@@ -2,7 +2,6 @@ import java.util.Scanner;
 import java.util.ArrayList;
 
 public class 가방 {//아이템 관리하는 클래스
-    Scanner sc = new Scanner(System.in);
     int 보유한_bcaa_개수 = 5;
     int 보유한_탄수화물_보충제_개수;
     int 보유한_프로틴_개수 = 5;
@@ -12,16 +11,20 @@ public class 가방 {//아이템 관리하는 클래스
     ArrayList 탄수화물_보충제_list;
     ArrayList 프로틴_list;
     ArrayList 크레아틴_list;
-    ArrayList 손목보호대;
-    ArrayList 리프팅웨어;
-    ArrayList 역도화;
-    ArrayList 복압_벨트;
+    ArrayList 손목보호대_list;
+    ArrayList 리프팅웨어_list;
+    ArrayList 역도화_list;
+    ArrayList 복압_벨트_list;
 
     public 가방() {
         bcaa_list = new ArrayList<bcaa>();
         탄수화물_보충제_list = new ArrayList<탄수화물_보충제>();
         프로틴_list = new ArrayList<프로틴>();
         크레아틴_list = new ArrayList<크레아틴>();
+        손목보호대_list = new ArrayList<손목보호대>();
+        리프팅웨어_list = new ArrayList<리프팅웨어>();
+        역도화_list = new ArrayList<역도화>();
+        복압_벨트_list = new ArrayList<복압_벨트>();
         게임_캐릭터 = new 캐릭터();
     }
     public void bcaa_먹기(캐릭터 게임_캐릭터) {
@@ -77,7 +80,7 @@ public class 가방 {//아이템 관리하는 클래스
                 System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
             }
     }
-    public void 장비_장착() {
+    public void 장비_장착(int 장착할_장비_선택_번호) {
 
     }
 
