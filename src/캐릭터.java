@@ -39,7 +39,4 @@ public class 캐릭터 {
             레벨 = 레벨 + 1;
         }
     }
-    public void 아이템_사용() {
-
-    }
 }

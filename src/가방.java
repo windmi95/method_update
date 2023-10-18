@@ -80,6 +80,9 @@ public class 가방 {//아이템 관리하는 클래스
                 System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
             }
     }
+
+
+
     public void 장비_장착(int 장착할_장비_선택_번호) {
 
     }

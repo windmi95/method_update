@@ -1,12 +1,8 @@
-import java.util.Scanner;
-import java.util.ServiceLoader;
 //게임 전반적인 운영을 담당하는 클래스
 
 public class 게임운영 {
     Boolean 게임_종료 = false;
     Boolean 운동_종료 = false;
-
-    int 계산 = 0;
 
     public void 프롤로그() {
         System.out.println("");
