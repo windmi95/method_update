@@ -49,6 +49,7 @@ public class 헬스장_관장 {
                 for (int i = 초; i > 0; i--) {
                     System.out.println(i / 60 + " 분" + i % 60 + " 초");
                 }
+
             } else if (승급_심사_선택 == 2) {
                 System.out.println("메뉴로 돌아가겠습니다.");
                 System.out.println();

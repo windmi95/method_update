@@ -15,6 +15,7 @@ public class 가방 {//아이템 관리하는 클래스
     ArrayList 리프팅웨어_list;
     ArrayList 역도화_list;
     ArrayList 복압_벨트_list;
+    ArrayList 장비_장착_list;
 
     public 가방() {
         bcaa_list = new ArrayList<bcaa>();
@@ -26,6 +27,7 @@ public class 가방 {//아이템 관리하는 클래스
         역도화_list = new ArrayList<역도화>();
         복압_벨트_list = new ArrayList<복압_벨트>();
         게임_캐릭터 = new 캐릭터();
+        장비_장착_list = new ArrayList<장착_슬롯>();
     }
     public void bcaa_먹기(캐릭터 게임_캐릭터) {
         bcaa_list.remove(bcaa_list.size()-1);
@@ -80,12 +82,8 @@ public class 가방 {//아이템 관리하는 클래스
                 System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
             }
     }
-
-
-
-    public void 장비_장착(int 장착할_장비_선택_번호) {
+    public void 장비_장착(int 장착할_장비_선택) {
 
     }
-
 }
 

@@ -4,6 +4,7 @@ public class 체육관 {
 
 
     public boolean 선택할_수_있는_무게체크(int 들고자_하는_바벨_중량선택, int 캐릭터_레벨, int 캐릭터_등급) {
+        System.out.println("선택하고자 하는 무게를 입력해주세요.");
         if (들고자_하는_바벨_중량선택 > 10 && 캐릭터_레벨 < 31) {
             System.out.println("해당 중량은 사용할 수 없습니다.");
             return false;
