@@ -3,6 +3,7 @@
 public class 게임운영 {
     Boolean 게임_종료 = false;
     Boolean 운동_종료 = false;
+    int 게임에서_나가기 = 10;
 
     public void 프롤로그() {
         System.out.println("");

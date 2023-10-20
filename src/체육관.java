@@ -1,10 +1,23 @@
 //중량을 선택할 수 있는 클래스
 public class 체육관 {
     int 바벨_무게;
+    int 운동횟수 = 0;
 
+    public void 중량_선택(int 캐릭터_레벨, int 캐릭터_등급) {
+        if (캐릭터_레벨 < 31 && 캐릭터_등급 == 1) {
+            System.out.println("1 ~ 10의 중량을 입력해주세요.");
+        } else if (캐릭터_레벨 < 51 && 캐릭터_등급 == 2) {
+            System.out.println("1 ~ 50의 중량을 입력해주세요");
+        } else if (캐릭터_레벨 < 101 && 캐릭터_등급 == 3) {
+            System.out.println("1 ~ 70의 중량을 입력해주세요");
+        } else if (캐릭터_레벨 <= 101 && 캐릭터_등급 == 4) {
+            System.out.println("1 ~ 100의 중량을 입력해주세요");
+        } else {
+            System.out.println("잘 못 입력하셨습니다.");
+        }
 
+    }
     public boolean 선택할_수_있는_무게체크(int 들고자_하는_바벨_중량선택, int 캐릭터_레벨, int 캐릭터_등급) {
-        System.out.println("선택하고자 하는 무게를 입력해주세요.");
         if (들고자_하는_바벨_중량선택 > 10 && 캐릭터_레벨 < 31) {
             System.out.println("해당 중량은 사용할 수 없습니다.");
             return false;
@@ -14,8 +27,7 @@ public class 체육관 {
         } else if (들고자_하는_바벨_중량선택 > 70 && 캐릭터_레벨 < 101) {
             System.out.println("해당 중량은 사용할 수 없습니다.");
             return false;
-        }
-        else {
+        } else {
             return true;
         }
     }
@@ -23,6 +35,7 @@ public class 체육관 {
         System.out.println();
         System.out.println("======================운동 메뉴 선택======================");
         System.out.println("1.운동 실행 2.아이템 사용 3.중량 변경 4.게임에서 나가기");
+        System.out.println("어떤 것을 선택하시겠습니까?");
     }
     public int 운동_메뉴_선택(int 운동_메뉴_선택지) {
 

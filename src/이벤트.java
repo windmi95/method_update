@@ -11,8 +11,6 @@ public class 이벤트 {
     int 이벤트_참여_선택;
     int 랜덤뽑기;
 
-
-
     public int 이벤트_실행() {
         Random random  = new Random();
         int 이벤트확률 = random.nextInt(10);
