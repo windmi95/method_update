@@ -110,21 +110,4 @@ public class 캐릭터 {
             }
         }
     }
-    public boolean 현재_손목보호대_착용_여부(boolean 착용_여부) {
-        System.out.println("손목보호대를 착용하시겠습니까?");
-        System.out.println("true or false를 입력해주세요");
-        return 손목보호대_착용여부;
-    }
-    public boolean 현재_리프팅웨어_착용_여부() {
-        System.out.println("리프팅웨어를 착용하시겠습니까?");
-        return 리프팅웨어_착용여부;
-    }
-    public boolean 현재_역도화_착용_여부() {
-        System.out.println("역도화를 착용하시겠습니까?");
-        return 역도화_착용여부;
-    }
-    public boolean 현재_복압벨트_착용_여부() {
-        System.out.println("복압벨트를 착용하시겠습니까?");
-        return 복압벨트_착용여부;
-    }
 }
