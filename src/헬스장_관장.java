@@ -29,8 +29,6 @@ public class 헬스장_관장 {
             int 랜덤_운동횟수 = 운동횟수.nextInt(5) * 100;
             System.out.println(랜덤_운동횟수);
             System.out.println("남은 운동횟수 ->" + 랜덤_운동횟수);
-
-
         } else if (퀘스트_번호_선택 == 2) {
             System.out.println("승급 심사를 진행하겠습니다.");
             if (게임_캐릭터.등급 == 1 && 게임_캐릭터.레벨 < 31) {
@@ -116,7 +114,7 @@ public class 헬스장_관장 {
                             게임_캐릭터.등급 = 게임_캐릭터.등급 + 1;
                         } else {
                             System.out.println("승급 심사를 통과하지 못하였습니다.");
-                        }
+                         }
                     }
                 }
             }

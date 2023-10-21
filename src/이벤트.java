@@ -8,6 +8,7 @@ public class 이벤트 {
     Scanner scanner = new Scanner(System.in);
     Random 뽑기 = new Random();
 
+
     int 이벤트_참여_선택;
     int 랜덤뽑기;
 

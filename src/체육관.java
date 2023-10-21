@@ -1,6 +1,5 @@
 //중량을 선택할 수 있는 클래스
 public class 체육관 {
-    int 바벨_무게;
     int 운동횟수 = 0;
 
     public void 중량_선택(int 캐릭터_레벨, int 캐릭터_등급) {
@@ -38,7 +37,6 @@ public class 체육관 {
         System.out.println("어떤 것을 선택하시겠습니까?");
     }
     public int 운동_메뉴_선택(int 운동_메뉴_선택지) {
-
         switch (운동_메뉴_선택지) {
             case 1:
                 System.out.println("운동을 실행합니다.");

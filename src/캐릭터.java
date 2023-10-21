@@ -8,7 +8,62 @@ public class 캐릭터 {
     int 레벨 = 1;
     int 중량_선택 = 0;
     int 스탯_포인트 = 5;
+    private 손목보호대 손목보호대 = null;
+    private 리프팅웨어 리프팅웨어 = null;
+    private 역도화 역도화 = null;
+    private 복압_벨트 복압벨트 = null;
+    private boolean 손목보호대_착용여부;
+    private boolean 리프팅웨어_착용여부;
+    private boolean 역도화_착용여부;
+    private boolean 복압벨트_착용여부;
 
+    public void 손목보호대_장착(손목보호대 손목보호대) {
+        this.손목보호대 = 손목보호대;
+        this.손목보호대.캐릭터한테_장착되어있는지_여부 = true;
+        this.손목보호대.손목보호대_장착_효과_적용하기(this);
+    }
+    public void 손목보호대_벗기() {
+        this.손목보호대 = null;
+        this.손목보호대.손목보호대_효과_제거(this);
+    }
+    public void 리프팅웨어_장착(리프팅웨어 리프팅웨어){
+        this.리프팅웨어 = 리프팅웨어;
+        this.리프팅웨어.캐릭터한테_장착되어있는지_여부 = true;
+        this.리프팅웨어.리프팅웨어_장착_효과_적용하기(this);
+    }
+    public void 리프팅웨어_벗기(){
+        this.리프팅웨어 = null;
+        this.리프팅웨어.리프팅웨어_장착_효과_제거하기(this);
+    }
+    public void 역도화_장착(역도화 역도화) {
+        this.역도화 = 역도화;
+        this.역도화.캐릭터한테_장착되어있는지_여부 = true;
+        this.역도화.역도화_장착_효과_적용하기(this);
+    }
+    public void 역도화_벗기() {
+        this.역도화 = null;
+        this.역도화.역도화_장착_효과_제거하기(this);
+    }
+    public void 복압벨트_장착(복압_벨트 복압벨트) {
+        this.복압벨트 = 복압벨트;
+        this.복압벨트.캐릭터한테_장착되어있는지_여부 = true;
+        this.복압벨트.복압벨트_장착_효과_적용하기(this);
+    }
+    public void 복압벨트_벗기() {
+        this.복압벨트 = null;
+        this.복압벨트.복압벨트_장착_효과_제거하기(this);
+    }
+    public void 캐릭터_장착_장비_리스트_보여주기() {
+        if (this.손목보호대 != null && this.손목보호대.캐릭터한테_장착되어있는지_여부) {
+            System.out.println("손목보호대");
+        } else if (this.리프팅웨어 != null && this.리프팅웨어.캐릭터한테_장착되어있는지_여부){
+            System.out.println("리프팅웨어");
+        } else if (this.역도화 != null && this.역도화.캐릭터한테_장착되어있는지_여부) {
+            System.out.println("역도화");
+        } else if (this.복압벨트 != null && this.복압벨트.캐릭터한테_장착되어있는지_여부) {
+            System.out.println("복압벨트");
+        }
+    }
     public void 캐릭터_스탯() {
         System.out.println("현재 체력 => " + 체력);
         System.out.println("현재 근력 => " + 근력);
@@ -54,6 +109,22 @@ public class 캐릭터 {
 
             }
         }
-
+    }
+    public boolean 현재_손목보호대_착용_여부(boolean 착용_여부) {
+        System.out.println("손목보호대를 착용하시겠습니까?");
+        System.out.println("true or false를 입력해주세요");
+        return 손목보호대_착용여부;
+    }
+    public boolean 현재_리프팅웨어_착용_여부() {
+        System.out.println("리프팅웨어를 착용하시겠습니까?");
+        return 리프팅웨어_착용여부;
+    }
+    public boolean 현재_역도화_착용_여부() {
+        System.out.println("역도화를 착용하시겠습니까?");
+        return 역도화_착용여부;
+    }
+    public boolean 현재_복압벨트_착용_여부() {
+        System.out.println("복압벨트를 착용하시겠습니까?");
+        return 복압벨트_착용여부;
     }
 }
