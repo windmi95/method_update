@@ -1,9 +1,9 @@
 //게임 전반적인 운영을 담당하는 클래스
 
 public class 게임운영 {
-    Boolean 게임_종료 = false;
-    Boolean 운동_종료 = false;
-
+    boolean 게임_종료 = false;
+    boolean 운동_종료 = false;
+    boolean 메뉴에서_나가기 = false;
 
     public void 프롤로그() {
         System.out.println("");
@@ -55,10 +55,7 @@ public class 게임운영 {
                 System.out.println("7번 능력치 확인을 선택하셨습니다.");
                 break;
             case 8:
-                System.out.println("8번 장비 슬롯을 선택하셨습니다.");
-                break;
-            case 9:
-                System.out.println("9번 게임 설정을 선택하셨습니다.");
+                System.out.println("8번 게임 설정을 선택하셨습니다.");
                 break;
         }
         return 메인_메뉴_선택지;
