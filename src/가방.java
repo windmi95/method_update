@@ -99,7 +99,7 @@ public class 가방 {//아이템 관리하는 클래스
             }
             bcaa_list.remove(bcaa_list.size()-1);
             System.out.println("bcaa를 섭취하였습니다.");
-
+            System.out.println("체력 +1 상승하였습니다.");
             } else if (사용할_아이템_번호_선택 == 2) {
                 System.out.println("탄수화물 보충제를 선택하셨습니다.");
                 if (탄수화물_보충제_list.isEmpty()) {
@@ -108,16 +108,19 @@ public class 가방 {//아이템 관리하는 클래스
                 }
                 탄수화물_보충제_list.remove(탄수화물_보충제_list.size()-1);
                 System.out.println("탄수화물 보충제를 섭취하였습니다.");
+                System.out.println("체력 +3 상승하였습니다.");
             } else if (사용할_아이템_번호_선택 == 3) {
                 System.out.println("프로틴을 선택하셨습니다.");
                 if (프로틴_list.isEmpty()) {
                     System.out.println("프로틴이 부족하여 사용하실 수 없습니다.");
                     return;
                 }
-            프로틴_list.remove(프로틴_list.size()-1);
-            System.out.println("프로틴을 섭취하였습니다.");
-            } else if (사용할_아이템_번호_선택 == 4) {
+                프로틴_list.remove(프로틴_list.size()-1);
+                System.out.println("프로틴을 섭취하였습니다.");
+                System.out.println("근력 +1 상승하였습니다.");
+        } else if (사용할_아이템_번호_선택 == 4) {
                 System.out.println("크레아틴을 선택하셨습니다.");
+                System.out.println("근력 +3 상승하였습니다.");
                 if (크레아틴_list.isEmpty()) {
                     System.out.println("크레아틴이 부족하여 사용하실 수 없습니다.");
                 }
@@ -132,14 +135,14 @@ public class 가방 {//아이템 관리하는 클래스
         System.out.println("남은 프로틴 개수: " + 프로틴_list.size());
         System.out.println("남은 크레아틴 개수: " + 크레아틴_list.size());
     }
-    public void 버릴_소모품_선택() {
+    public void 버릴_소모품_목록() {
         System.out.println("1.bcaa 2.탄수화물 보충제 3.프로틴 4.크레아틴");
         System.out.println("어떤 소품을 버리시겠습니까?");
     }
-
     public void 소모품_버리기(int 버릴_소모품_번호_선택) {
         if (버릴_소모품_번호_선택 == 1) {
-            if (bcaa_list.isEmpty()) {
+            if (!bcaa_list.isEmpty()) {
+                bcaa_list.remove(0);
                 System.out.println("bcaa를 버렸습니다.");
                 return;
             }

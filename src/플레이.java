@@ -24,7 +24,8 @@ public class 플레이 {
                 if (중량들수_있는여부) {
                     게임_캐릭터.중량_선택 = 들고자_하는_바벨_중량선택;
                 } else {
-                    System.out.println("들 수 없는 중량을 선택하셨습니다.");
+                    System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요");
+                    continue;
                 }
                 체육관.운동_메뉴();
                 int 운동_메뉴_선택 = 체육관.운동_메뉴_선택(scanner.nextInt());
@@ -54,7 +55,7 @@ public class 플레이 {
                         게임_캐릭터.레벨업(scanner.nextInt());
                     } else if (운동_메뉴_선택 == 4) {
                         System.out.println("운동을 종료합니다.");
-                        게임_진행.운동_종료 = true;
+                        break;
                     }
                 }
             } else if (메인_메뉴_선택 == 2) {//가방에서 아이템을 관리
@@ -74,13 +75,17 @@ public class 플레이 {
                     } else if (가방_메뉴_선택_번호 == 3) {
                         게임_캐릭터.캐릭터_장착_장비_리스트_보여주기();
                     } else if (가방_메뉴_선택_번호 == 4) {
+                        가방.소모품_목록();
                         가방.소모품_사용(scanner.nextInt());
                     } else if (가방_메뉴_선택_번호 == 5) {
                         가방.소모품_체크();
                     } else if (가방_메뉴_선택_번호 == 6) {
-                        가방.버릴_소모품_선택();
+                        가방.버릴_소모품_목록();
+                        int 버릴_소모품_번호_선택 = scanner.nextInt();
+                        가방.소모품_버리기(버릴_소모품_번호_선택);
+                        break;
                     } else if (가방_메뉴_선택_번호 == 7) {
-                        게임_진행.메뉴에서_나가기 = true;
+                        break;
                     } else {
                         System.out.println("잘 못 선택하셨습니다.");
                     }

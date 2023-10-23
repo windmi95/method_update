@@ -44,7 +44,6 @@ public class 헬스장_관장 {
                             System.out.println("남은 횟수 => " + 남은_횟수);
                             System.out.println("승급 심사를 통과하셨습니다.");
                             System.out.println("중급으로 등급이 상승되었습니다.");
-
                             for (int j = 300; j > 0; j--) {
                                 System.out.println(j / 60 + " 분" + j % 60 + " 초");
                             }
