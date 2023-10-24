@@ -93,7 +93,7 @@ public class 캐릭터 {
             System.out.println("체력이 부족하여 메인 메뉴로 이동하겠습니다.");
         }
     }
-    public void 레벨업(int 상승시킬_스탯_번호_선택) {
+    public void 레벨업_했을_경우_올릴_스탯_번호_선택(int 상승시킬_스탯_번호_선택) {
         if (경험치양 > 레벨 * 100) {//레벨 상승 조건
             레벨 = 레벨 + 1;
             System.out.println("1.근력 2.체력");
@@ -110,4 +110,9 @@ public class 캐릭터 {
             }
         }
     }
+    public void 이벤트_당첨_실패했을_경우(int 번호_선택) {
+        this.체력 = 체력 - 10;
+        System.out.println("체력이 -10 감소되었습니다.");
+    }
+
 }

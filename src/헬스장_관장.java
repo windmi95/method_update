@@ -5,7 +5,6 @@ public class 헬스장_관장 {
     캐릭터 게임_캐릭터;
     Scanner sc;
 
-
     public 헬스장_관장() {
         게임_캐릭터 = new 캐릭터();
         sc = new Scanner(System.in);

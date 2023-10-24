@@ -80,8 +80,10 @@ public class 가방 {//아이템 관리하는 클래스
             case 7:
                 System.out.println("가방 메뉴에서 나가겠습니다.");
                 break;
+            default:
+                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
+                break;
         }
-
         return 가방_메뉴_선택지;
     }
     public void 소모품_목록() {
@@ -144,22 +146,32 @@ public class 가방 {//아이템 관리하는 클래스
             if (!bcaa_list.isEmpty()) {
                 bcaa_list.remove(0);
                 System.out.println("bcaa를 버렸습니다.");
-                return;
+            } else {
+                    System.out.println("버릴 bcaa가 없습니다.");
             }
         } else if (버릴_소모품_번호_선택 == 2) {
-            if (탄수화물_보충제_list.isEmpty()) {
+            if (!탄수화물_보충제_list.isEmpty()) {
+                탄수화물_보충제_list.isEmpty();
                 System.out.println("탄수화물 보충제를 버렸습니다.");
                 return;
+            } else {
+                System.out.println("버릴 탄수화물 보충제가 없습니다.");
             }
         } else if (버릴_소모품_번호_선택 == 3) {
             if (프로틴_list.isEmpty()) {
                 System.out.println("프로틴을 버렸습니다.");
                 return;
             }
+            else {
+                System.out.println("버릴 프로틴이 없습니다.");
+            }
         } else if (버릴_소모품_번호_선택 == 4) {
             if (크레아틴_list.isEmpty()) {
                 System.out.println("크레아틴을 버렸습니다.");
                 return;
+            }
+            else {
+                System.out.println("버릴 크레아틴이 없습니다.");
             }
         }
     }

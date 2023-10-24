@@ -57,6 +57,9 @@ public class 게임운영 {
             case 8:
                 System.out.println("8번 게임 설정을 선택하셨습니다.");
                 break;
+            default:
+                System.out.println("잘 못 입력하셨습니다.");
+                break;
         }
         return 메인_메뉴_선택지;
     }

@@ -14,7 +14,6 @@ public class 체육관 {
         } else {
             System.out.println("잘 못 입력하셨습니다.");
         }
-
     }
     public boolean 선택할_수_있는_무게체크(int 들고자_하는_바벨_중량선택, int 캐릭터_레벨, int 캐릭터_등급) {
         if (들고자_하는_바벨_중량선택 > 10 && 캐릭터_레벨 < 31) {
@@ -50,7 +49,11 @@ public class 체육관 {
             case 4:
                 System.out.println("게임플레이를 취소하였습니다.");
                 break;
+            default:
+                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
+                break;
         }
         return 운동_메뉴_선택지;
     }
+
 }
