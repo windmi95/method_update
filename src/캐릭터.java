@@ -110,9 +110,4 @@ public class 캐릭터 {
             }
         }
     }
-    public void 이벤트_당첨_실패했을_경우(int 번호_선택) {
-        this.체력 = 체력 - 10;
-        System.out.println("체력이 -10 감소되었습니다.");
-    }
-
 }
