@@ -7,7 +7,7 @@ public class 이벤트 {
     int 랜덤뽑기;
     Scanner scanner = new Scanner(System.in);
     Random 뽑기 = new Random();
-    public void 이벤트_실행(캐릭터 게임_캐릭터) {
+    public int 이벤트_실행(캐릭터 게임_캐릭터) {
         Random random  = new Random();
         int 이벤트확률 = random.nextInt(10);
         if(이벤트확률 < 5) {
@@ -34,5 +34,6 @@ public class 이벤트 {
         } else if (이벤트확률 > 5) {//랜덤으로 이벤트 확률이 5보다 클 경우 실행x
 
         }
+        return 이벤트확률;
     }
 }

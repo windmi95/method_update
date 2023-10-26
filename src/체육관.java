@@ -39,6 +39,8 @@ public class 체육관 {
         switch (운동_메뉴_선택지) {
             case 1:
                 System.out.println("운동을 실행합니다.");
+                System.out.println("");
+                System.out.println("============================================");
                 break;
             case 2:
                 System.out.println("아이템 사용");
