@@ -7,7 +7,7 @@ public class 이벤트 {
     int 랜덤뽑기;
     Scanner scanner = new Scanner(System.in);
     Random 뽑기 = new Random();
-    public int 이벤트_실행(캐릭터 게임_캐릭터) {
+    public int 이벤트_실행(캐릭터 게임_캐릭터, 게임운영 게임_진행) {
         Random random  = new Random();
         int 이벤트확률 = random.nextInt(10);
         if(이벤트확률 < 5) {

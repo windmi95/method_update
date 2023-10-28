@@ -40,16 +40,33 @@ public class 가방 {//아이템 관리하는 클래스
         게임_캐릭터 = new 캐릭터();
     }
     public void bcaa_먹기(캐릭터 게임_캐릭터) {
-        bcaa_list.remove(bcaa_list.size()-1);
+        if (게임_캐릭터.체력 < 게임_캐릭터.체력) {
+            bcaa_list.remove(bcaa_list.size() - 1);
+        } else {
+            System.out.println("체력이 채워져있기 때문에 더 이상 사용할 수 없습니다.");
+        }
     }
     public void 탄수화물_보충제_먹기(캐릭터 게임_캐릭터) {
+        if (게임_캐릭터.체력 < 게임_캐릭터.체력) {
         탄수화물_보충제_list.remove(탄수화물_보충제_list.size()-1);
+        } else {
+            System.out.println("체력이 채워져있기 때문에 더 이상 사용할 수 없습니다.");
+        }
     }
+
     public void 프로틴_먹기(캐릭터 게임_캐릭터) {
-        프로틴_list.remove(프로틴_list.size()-1);
+        if (게임_캐릭터.체력 < 게임_캐릭터.체력) {
+            프로틴_list.remove(프로틴_list.size() - 1);
+        } else {
+            System.out.println("체력이 채워져있기 때문에 더 이상 사용할 수 없습니다.");
+        }
     }
     public void 크레아틴_먹기(캐릭터 게임_캐릭터) {
-        크레아틴_list.remove(크레아틴_list.size()-1);
+        if (게임_캐릭터.체력 < 게임_캐릭터.체력) {
+            크레아틴_list.remove(크레아틴_list.size() - 1);
+        } else {
+            System.out.println("체력이 채워져있기 때문에 더 이상 사용할 수 없습니다.");
+        }
     }
     public void 가방_메뉴() {
         System.out.println();
@@ -120,15 +137,15 @@ public class 가방 {//아이템 관리하는 클래스
                 프로틴_list.remove(프로틴_list.size()-1);
                 System.out.println("프로틴을 섭취하였습니다.");
                 System.out.println("근력 +1 상승하였습니다.");
-        } else if (사용할_아이템_번호_선택 == 4) {
+            } else if (사용할_아이템_번호_선택 == 4) {
                 System.out.println("크레아틴을 선택하셨습니다.");
                 System.out.println("근력 +3 상승하였습니다.");
                 if (크레아틴_list.isEmpty()) {
                     System.out.println("크레아틴이 부족하여 사용하실 수 없습니다.");
                 }
-            } else {
+            }   else {
                 System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
-            }
+                }
     }
 
     public void 소모품_체크() {
@@ -175,7 +192,5 @@ public class 가방 {//아이템 관리하는 클래스
             }
         }
     }
-
-
 }
 
