@@ -3,7 +3,6 @@
 public class 게임운영 {
     boolean 게임_종료 = false;
     boolean 운동_진행중 = true;
-    boolean 메뉴에서_나가기 = false;
 
     public void 프롤로그() {
         System.out.println("");

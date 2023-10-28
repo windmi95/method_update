@@ -1,6 +1,7 @@
 //중량을 선택할 수 있는 클래스
 public class 체육관 {
     int 운동횟수 = 0;
+    boolean 중량_선택_성공_여부 = true;
 
     public void 중량_선택(int 캐릭터_레벨, int 캐릭터_등급) {
         if (캐릭터_레벨 < 31 && 캐릭터_등급 == 1) {
@@ -11,8 +12,6 @@ public class 체육관 {
             System.out.println("1 ~ 70의 중량을 입력해주세요");
         } else if (캐릭터_레벨 <= 101 && 캐릭터_등급 == 4) {
             System.out.println("1 ~ 100의 중량을 입력해주세요");
-        } else {
-            System.out.println("잘 못 입력하셨습니다.");
         }
     }
     public boolean 선택할_수_있는_무게체크(int 들고자_하는_바벨_중량선택, int 캐릭터_레벨, int 캐릭터_등급) {
