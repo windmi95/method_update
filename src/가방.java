@@ -34,10 +34,10 @@ public class 가방 {//아이템 관리하는 클래스
         for (int i = 0; i < 보유한_크레아틴_개수; i++) {
             크레아틴_list.add(new 크레아틴());
         }
-        손목보호대 손목보호대 = new 손목보호대();
-        리프팅웨어 리프팅웨어 = new 리프팅웨어();
-        역도화 역도화 = new 역도화();
-        복압_벨트 복압_벨트 = new 복압_벨트();
+        손목보호대 = new 손목보호대();
+        리프팅웨어 = new 리프팅웨어();
+        역도화 = new 역도화();
+        복압_벨트 = new 복압_벨트();
         게임_캐릭터 = new 캐릭터();
     }
     public void 가방_메뉴() {
@@ -46,6 +46,24 @@ public class 가방 {//아이템 관리하는 클래스
         System.out.println("1.장비 장착하기 2.장착 해제하기 3.착용한 장비 확인하기 4.소모품 사용하기 5.소모품 개수 확인 6.소모품 버리기 7.가방 메뉴에서 나가기");
         System.out.println("어떤 것을 선택하시겠습니까?");
     }
+
+    public void 새로운_손목보호대를_가방에_넣는다(손목보호대 손목보호대) {
+        this.손목보호대 = 손목보호대;
+    }
+
+    public void 새로운_리프팅웨어를_가방에_넣는다(리프팅웨어 리프팅웨어) {
+        this.리프팅웨어 = 리프팅웨어;
+    }
+    public void 새로운_역도화를_가방에_넣는다(역도화 역도화) {
+        this.역도화 = 역도화;
+    }
+    public void 새로운_복압_벨트를_가방에_넣는다(복압_벨트 복압벨트) {
+        this.복압_벨트 = 복압벨트;
+    }
+    public void 가방에_있는_장비_목록_보여주기(장비_상점 장비상점) {
+        장비상점.장비구매();
+    }
+
     public int 가방_메뉴_선택(int 가방_메뉴_선택지) {
         switch (가방_메뉴_선택지) {
             case 1:
@@ -68,9 +86,11 @@ public class 가방 {//아이템 관리하는 클래스
                 break;
             case 7:
                 System.out.println("가방 메뉴에서 나가겠습니다.");
+                가방_메뉴_진행중 = false;
                 break;
             default:
                 System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
+                가방_메뉴_진행중 = false;
                 break;
         }
         return 가방_메뉴_선택지;
@@ -151,14 +171,12 @@ public class 가방 {//아이템 관리하는 클래스
             if (!탄수화물_보충제_list.isEmpty()) {
                 탄수화물_보충제_list.isEmpty();
                 System.out.println("탄수화물 보충제를 버렸습니다.");
-                return;
             } else {
                 System.out.println("버릴 탄수화물 보충제가 없습니다.");
             }
         } else if (버릴_소모품_번호_선택 == 3) {
             if (프로틴_list.isEmpty()) {
                 System.out.println("프로틴을 버렸습니다.");
-                return;
             }
             else {
                 System.out.println("버릴 프로틴이 없습니다.");
@@ -166,7 +184,6 @@ public class 가방 {//아이템 관리하는 클래스
         } else if (버릴_소모품_번호_선택 == 4) {
             if (크레아틴_list.isEmpty()) {
                 System.out.println("크레아틴을 버렸습니다.");
-                return;
             }
             else {
                 System.out.println("버릴 크레아틴이 없습니다.");
