@@ -16,7 +16,6 @@ public class 가방 {//아이템 관리하는 클래스
     역도화 역도화;
     복압_벨트 복압_벨트;
 
-
     public 가방() {
         bcaa_list = new ArrayList<bcaa>();
         for (int i = 0; i < 보유한_bcaa_개수; i++) {
@@ -34,36 +33,65 @@ public class 가방 {//아이템 관리하는 클래스
         for (int i = 0; i < 보유한_크레아틴_개수; i++) {
             크레아틴_list.add(new 크레아틴());
         }
-        손목보호대 = new 손목보호대();
-        리프팅웨어 = new 리프팅웨어();
-        역도화 = new 역도화();
-        복압_벨트 = new 복압_벨트();
+        손목보호대 손목보호대 = null;
+        리프팅웨어 리프팅웨어 = null;
+        역도화 역도화 = null;
+        복압_벨트 복압벨트 = null;
         게임_캐릭터 = new 캐릭터();
     }
     public void 가방_메뉴() {
         System.out.println();
         System.out.println("============================================가방 메뉴 선택=======================================================");
         System.out.println("1.장비 장착하기 2.장착 해제하기 3.착용한 장비 확인하기 4.소모품 사용하기 5.소모품 개수 확인 6.소모품 버리기 7.가방 메뉴에서 나가기");
-        System.out.println("어떤 것을 선택하시겠습니까?");
-    }
 
+    }
     public void 새로운_손목보호대를_가방에_넣는다(손목보호대 손목보호대) {
         this.손목보호대 = 손목보호대;
     }
-
     public void 새로운_리프팅웨어를_가방에_넣는다(리프팅웨어 리프팅웨어) {
         this.리프팅웨어 = 리프팅웨어;
+
     }
     public void 새로운_역도화를_가방에_넣는다(역도화 역도화) {
         this.역도화 = 역도화;
     }
+
     public void 새로운_복압_벨트를_가방에_넣는다(복압_벨트 복압벨트) {
         this.복압_벨트 = 복압벨트;
     }
-    public void 가방에_있는_장비_목록_보여주기(장비_상점 장비상점) {
-        장비상점.장비구매();
-    }
 
+    public void 장비상점에서_구매한_장비_목록보여주기() {
+        if (this.손목보호대 != null) {
+            System.out.println("1.손목보호대");
+        } else if (this.리프팅웨어 != null) {
+            System.out.println("2.리프팅웨어");
+        } else if (this.역도화 != null) {
+            System.out.println("3.역도화");
+        } else if (this.복압_벨트 != null) {
+            System.out.println("4.복압벨트");
+        } else {
+            System.out.println("구매한 장비가 없습니다.");
+            boolean 가방_메뉴_진행중 = false;
+        }
+    }
+    public int 장비상점에서_구매한_장비_장착_선택(int 장비_장착_번호_선택) {
+        if (장비_장착_번호_선택 == 1) {
+            System.out.println("손목보호대를 장착하시겠습니까?");
+            System.out.println("1.장착한다 2.장착하지 않는다.");
+        } else if (장비_장착_번호_선택 == 2) {
+            System.out.println("리프팅웨어를 장착하시겠습니까?");
+            System.out.println("1.장착한다 2.장착하지 않는다.");
+        } else if (장비_장착_번호_선택 == 3) {
+            System.out.println("역도화를 장착하시겠습니까?");
+            System.out.println("1.장착한다 2.장착하지 않는다.");
+        } else if (장비_장착_번호_선택 == 4) {
+            System.out.println("복압벨트를 장착하시겠습니까?");
+            System.out.println("1.장착한다 2.장착하지 않는다.");
+        } else {
+            System.out.println("잘 못 입력하셨습니다.");
+        }
+        return 장비_장착_번호_선택;
+    }
     public int 가방_메뉴_선택(int 가방_메뉴_선택지) {
         switch (가방_메뉴_선택지) {
             case 1:
@@ -188,6 +216,9 @@ public class 가방 {//아이템 관리하는 클래스
             else {
                 System.out.println("버릴 크레아틴이 없습니다.");
             }
+        } else {
+            System.out.println("번호를 잘 못 입력하셨습니다.");
+
         }
     }
 }

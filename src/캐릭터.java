@@ -4,7 +4,7 @@ public class 캐릭터 {
     int 등급 = 1;
     int 경험치양 = 0;
     int 보유한_골드 = 5000;
-    int 레벨 = 1;
+    int 레벨 = 100;
     int 중량_선택 = 0;
     int 스탯_포인트 = 5;
     private 손목보호대 손목보호대 = null;
@@ -13,7 +13,7 @@ public class 캐릭터 {
     private 복압_벨트 복압벨트 = null;
     boolean 캐릭터_장착_메뉴_확인중 = true;
 
-    public void 손목보호대_장착(손목보호대 손목보호대) {
+    public void 손목보호대_장착(손목보호대 손목보호대, 가방 내가방) {
         this.손목보호대 = 손목보호대;
         this.손목보호대.캐릭터한테_장착되어있는지_여부 = true;
         this.손목보호대.손목보호대_장착_효과_적용하기(this);
@@ -22,7 +22,7 @@ public class 캐릭터 {
         this.손목보호대.손목보호대_효과_제거(this);
         this.손목보호대 = null;
     }
-    public void 리프팅웨어_장착(리프팅웨어 리프팅웨어){
+    public void 리프팅웨어_장착(리프팅웨어 리프팅웨어, 가방 내가방){
         this.리프팅웨어 = 리프팅웨어;
         this.리프팅웨어.캐릭터한테_장착되어있는지_여부 = true;
         this.리프팅웨어.리프팅웨어_장착_효과_적용하기(this);
@@ -31,7 +31,7 @@ public class 캐릭터 {
         this.리프팅웨어.리프팅웨어_장착_효과_제거하기(this);
         this.리프팅웨어 = null;
     }
-    public void 역도화_장착(역도화 역도화) {
+    public void 역도화_장착(역도화 역도화, 가방 내가방) {
         this.역도화 = 역도화;
         this.역도화.캐릭터한테_장착되어있는지_여부 = true;
         this.역도화.역도화_장착_효과_적용하기(this);
@@ -40,7 +40,7 @@ public class 캐릭터 {
         this.역도화.역도화_장착_효과_제거하기(this);
         this.역도화 = null;
     }
-    public void 복압벨트_장착(복압_벨트 복압벨트) {
+    public void 복압벨트_장착(복압_벨트 복압벨트, 가방 내가방) {
         this.복압벨트 = 복압벨트;
         this.복압벨트.캐릭터한테_장착되어있는지_여부 = true;
         this.복압벨트.복압벨트_장착_효과_적용하기(this);
