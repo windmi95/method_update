@@ -21,6 +21,7 @@ public class 소모품_상점 {
     }
     public void 소모품_구매(int 소모품_구매_선택_번호,int 소모품_구매_개수,캐릭터 게임_캐릭터,가방 내가방) {
         if (소모품_구매_선택_번호 == 1) {
+            System.out.println("bcaa를 선택하셨습니다.");
             System.out.println("현재 소지하고 있는 골드 -> " + 게임_캐릭터.보유한_골드);
             int 총금액 = this.bcaa.bcaa_가격 * 소모품_구매_개수;
             if (게임_캐릭터.보유한_골드 >= 총금액) {//구매가능
@@ -60,8 +61,8 @@ public class 소모품_상점 {
                 System.out.println("골드가 부족합니다.");
             }
         } else if (소모품_구매_선택_번호 == 4) {
-            System.out.println("현재 소지하고 있는 골드 -> " + 게임_캐릭터.보유한_골드);
             System.out.println("크레아틴을 선택하셨습니다.");
+            System.out.println("현재 소지하고 있는 골드 -> " + 게임_캐릭터.보유한_골드);
             int 총금액 = this.크레아틴.크레아틴_가격 * 소모품_구매_개수;
             if (게임_캐릭터.보유한_골드 >= 총금액) {
                 게임_캐릭터.보유한_골드 = 게임_캐릭터.보유한_골드 - 총금액;
@@ -73,7 +74,7 @@ public class 소모품_상점 {
                 System.out.println("골드가 부족합니다.");
             }
         } else {
-            System.out.println("잘못된 번호 입니다. ");
+            System.out.println("잘 못 입력하셨습니다.");
         }
     }
 }
