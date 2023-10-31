@@ -70,17 +70,65 @@ public class 플레이 {
                 while (가방.가방_메뉴_진행중) {
                     if (가방_메뉴_선택_번호 == 1) {//장비 선택을 골랐을 때
                         가방.장비상점에서_구매한_장비_목록보여주기();
-                        int 장비상점에서_구매한_장비_번호_입력하기 = 가방.장비상점에서_구매한_장비_장착_선택(scanner.nextInt());
-                        if (장비상점에서_구매한_장비_번호_입력하기 == 1) {
-                            게임_캐릭터.손목보호대_장착(가방.손목보호대,가방);
-                            break;
-                        } else if (장비상점에서_구매한_장비_번호_입력하기 == 2) {
-                            게임_캐릭터.리프팅웨어_장착(가방.리프팅웨어,가방);
-                        } else if (장비상점에서_구매한_장비_번호_입력하기 == 3) {
-                            게임_캐릭터.역도화_장착(가방.역도화,가방);
-                        } else if (장비상점에서_구매한_장비_번호_입력하기 == 4) {
-                            게임_캐릭터.복압벨트_장착(가방.복압_벨트,가방);
+                        int 장착할_장비_번호_선택 = 가방.장착할_장비_번호_선택(scanner.nextInt());
+                        if (가방.손목보호대 != null && 장착할_장비_번호_선택  == 1) {
+                            int 장착_선택_여부_선택 = scanner.nextInt();
+                            if (장착_선택_여부_선택 == 1) {
+                                System.out.println("손목보호대를 장착하겠습니다.");
+                                게임_캐릭터.손목보호대_장착(가방.손목보호대, 가방);
+                                가방.손목보호대 = null;
+                                break;
+                            } else if (장착_선택_여부_선택 == 2) {
+                                System.out.println("가방 메뉴로 이동하겠습니다.");
+                                break;
+                            } else {
+                                System.out.println("잘 못 입력하셨습니다.");
+                                continue;
+                            }
+                        } else if (가방.리프팅웨어 != null && 장착할_장비_번호_선택 == 2) {
+                            int 장착_선택_여부_선택 = scanner.nextInt();
+                            if (장착_선택_여부_선택 == 1) {
+                                System.out.println("리프팅웨어를 장착하겠습니다.");
+                                게임_캐릭터.리프팅웨어_장착(가방.리프팅웨어, 가방);
+                                가방.리프팅웨어 = null;
+                                break;
+                            } else if (장착_선택_여부_선택 == 2) {
+                                System.out.println("가방 메뉴로 이동하겠습니다.");
+                                break;
+                            } else {
+                                System.out.println("잘 못 입력하셨습니다.");
+                                continue;
+                            }
+                        } else if (가방.역도화 != null && 장착할_장비_번호_선택 == 3) {
+                            int 장착_선택_여부_선택 = scanner.nextInt();
+                            if (장착_선택_여부_선택 == 1) {
+                                System.out.println("역도화를 장착하겠습니다.");
+                                게임_캐릭터.역도화_장착(가방.역도화, 가방);
+                                가방.역도화 = null;
+                                break;
+                            } else if (장착_선택_여부_선택 == 2) {
+                                System.out.println("가방 메뉴로 이동하겠습니다.");
+                                break;
+                            } else {
+                                System.out.println("잘 못 입력하셨습니다.");
+                                continue;
+                            }
+                        } else if (가방.복압_벨트 != null && 장착할_장비_번호_선택  == 4) {
+                            int 장착_선택_여부_선택 = scanner.nextInt();
+                            if (장착_선택_여부_선택 == 1) {
+                                System.out.println("복압벨트를 장착하겠습니다.");
+                                게임_캐릭터.복압벨트_장착(가방.복압_벨트, 가방);
+                                가방.복압_벨트 = null;
+                                break;
+                            } else if (장착_선택_여부_선택 == 2) {
+                                System.out.println("가방 메뉴로 이동하겠습니다.");
+                                break;
+                            } else {
+                                System.out.println("잘 못 입력하셨습니다.");
+                                continue;
+                            }
                         } else {
+                            System.out.println("잘 못 입력하셨습니다.");
                             break;
                         }
                     } else if (가방_메뉴_선택_번호 == 2) {

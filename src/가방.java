@@ -74,7 +74,7 @@ public class 가방 {//아이템 관리하는 클래스
             boolean 가방_메뉴_진행중 = false;
         }
     }
-    public int 장비상점에서_구매한_장비_장착_선택(int 장비_장착_번호_선택) {
+    public int 장착할_장비_번호_선택(int 장비_장착_번호_선택) {
         if (장비_장착_번호_선택 == 1) {
             System.out.println("손목보호대를 장착하시겠습니까?");
             System.out.println("1.장착한다 2.장착하지 않는다.");
