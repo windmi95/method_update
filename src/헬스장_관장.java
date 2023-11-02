@@ -4,10 +4,12 @@ import java.util.Scanner;
 public class 헬스장_관장 {
     캐릭터 게임_캐릭터;
     Scanner sc;
+    체육관 체육관;
 
     public 헬스장_관장() {
         게임_캐릭터 = new 캐릭터();
         sc = new Scanner(System.in);
+        체육관 = new 체육관();
     }
     int 현재_횟수 = 0;
     int 남은_횟수 = 0;
@@ -22,9 +24,7 @@ public class 헬스장_관장 {
     }
     public void 퀘스트_유형_선택(int 퀘스트_번호_선택, int 캐릭터_레벨, int 캐릭터_등급) {
         if (퀘스트_번호_선택 == 1) {
-            Random 운동횟수 = new Random();
-            int 랜덤_운동횟수 = 운동횟수.nextInt(5) * 100;
-            System.out.println("남은 운동횟수 -> " + 랜덤_운동횟수);
+            System.out.println("퀘스트를 진행하겠습니다.");
         } else if (퀘스트_번호_선택 == 2) {
             System.out.println("승급 심사를 진행하겠습니다.");
             if (게임_캐릭터.등급 == 1 && 게임_캐릭터.레벨 == 30) {

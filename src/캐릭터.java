@@ -93,7 +93,6 @@ public class 캐릭터 {
         } else if (this.복압벨트 != null && this.복압벨트.캐릭터한테_장착되어있는지_여부) {
             System.out.println("4.복압벨트");
         } else {
-            System.out.println("아무것도 착용중인 장비가 없습니다.");
             캐릭터_메뉴_확인중 = false;
         }
     }

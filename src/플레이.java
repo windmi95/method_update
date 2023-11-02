@@ -1,4 +1,6 @@
 import java.util.Scanner;
+import java.util.Random;
+
 //게임을 진행하는 클래스
 public class 플레이 {
     public static void main(String[] args) {
@@ -11,6 +13,7 @@ public class 플레이 {
         소모품_상점 소모품상점 = new 소모품_상점();
         장비_상점 장비_상점 = new 장비_상점();
         가방 가방 = new 가방();
+        Random 퀘스트_랜덤_운동횟수 = new Random();
         게임_진행.프롤로그();
         System.out.println(게임_진행.캐릭터_이름_작성(scanner.next()) + "님 게임을 진행하겠습니다.");
         while (!게임_진행.게임_종료) {
@@ -36,7 +39,7 @@ public class 플레이 {
                     int 운동_메뉴_선택 = 체육관.운동_메뉴_선택(scanner.nextInt());
                     if (운동_메뉴_선택 == 1) {
                         체육관.운동횟수 ++;
-                        System.out.println("운동횟수 => "+ 체육관.운동횟수);
+                        System.out.println("운동횟수 => " + 체육관.운동횟수);
                         게임_캐릭터.체력_감소();
                         게임_캐릭터.경험치_획득();
                         int event = 게임_이벤트.이벤트_실행(게임_캐릭터, 게임_진행);
@@ -135,40 +138,47 @@ public class 플레이 {
                         while(가방.가방_메뉴_진행중) {
                             게임_캐릭터.캐릭터_장비_해제할_수_있는_목록_출력();
                             int 해제할_장비_번호_선택 = 게임_캐릭터.캐릭터_해제할_장비_선택(scanner.nextInt());
-                            if (해제할_장비_번호_선택 == 1) {
+                            if (가방.손목보호대 == null && 해제할_장비_번호_선택 == 1) {
                                 int 장비_해제_여부_선택 = scanner.nextInt();
                                 if (장비_해제_여부_선택 == 1) {
                                     System.out.println("손목보호대 장착을 해제하겠습니다.");
                                     게임_캐릭터.손목보호대_벗기();
+                                    break;
                                 } else if (장비_해제_여부_선택 == 2) {
                                     System.out.println("가방 메뉴로 이동하겠습니다.");
+                                    break;
                                 } else {
                                     System.out.println("잘 못 입력하셨습니다.");
-                                    continue;
+                                    scanner.nextLine();
+                                    break;
                                 }
-                            } else if (해제할_장비_번호_선택 == 2) {
+                            } else if (가방.리프팅웨어 == null && 해제할_장비_번호_선택 == 2) {
                                 int 장비_해제_여부_선택 = scanner.nextInt();
                                 if (장비_해제_여부_선택 == 1) {
                                     System.out.println("리프팅웨어 장착을 해제하겠습니다.");
                                     게임_캐릭터.리프팅웨어_벗기();
+                                    break;
                                 } else if (장비_해제_여부_선택 == 2) {
                                     System.out.println("가방 메뉴로 이동하겠습니다.");
+                                    break;
                                 } else {
                                     System.out.println("잘 못 입력하셨습니다.");
                                     continue;
                                 }
-                            } else if (해제할_장비_번호_선택 == 3) {
+                            } else if (가방.역도화 == null && 해제할_장비_번호_선택 == 3) {
                                 int 장비_해제_여부_선택 = scanner.nextInt();
                                 if (장비_해제_여부_선택 == 1) {
                                     System.out.println("역도화 장착을 해제하겠습니다.");
                                     게임_캐릭터.역도화_벗기();
+                                    break;
                                 } else if (장비_해제_여부_선택 == 2) {
                                     System.out.println("가방 메뉴로 이동하겠습니다.");
+                                    break;
                                 } else {
                                     System.out.println("잘 못 입력하셨습니다.");
                                     continue;
                                 }
-                            } else if (해제할_장비_번호_선택 == 4) {
+                            } else if (가방.복압_벨트 == null && 해제할_장비_번호_선택 == 4) {
                                 int 장비_해제_여부_선택 = scanner.nextInt();
                                 if (장비_해제_여부_선택 == 1) {
                                     System.out.println("복압벨트 장착을 해제하겠습니다.");
@@ -197,13 +207,14 @@ public class 플레이 {
                         가방.가방_메뉴_진행중 = false;
                     }
                 }
-            } else if (메인_메뉴_선택 == 3) {//퀘스트 의뢰 받으러 가기
+            } else if (메인_메뉴_선택 == 3) {//퀘스트 의뢰(퀘스트, 승급심사) 받으러 가기
                 퀘스트.퀘스트_목록();
                 int 퀘스트_번호_선택 = scanner.nextInt();
                 퀘스트.퀘스트_유형_선택(퀘스트_번호_선택,게임_캐릭터.레벨,게임_캐릭터.등급);
                 if (퀘스트_번호_선택 == 1) {//퀘스트
                     int 들고자_하는_바벨_중량선택 = 0;
                     boolean 중량들수_있는여부 = false;
+                    int 랜덤_운동횟수 = 퀘스트_랜덤_운동횟수.nextInt(5+1) * 100;
                     while (체육관.중량_선택_성공_여부) {
                         체육관.중량_선택(게임_캐릭터.레벨, 게임_캐릭터.등급);
                         들고자_하는_바벨_중량선택 = scanner.nextInt();
@@ -220,8 +231,11 @@ public class 플레이 {
                         체육관.운동_메뉴();
                         int 운동_메뉴_선택 = 체육관.운동_메뉴_선택(scanner.nextInt());
                         if (운동_메뉴_선택 == 1) {
+                            System.out.println("실행해야 하는 운동횟수 -> " + 랜덤_운동횟수);
                             체육관.운동횟수++;
-                            System.out.println("운동횟수 => " + 체육관.운동횟수);
+                            System.out.println("운동횟수 => "+ 체육관.운동횟수);
+                            int 남은횟수 = 랜덤_운동횟수 - 체육관.운동횟수;
+                            System.out.println("남은 운동횟수 => " + 남은횟수);
                             게임_캐릭터.체력_감소();
                             게임_캐릭터.경험치_획득();
                             int event = 게임_이벤트.이벤트_실행(게임_캐릭터, 게임_진행);
