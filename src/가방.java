@@ -15,6 +15,7 @@ public class 가방 {//아이템 관리하는 클래스
     리프팅웨어 리프팅웨어;
     역도화 역도화;
     복압_벨트 복압_벨트;
+    bcaa bcaa;
 
     public 가방() {
         bcaa_list = new ArrayList<bcaa>();
@@ -37,6 +38,7 @@ public class 가방 {//아이템 관리하는 클래스
         리프팅웨어 리프팅웨어 = null;
         역도화 역도화 = null;
         복압_벨트 복압벨트 = null;
+        bcaa = new bcaa();
         게임_캐릭터 = new 캐릭터();
     }
     public void 가방_메뉴() {
@@ -142,8 +144,11 @@ public class 가방 {//아이템 관리하는 클래스
                 return;
             } else {
                 bcaa_list.remove(bcaa_list.size() - 1);
+                bcaa.bcaa_효과(게임_캐릭터);
                 System.out.println("bcaa를 섭취하였습니다.");
                 System.out.println("체력 +1 상승하였습니다.");
+                System.out.println(게임_캐릭터.체력);
+
             }
             } else if (사용할_아이템_번호_선택 == 2) {
                 System.out.println("탄수화물 보충제를 선택하셨습니다.");

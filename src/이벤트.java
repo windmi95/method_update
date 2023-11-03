@@ -26,7 +26,7 @@ public class 이벤트 {
                     System.out.println(당첨금_뽑기+ "골드를 획득하셨습니다.");
                 } else if (랜덤뽑기 >= 5) {
                     게임_캐릭터.체력 = 게임_캐릭터.체력 - 10;
-                    System.out.println("체력이 " + 게임_캐릭터.체력 + "차감되었습니다.");
+                    System.out.println("체력이 " + 게임_캐릭터.체력 + "로 차감되었습니다.");
                 }
             } else if (이벤트_참여_선택 == 2) {
 

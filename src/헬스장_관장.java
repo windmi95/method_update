@@ -23,9 +23,9 @@ public class 헬스장_관장 {
         System.out.println("어떤 것을 선택하시겠습니까?");
     }
     public void 퀘스트_유형_선택(int 퀘스트_번호_선택, int 캐릭터_레벨, int 캐릭터_등급) {
-        if (퀘스트_번호_선택 == 1) {
+        if (퀘스트_번호_선택 == 1) {// 기본 퀘스트
             System.out.println("퀘스트를 진행하겠습니다.");
-        } else if (퀘스트_번호_선택 == 2) {
+        } else if (퀘스트_번호_선택 == 2) {//승급 심사
             System.out.println("승급 심사를 진행하겠습니다.");
             if (게임_캐릭터.등급 == 1 && 게임_캐릭터.레벨 == 30) {
                 System.out.println("제한시간 5분이 주어지고 100개를 실행하지 못할 경우 다시 도전해야 합니다.");
@@ -35,8 +35,7 @@ public class 헬스장_관장 {
                     남은_횟수 = 100;
                     System.out.println("현재 체력 => " + 게임_캐릭터.체력);
                     System.out.println("현재 횟수 => " + 현재_횟수);
-                    for (int i = 남은_횟수; i >= 0; i--) {
-                        if (i == 0) {
+                        if (남은_횟수 == 0) {
                             System.out.println("남은 횟수 => " + 남은_횟수);
                             System.out.println("승급 심사를 통과하셨습니다.");
                             System.out.println("중급으로 등급이 상승되었습니다.");
@@ -45,7 +44,7 @@ public class 헬스장_관장 {
                             }
                             게임_캐릭터.등급 = 게임_캐릭터.등급 + 1;
                         }
-                    }
+
                 } else {
                     System.out.println("승급 심사를 통과하지 못하였습니다.");
                 }

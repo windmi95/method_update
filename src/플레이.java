@@ -32,6 +32,7 @@ public class 플레이 {
                         체육관.중량_선택_성공_여부 = false;
                     } else {
                         System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요");
+                        continue;
                     }
                 }
                 while (게임_진행.운동_진행중) {
@@ -131,7 +132,7 @@ public class 플레이 {
                                 continue;
                             }
                         } else {
-                            System.out.println("잘 못 입력하셨습니다.");
+                            System.out.println("메뉴로 이동하겠습니다.");
                             break;
                         }
                     } else if (가방_메뉴_선택_번호 == 2) {
@@ -145,12 +146,11 @@ public class 플레이 {
                                     게임_캐릭터.손목보호대_벗기();
                                     break;
                                 } else if (장비_해제_여부_선택 == 2) {
-                                    System.out.println("가방 메뉴로 이동하겠습니다.");
+                                    System.out.println("메뉴로 이동하겠습니다.");
                                     break;
                                 } else {
                                     System.out.println("잘 못 입력하셨습니다.");
-                                    scanner.nextLine();
-                                    break;
+                                    continue;
                                 }
                             } else if (가방.리프팅웨어 == null && 해제할_장비_번호_선택 == 2) {
                                 int 장비_해제_여부_선택 = scanner.nextInt();
@@ -189,6 +189,9 @@ public class 플레이 {
                                     System.out.println("잘 못 입력하셨습니다.");
                                     continue;
                                 }
+                            } else {
+                                System.out.println("아무런 장비가 없습니다.");
+                                break;
                             }
                         }
                     } else if (가방_메뉴_선택_번호 == 3) {
@@ -264,7 +267,7 @@ public class 플레이 {
                         }
                     }
                 } else if (퀘스트_번호_선택 == 2) { //승급 심사
-
+                        System.out.println("");
                 }
                 게임_캐릭터.체력_감소();
             } else if (메인_메뉴_선택 == 4) { //소모품 상점
