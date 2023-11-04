@@ -96,18 +96,28 @@ public class 캐릭터 {
         return 해제할_장비_번호_선택;
     }
 
-    public void 캐릭터_장비_해제할_수_있는_목록_출력() {
+    public boolean 캐릭터_장비_해제할_수_있는_목록_출력() {
+        if (this.손목보호대 == null && this.리프팅웨어 == null && this.역도화 == null && this.복압벨트== null) {
+            System.out.println("해체할 수 있는 장비가 없습니다.");
+            return false;
+        }
+
         if (this.손목보호대 != null && this.손목보호대.캐릭터한테_장착되어있는지_여부) {
             System.out.println("1.손목보호대");
-        } else if (this.리프팅웨어 != null && this.리프팅웨어.캐릭터한테_장착되어있는지_여부){
-            System.out.println("2.리프팅웨어");
-        } else if (this.역도화 != null && this.역도화.캐릭터한테_장착되어있는지_여부) {
-            System.out.println("3.역도화");
-        } else if (this.복압벨트 != null && this.복압벨트.캐릭터한테_장착되어있는지_여부) {
-            System.out.println("4.복압벨트");
-        } else {
-            캐릭터_메뉴_확인중 = false;
         }
+
+        if (this.리프팅웨어 != null && this.리프팅웨어.캐릭터한테_장착되어있는지_여부){
+            System.out.println("2.리프팅웨어");
+        }
+
+        if (this.역도화 != null && this.역도화.캐릭터한테_장착되어있는지_여부) {
+            System.out.println("3.역도화");
+        }
+
+        if (this.복압벨트 != null && this.복압벨트.캐릭터한테_장착되어있는지_여부) {
+            System.out.println("4.복압벨트");
+        }
+        return true;
     }
 
     public void 캐릭터_스탯() {
