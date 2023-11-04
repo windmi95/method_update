@@ -158,7 +158,6 @@ public class 가방 {//아이템 관리하는 클래스
                 System.out.println("bcaa를 섭취하였습니다.");
                 System.out.println("체력 +1 상승하였습니다.");
                 System.out.println(게임_캐릭터.체력);
-
             }
             } else if (사용할_아이템_번호_선택 == 2) {
                 System.out.println("탄수화물 보충제를 선택하셨습니다.");
