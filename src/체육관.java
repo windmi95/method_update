@@ -2,6 +2,10 @@
 public class 체육관 {
     int 운동횟수 = 0;
     boolean 중량_선택_성공_여부 = true;
+    int 초급_심사_중량 = 10;
+    int 중급_심사_중량 = 50;
+    int 고급_심사_중량 = 70;
+    int 초월_심사_중량 = 100;
 
     public void 승급_심사_중량(int 캐릭터_레벨, int 캐릭터_등급) {
         if (캐릭터_레벨 < 31 && 캐릭터_등급 == 1) {
@@ -50,6 +54,8 @@ public class 체육관 {
         switch (승급_심사_메뉴_번호_선택) {
             case 1:
                 System.out.println("운동을 실행하겠습니다.");
+                System.out.println("");
+                System.out.println("============================================");
                 break;
             case 2:
                 System.out.println("아이템을 사용합니다.");

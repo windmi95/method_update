@@ -106,6 +106,7 @@ public class 캐릭터 {
         경험치양 = 경험치 + 경험치양;
         if (경험치양 > this.레벨 * 100) {
             this.레벨 = 레벨 + 1;
+            System.out.println("레벨이 상승했습니다.");
         }
     }
     public void 체력_감소() {//객체 변수에 아무런 값이 없음
@@ -117,6 +118,7 @@ public class 캐릭터 {
         }
     }
     public void 레벨업_이후_올릴_스탯_번호_선택(int 상승시킬_스탯_번호_선택) {
+        if (경험치양 > this.레벨 * 100) {
         System.out.println("1.근력 2.체력");
         System.out.println("어떤 스탯을 올릴 것인지 선택하세요.");
         if (상승시킬_스탯_번호_선택 == 1) {
@@ -128,6 +130,7 @@ public class 캐릭터 {
         }
         for (int i = this.스탯_포인트; i > 0; i--) {
             System.out.println("남은 스탯포인트: " + i);
+        }
         }
     }
 }
