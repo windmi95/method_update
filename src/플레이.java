@@ -69,12 +69,29 @@ public class 플레이 {
                     }
                 }
             } else if (메인_메뉴_선택 == 2) {//가방에서 아이템을 관리
-                가방.가방_메뉴();
-                int 가방_메뉴_선택_번호 = 가방.가방_메뉴_선택(scanner.nextInt());
-                while (가방.가방_메뉴_진행중) {
-                    if (가방_메뉴_선택_번호 == 1) {//장비 선택을 골랐을 때
-                        가방.장비상점에서_구매한_장비_목록보여주기();
+
+                 //일단 실행하니까  -> 가방 메뉴 진행중은 true로 바꿔줌.
+                 가방.가방_메뉴_진행중 = true;
+
+                 while (가방.가방_메뉴_진행중) {
+                     가방.가방_메뉴();
+                     int 가방_메뉴_선택_번호 = 가방.가방_메뉴_선택(scanner.nextInt());
+
+                     if (가방_메뉴_선택_번호 == 1) {//장비 선택을 골랐을 때
+
+                         //장비 잇는지 여부 체크 해준다.  true면 하나라도 잇는거소  false면 아무 장비도 가방에 존재 하지 않는다.
+                         boolean 장비있는지_여부체크 = 가방.장비상점에서_구매한_장비_목록보여주기();
+
+                        //가방 안에 아무것도 없을때는 가방 메뉴로 다시 돌아가게
+                        if(!장비있는지_여부체크){
+                            continue;
+                        }
+
+                        //자비가 있을때
+                        //장비번호 선택
                         int 장착할_장비_번호_선택 = 가방.장착할_장비_번호_선택(scanner.nextInt());
+
+
                         if (가방.손목보호대 != null && 장착할_장비_번호_선택 == 1) {
                             int 장비_장착_선택_여부_선택 = scanner.nextInt();
                             if (장비_장착_선택_여부_선택 == 1) {
@@ -87,7 +104,6 @@ public class 플레이 {
                                 break;
                             } else {
                                 System.out.println("잘 못 입력하셨습니다.");
-                                continue;
                             }
                         } else if (가방.리프팅웨어 != null && 장착할_장비_번호_선택 == 2) {
                             int 장비_장착_선택_여부_선택 = scanner.nextInt();
@@ -101,7 +117,6 @@ public class 플레이 {
                                 break;
                             } else {
                                 System.out.println("잘 못 입력하셨습니다.");
-                                continue;
                             }
                         } else if (가방.역도화 != null && 장착할_장비_번호_선택 == 3) {
                             int 장비_장착_선택_여부_선택 = scanner.nextInt();
@@ -115,7 +130,6 @@ public class 플레이 {
                                 break;
                             } else {
                                 System.out.println("잘 못 입력하셨습니다.");
-                                continue;
                             }
                         } else if (가방.복압_벨트 != null && 장착할_장비_번호_선택  == 4) {
                             int 장비_장착_선택_여부_선택 = scanner.nextInt();
@@ -129,54 +143,54 @@ public class 플레이 {
                                 break;
                             } else {
                                 System.out.println("잘 못 입력하셨습니다.");
-                                continue;
                             }
                         } else {
                             System.out.println("메뉴로 이동하겠습니다.");
                             break;
                         }
-                    } else if (가방_메뉴_선택_번호 == 2) {
-                        while(가방.가방_메뉴_진행중) {
-                            게임_캐릭터.캐릭터_장비_해제할_수_있는_목록_출력();
+
+                    } else if (가방_메뉴_선택_번호 == 2) {//장착 해제하기
+
+                         boolean 장착해제_진행중 =true;
+                         while(장착해제_진행중) {
+
+                            boolean 캐릭터_장비_보유_여부 = 게임_캐릭터.캐릭터_장비_해제할_수_있는_목록_출력();
                             int 해제할_장비_번호_선택 = 게임_캐릭터.캐릭터_해제할_장비_선택(scanner.nextInt());
                             if (가방.손목보호대 == null && 해제할_장비_번호_선택 == 1) {
                                 int 장비_해제_여부_선택 = scanner.nextInt();
                                 if (장비_해제_여부_선택 == 1) {
                                     System.out.println("손목보호대 장착을 해제하겠습니다.");
                                     게임_캐릭터.손목보호대_벗기();
-                                    break;
+                                    장착해제_진행중 = false;
                                 } else if (장비_해제_여부_선택 == 2) {
                                     System.out.println("메뉴로 이동하겠습니다.");
-                                    break;
+                                    장착해제_진행중 = false;
                                 } else {
                                     System.out.println("잘 못 입력하셨습니다.");
-                                    continue;
                                 }
                             } else if (가방.리프팅웨어 == null && 해제할_장비_번호_선택 == 2) {
                                 int 장비_해제_여부_선택 = scanner.nextInt();
                                 if (장비_해제_여부_선택 == 1) {
                                     System.out.println("리프팅웨어 장착을 해제하겠습니다.");
                                     게임_캐릭터.리프팅웨어_벗기();
-                                    break;
+                                    장착해제_진행중 = false;
                                 } else if (장비_해제_여부_선택 == 2) {
                                     System.out.println("가방 메뉴로 이동하겠습니다.");
-                                    break;
+                                    장착해제_진행중 = false;
                                 } else {
                                     System.out.println("잘 못 입력하셨습니다.");
-                                    continue;
                                 }
                             } else if (가방.역도화 == null && 해제할_장비_번호_선택 == 3) {
                                 int 장비_해제_여부_선택 = scanner.nextInt();
                                 if (장비_해제_여부_선택 == 1) {
                                     System.out.println("역도화 장착을 해제하겠습니다.");
                                     게임_캐릭터.역도화_벗기();
-                                    break;
+                                    장착해제_진행중 = false;
                                 } else if (장비_해제_여부_선택 == 2) {
                                     System.out.println("가방 메뉴로 이동하겠습니다.");
-                                    break;
+                                    장착해제_진행중 = false;
                                 } else {
                                     System.out.println("잘 못 입력하셨습니다.");
-                                    continue;
                                 }
                             } else if (가방.복압_벨트 == null && 해제할_장비_번호_선택 == 4) {
                                 int 장비_해제_여부_선택 = scanner.nextInt();
@@ -187,26 +201,25 @@ public class 플레이 {
                                     System.out.println("가방 메뉴로 이동하겠습니다.");
                                 } else {
                                     System.out.println("잘 못 입력하셨습니다.");
-                                    continue;
                                 }
                             } else {
                                 System.out.println("아무런 장비가 없습니다.");
-                                break;
+                                장착해제_진행중 = false;
                             }
                         }
-                    } else if (가방_메뉴_선택_번호 == 3) {
+                    } else if (가방_메뉴_선택_번호 == 3) {//착용한 장비 확인하기
                         게임_캐릭터.캐릭터_장착한_장비_리스트_보여주기();
                         break;
-                    } else if (가방_메뉴_선택_번호 == 4) {
+                    } else if (가방_메뉴_선택_번호 == 4) {//소모품 사용하기
                         가방.소모품_목록();
                         가방.소모품_사용(scanner.nextInt());
-                    } else if (가방_메뉴_선택_번호 == 5) {
+                    } else if (가방_메뉴_선택_번호 == 5) {//소모품 개수 학인
                         가방.소모품_체크();
-                    } else if (가방_메뉴_선택_번호 == 6) {
+                    } else if (가방_메뉴_선택_번호 == 6) {//소모품 버리기
                         가방.버릴_소모품_목록();
                         int 버릴_소모품_번호_선택 = scanner.nextInt();
                         가방.소모품_버리기(버릴_소모품_번호_선택);
-                    } else if (가방_메뉴_선택_번호 == 7) {
+                    } else if (가방_메뉴_선택_번호 == 7) {//가방 메뉴 나가기
                         가방.가방_메뉴_진행중 = false;
                     }
                 }
@@ -327,7 +340,7 @@ public class 플레이 {
             } else if (메인_메뉴_선택 == 5) { //장비 상점
                 장비_상점.장비_목록();
                 int 장비_구매_선택_번호 = scanner.nextInt();
-                장비_상점.장비구매(장비_구매_선택_번호, 게임_캐릭터.등급, 게임_캐릭터, 가방);
+                장비_상점.장비구매(장비_구매_선택_번호, 게임_캐릭터, 가방);
             } else if (메인_메뉴_선택 == 6) { //퀘스트 현황
 
             } else if (메인_메뉴_선택 == 7) {//능력치 확인

@@ -1,3 +1,4 @@
+import java.awt.*;
 import java.util.ArrayList;
 
 public class 가방 {//아이템 관리하는 클래스
@@ -62,19 +63,29 @@ public class 가방 {//아이템 관리하는 클래스
         this.복압_벨트 = 복압벨트;
     }
 
-    public void 장비상점에서_구매한_장비_목록보여주기() {
+    public boolean 장비상점에서_구매한_장비_목록보여주기() {
+
+        if(this.손목보호대 == null && this.리프팅웨어 == null && this.역도화 == null && this.복압_벨트 == null){
+            System.out.println("구매한 장비가 없습니다.");
+            return false;
+        }
+
         if (this.손목보호대 != null) {
             System.out.println("1.손목보호대");
-        } else if (this.리프팅웨어 != null) {
-            System.out.println("2.리프팅웨어");
-        } else if (this.역도화 != null) {
-            System.out.println("3.역도화");
-        } else if (this.복압_벨트 != null) {
-            System.out.println("4.복압벨트");
-        } else {
-            System.out.println("구매한 장비가 없습니다.");
-            boolean 가방_메뉴_진행중 = false;
         }
+
+        if (this.리프팅웨어 != null) {
+            System.out.println("2.리프팅웨어");
+        }
+
+        if (this.역도화 != null) {
+            System.out.println("3.역도화");
+        }
+
+        if (this.복압_벨트 != null) {
+            System.out.println("4.복압벨트");
+        }
+        return true;
     }
     public int 장착할_장비_번호_선택(int 장비_장착_번호_선택) {
         if (장비_장착_번호_선택 == 1) {
