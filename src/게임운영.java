@@ -48,12 +48,9 @@ public class 게임운영 {
                 System.out.println("5번 장비 상점을 선택하셨습니다.");
                 break;
             case 6:
-                System.out.println("6번 퀘스트 현황을 선택하셨습니다.");
-                break;
-            case 7:
                 System.out.println("7번 능력치 확인을 선택하셨습니다.");
                 break;
-            case 8:
+            case 7:
                 System.out.println("8번 게임 설정을 선택하셨습니다.");
                 break;
             default:
