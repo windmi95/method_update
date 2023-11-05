@@ -7,7 +7,6 @@ public class 가방 {//아이템 관리하는 클래스
     int 보유한_프로틴_개수 = 5;
     int 보유한_크레아틴_개수 = 3;
     boolean 가방_메뉴_진행중 = true;
-    캐릭터 게임_캐릭터;
     ArrayList<bcaa> bcaa_list;
     ArrayList 탄수화물_보충제_list;
     ArrayList 프로틴_list;
@@ -17,6 +16,9 @@ public class 가방 {//아이템 관리하는 클래스
     역도화 역도화;
     복압_벨트 복압_벨트;
     bcaa bcaa;
+    탄수화물_보충제 탄수화물_보충제;
+    프로틴 프로틴;
+    크레아틴 크레아틴;
 
     public 가방() {
         bcaa_list = new ArrayList<bcaa>();
@@ -40,7 +42,9 @@ public class 가방 {//아이템 관리하는 클래스
         역도화 역도화 = null;
         복압_벨트 복압벨트 = null;
         bcaa = new bcaa();
-        게임_캐릭터 = new 캐릭터();
+        탄수화물_보충제 = new 탄수화물_보충제();
+        프로틴 = new 프로틴();
+        크레아틴 = new 크레아틴();
     }
     public void 가방_메뉴() {
         System.out.println();
@@ -142,22 +146,19 @@ public class 가방 {//아이템 관리하는 클래스
         System.out.println("1.bcaa 2.탄수화물 보충제 3.프로틴 4.크레아틴");
         System.out.println("어떤 소모품을 선택하시겠습니까?");
     }
-    public void 소모품_사용 (int 사용할_아이템_번호_선택) {
+    public void 소모품_사용 (int 사용할_아이템_번호_선택, 캐릭터 게임_캐릭터) {
         if (사용할_아이템_번호_선택 == 1) {
             System.out.println("bcaa를 선택하셨습니다.");
             System.out.println("");
             if (bcaa_list.isEmpty()) {
                 System.out.println("bcaa가 부족하여 사용하실 수 없습니다.");
                 return;
-            } else if (게임_캐릭터.체력 < 게임_캐릭터.체력) {
-                System.out.println("체력이 최대로 충전되어 더 이상 사용할 수 없습니다.");
-                return;
             } else {
                 bcaa_list.remove(bcaa_list.size() - 1);
                 bcaa.bcaa_효과(게임_캐릭터);
                 System.out.println("bcaa를 섭취하였습니다.");
                 System.out.println("체력 +1 상승하였습니다.");
-                System.out.println(게임_캐릭터.체력);
+                System.out.println("현재 체력 -> "+ 게임_캐릭터.체력);
             }
             } else if (사용할_아이템_번호_선택 == 2) {
                 System.out.println("탄수화물 보충제를 선택하셨습니다.");
@@ -165,13 +166,12 @@ public class 가방 {//아이템 관리하는 클래스
                 if (탄수화물_보충제_list.isEmpty()) {
                     System.out.println("탄수화물 보충제가 부족하여 사용하실 수 없습니다.");
                     return;
-                } else if (게임_캐릭터.체력 < 게임_캐릭터.체력) {
-                    System.out.println("체력이 최대로 충전되어 더 이상 사용할 수 없습니다.");
-                    return;
                 } else {
                     탄수화물_보충제_list.remove(탄수화물_보충제_list.size()-1);
+                    탄수화물_보충제.탄수화물_보충제_효과(게임_캐릭터);
                     System.out.println("탄수화물 보충제를 섭취하였습니다.");
                     System.out.println("체력 +3 상승하였습니다.");
+                    System.out.println("현재 체력 -> "+ 게임_캐릭터.체력);
                 }
             } else if (사용할_아이템_번호_선택 == 3) {
                 System.out.println("프로틴을 선택하셨습니다.");
@@ -181,8 +181,10 @@ public class 가방 {//아이템 관리하는 클래스
                     return;
                 } else  {
                     프로틴_list.remove(프로틴_list.size()-1);
+                    프로틴.프로틴_효과(게임_캐릭터);
                     System.out.println("프로틴을 섭취하였습니다.");
                     System.out.println("근력 +1 상승하였습니다.");
+                    System.out.println("현재 근력 -> "+ 게임_캐릭터.근력);
                 }
             } else if (사용할_아이템_번호_선택 == 4) {
                 System.out.println("크레아틴을 선택하셨습니다.");
@@ -191,7 +193,9 @@ public class 가방 {//아이템 관리하는 클래스
                     return;
                 } else {
                     크레아틴_list.remove(크레아틴_list.size()-1);
+                    크레아틴.크레아틴_효과(게임_캐릭터);
                     System.out.println("근력 +3 상승하였습니다.");
+                    System.out.println("현재 근력 -> "+ 게임_캐릭터.근력);
                 }
             }  else {
                 System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");

@@ -135,7 +135,7 @@ public class 캐릭터 {
     }
 
     public void 경험치_획득() {
-        int 경험치 = 중량_선택 / 2;
+        int 경험치 = 중량_선택 * 2;
         경험치양 = 경험치 + 경험치양;
         System.out.println("현재 경험치 => " + 경험치양);
 
