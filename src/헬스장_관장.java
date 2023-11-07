@@ -18,13 +18,10 @@ public class 헬스장_관장 {
     }
     public void 퀘스트_유형_선택(int 퀘스트_번호_선택, int 퀘스트_승낙_여부_선택, int 캐릭터_레벨, int 캐릭터_등급) {
         if (퀘스트_번호_선택 == 1) {// 기본 퀘스트
-            System.out.println("퀘스트를 진행하겠습니다.");
             System.out.println("중량은 등급에 맞게 원하는 무게를 사용할 수 있으며, 운동 횟수는 랜덤으로 설정됩니다.");
-
             if (퀘스트_승낙_여부_선택 == 1) {
-            System.out.println("실행해야 하는 횟수는 "+this.랜덤_운동횟수 +"회를 실행해야 합니다." );
+                System.out.println("실행해야 하는 횟수는 "+this.랜덤_운동횟수 +"회를 실행해야 합니다." );
             }
-
         } else if (퀘스트_번호_선택 == 2) {//승급 심사
             if (캐릭터_등급 == 1 && 캐릭터_레벨 == 30) {//초급 -> 중급
                 System.out.println("승급 심사를 진행하시겠습니까?");
@@ -61,5 +58,9 @@ public class 헬스장_관장 {
     public void 퀘스트_진행_여부() {
         System.out.println("계속 진행하시겠습니까?");
         System.out.println("1.진행한다. 2.거절한다.");
+    }
+    public void 퀘스트_보상() {
+        퀘스트_진행중 = false;
+
     }
 }

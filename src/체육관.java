@@ -73,7 +73,7 @@ public class 체육관 {
     public void 운동_메뉴() {
         System.out.println();
         System.out.println("======================운동 메뉴 선택======================");
-        System.out.println("1.운동 실행 2.아이템 사용 3.중량 변경 4.게임에서 나가기");
+        System.out.println("1.운동 실행 2.아이템 사용 3.게임에서 나가기");
         System.out.println("어떤 것을 선택하시겠습니까?");
     }
     public int 운동_메뉴_선택(int 운동_메뉴_선택지) {
@@ -87,10 +87,7 @@ public class 체육관 {
                 System.out.println("아이템 사용");
                 break;
             case 3:
-                System.out.println("중량을 변경합니다.");
-                break;
-            case 4:
-                System.out.println("게임플레이를 취소하였습니다.");
+                System.out.println("메뉴로 이동합니다.");
                 break;
             default:
                 System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");

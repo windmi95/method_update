@@ -65,7 +65,6 @@ public class 가방 {//아이템 관리하는 클래스
     public void 새로운_복압_벨트를_가방에_넣는다(복압_벨트 복압벨트) {
         this.복압_벨트 = 복압벨트;
     }
-
     public boolean 장비상점에서_구매한_장비_목록보여주기() {
 
         if(this.손목보호대 == null && this.리프팅웨어 == null && this.역도화 == null && this.복압_벨트 == null){
