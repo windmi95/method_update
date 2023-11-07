@@ -193,6 +193,7 @@ public class 가방 {//아이템 관리하는 클래스
                 } else {
                     크레아틴_list.remove(크레아틴_list.size()-1);
                     크레아틴.크레아틴_효과(게임_캐릭터);
+                    System.out.println("크레아틴을 섭취하였습니다.");
                     System.out.println("근력 +3 상승하였습니다.");
                     System.out.println("현재 근력 -> "+ 게임_캐릭터.근력);
                 }

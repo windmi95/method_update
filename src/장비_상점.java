@@ -65,7 +65,7 @@ public class 장비_상점 {
             } else {//살 수 없을때
                 System.out.println("골드가 부족합니다.");
             }
-        } else if (장비_구매_선택_번호 == 4) {//복압밸트 골랐을 경우
+        } else if (장비_구매_선택_번호 == 4) {//복압벨트 골랐을 경우
             if (게임_캐릭터.등급 < 4) {
                 System.out.println("등급이 맞지 않아 구매하실 수 없습니다.");
                 return;

@@ -51,7 +51,7 @@ public class 캐릭터 {
         this.복압벨트 = null;
     }
     public boolean 캐릭터_장착한_장비_리스트_보여주기() {
-        if(this.손목보호대 == null && this.리프팅웨어 == null && this.역도화 == null && this.복압벨트 == null){
+        if(this.손목보호대 == null && this.리프팅웨어 == null && this.역도화 == null && this.복압벨트 == null) {
             System.out.println("아무것도 착용중인 장비가 없습니다.");
             캐릭터_메뉴_확인중 = false;
             return  false;
