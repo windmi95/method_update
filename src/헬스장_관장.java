@@ -8,18 +8,21 @@ public class 헬스장_관장 {
     int 초월_심사_중량 = 100;
     boolean 퀘스트_진행중 = false;
     boolean 퀘스트_메뉴_진행중 = true;
-    Random 운동횟수 = new Random();
-    int 랜덤_운동횟수 = 운동횟수.nextInt(5)+1 * 100;
+    Random 랜덤으로_운동횟수_주기 = new Random();
+    int 해야할_운동횟수 = 0;
+    int 진행중인_퀘스트_운동_실행_횟수 = 0;
 
     public void 퀘스트_및_승급심사_메뉴() {
         System.out.println("1.퀘스트 2.승급 심사 3.퀘스트 현황 4.퀘스트 보상");
         System.out.println("어떤 것을 선택하시겠습니까?");
     }
+
     public void 퀘스트_유형_선택(int 퀘스트_번호_선택, int 퀘스트_승낙_여부_선택, int 캐릭터_레벨, int 캐릭터_등급) {
         if (퀘스트_번호_선택 == 1) {// 기본 퀘스트
             System.out.println("중량은 등급에 맞게 원하는 무게를 사용할 수 있으며, 운동 횟수는 랜덤으로 설정됩니다.");
             if (퀘스트_승낙_여부_선택 == 1) {
-                System.out.println("실행해야 하는 횟수는 "+this.랜덤_운동횟수 +"회를 실행해야 합니다." );
+                해야할_운동횟수 = (랜덤으로_운동횟수_주기.nextInt(5)+1)  * 100;
+                System.out.println("실행해야 하는 횟수는 " + 해야할_운동횟수 + "회를 실행해야 합니다.");
             }
         } else if (퀘스트_번호_선택 == 2) {//승급 심사
             if (캐릭터_등급 == 1 && 캐릭터_레벨 == 30) {//초급 -> 중급
@@ -43,6 +46,7 @@ public class 헬스장_관장 {
             }
         }
     }
+
     public void 승급_가능_메시지_출력(int 캐릭터_레벨) {
         if (30 <= 캐릭터_레벨 && 캐릭터_레벨 < 31) {//초급
             System.out.println("중급 심사를 진행하실 수 있습니다.");
@@ -54,34 +58,37 @@ public class 헬스장_관장 {
             System.out.println("최종 심사를 진행하실 수 있습니다.");
         }
     }
+
     public void 퀘스트_진행_여부() {
         System.out.println("계속 진행하시겠습니까?");
         System.out.println("1.진행한다. 2.거절한다.");
     }
+
     public void 퀘스트_현황_보여주기() {
         // 퀘스트 진행중이면 퀘스트 내용을 출력
         if (퀘스트_진행중) {
-            this.퀘스트_진행중 = true;
             System.out.println("---------------------현재 진행중인 퀘스트---------------------");
-            System.out.println("중량: " "kg");
-            System.out.println("운동 개수: " + this.랜덤_운동횟수 + "회");
-
+            System.out.println("운동 횟수 -> " + this.해야할_운동횟수 + "회");
+            int 남은횟수 = this.해야할_운동횟수 - this.진행중인_퀘스트_운동_실행_횟수;
+            System.out.println("남은 운동 횟수: "+ 남은횟수);
         } else {
             // 퀘스트 진행중이 아니면 퀘스트가 없다고 출력
             System.out.println("현재 진행중인 퀘스트가 없습니다.");
         }
     }
-    public void 퀘스트_진행상태_체크하기(int 운동_횟수) {
-        // 운동 횟수가 퀘스트 운동 개수보
-        // 다 크거나 같으면 퀘스트 완료
-        if (운동_횟수 >= this.랜덤_운동횟수) {
+
+    public void 퀘스트_진행상태_체크하기() {
+        // 운동 횟수가 퀘스트 운동 개수보다 크거나 같으면 퀘스트 완료
+        if (해야할_운동횟수 >= 0) {
             System.out.println("퀘스트를 완료하였습니다.");
-            System.out.println("경험치 " +  + "xp를 획득하였습니다.a");
+            System.out.println("경험치 xp를 획득하였습니다.");
             // 퀘스트 진행중 여부를 false로 변경
-            퀘스트_진행중 = false;
+            퀘스트_진행중 = true;
         } else {
             // 운동 횟수가 퀘스트 운동 개수보다 작으면 퀘스트 진행중
             System.out.println("퀘스트를 진행중입니다.");
-            System.out.println("아직 " + ( - 운동_횟수) + "회 남았습니다.");
+            int 남은횟수 = this.해야할_운동횟수 - this.진행중인_퀘스트_운동_실행_횟수;
+            System.out.println("아직"+남은횟수+ "회 남았습니다.");
         }
+    }
 }

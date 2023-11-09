@@ -27,7 +27,7 @@ public class 게임운영 {
         System.out.println("");
         System.out.println("========================================메뉴 선택========================================");
         System.out.println("");
-        System.out.println("1.운동하기 2.가방 3.의뢰 4.소모품 상점 5.장비 상점 6.퀘스트 현황 7.능력치 확인 8.게임 설정");
+        System.out.println("1.운동하기 2.가방 3.의뢰 4.소모품 상점 5.장비 상점 6.캐릭터 스탯 7.게임 설정");
         System.out.println("어떤 것을 선택하시겠습니까?");
     }
     public int 메인_메뉴_선택(int 메인_메뉴_선택지) {
@@ -48,10 +48,10 @@ public class 게임운영 {
                 System.out.println("5번 장비 상점을 선택하셨습니다.");
                 break;
             case 6:
-                System.out.println("7번 능력치 확인을 선택하셨습니다.");
+                System.out.println("6번 캐릭터 스탯을 선택하셨습니다.");
                 break;
             case 7:
-                System.out.println("8번 게임 설정을 선택하셨습니다.");
+                System.out.println("7번 게임 설정을 선택하셨습니다.");
                 break;
             default:
                 System.out.println("잘 못 입력하셨습니다.");
