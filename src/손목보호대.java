@@ -1,7 +1,6 @@
 public class 손목보호대 {
     int 가격 = 3000;
     boolean 캐릭터한테_장착되어있는지_여부 = false;
-
     String name = "손목보호대";
 
 

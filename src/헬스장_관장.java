@@ -1,16 +1,15 @@
 import java.util.Random;
 
 public class 헬스장_관장 {
-    int 현재_횟수 = 0;
-    int 남은_횟수 = 0;
+
     int 초급_심사_중량 = 10;
     int 중급_심사_중량 = 50;
     int 고급_심사_중량 = 70;
     int 초월_심사_중량 = 100;
-    boolean 퀘스트_진행중 = true;
+    boolean 퀘스트_진행중 = false;
     boolean 퀘스트_메뉴_진행중 = true;
     Random 운동횟수 = new Random();
-    int 랜덤_운동횟수 = 운동횟수.nextInt(5+1) * 100;
+    int 랜덤_운동횟수 = 운동횟수.nextInt(5)+1 * 100;
 
     public void 퀘스트_및_승급심사_메뉴() {
         System.out.println("1.퀘스트 2.승급 심사 3.퀘스트 현황 4.퀘스트 보상");
@@ -59,8 +58,30 @@ public class 헬스장_관장 {
         System.out.println("계속 진행하시겠습니까?");
         System.out.println("1.진행한다. 2.거절한다.");
     }
-    public void 퀘스트_보상() {
-        퀘스트_진행중 = false;
+    public void 퀘스트_현황_보여주기() {
+        // 퀘스트 진행중이면 퀘스트 내용을 출력
+        if (퀘스트_진행중) {
+            this.퀘스트_진행중 = true;
+            System.out.println("---------------------현재 진행중인 퀘스트---------------------");
+            System.out.println("중량: " "kg");
+            System.out.println("운동 개수: " + this.랜덤_운동횟수 + "회");
 
+        } else {
+            // 퀘스트 진행중이 아니면 퀘스트가 없다고 출력
+            System.out.println("현재 진행중인 퀘스트가 없습니다.");
+        }
     }
+    public void 퀘스트_진행상태_체크하기(int 운동_횟수) {
+        // 운동 횟수가 퀘스트 운동 개수보
+        // 다 크거나 같으면 퀘스트 완료
+        if (운동_횟수 >= this.랜덤_운동횟수) {
+            System.out.println("퀘스트를 완료하였습니다.");
+            System.out.println("경험치 " +  + "xp를 획득하였습니다.a");
+            // 퀘스트 진행중 여부를 false로 변경
+            퀘스트_진행중 = false;
+        } else {
+            // 운동 횟수가 퀘스트 운동 개수보다 작으면 퀘스트 진행중
+            System.out.println("퀘스트를 진행중입니다.");
+            System.out.println("아직 " + ( - 운동_횟수) + "회 남았습니다.");
+        }
 }

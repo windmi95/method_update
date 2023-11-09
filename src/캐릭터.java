@@ -61,7 +61,7 @@ public class 캐릭터 {
             System.out.println("손목보호대");
         }
 
-        if (this.리프팅웨어 != null && this.리프팅웨어.캐릭터한테_장착되어있는지_여부){
+        if (this.리프팅웨어 != null && this.리프팅웨어.캐릭터한테_장착되어있는지_여부) {
             System.out.println("리프팅웨어");
         }
 

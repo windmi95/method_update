@@ -69,7 +69,6 @@ public class 체육관 {
         }
         return 승급_심사_메뉴_번호_선택;
     }
-
     public void 운동_메뉴() {
         System.out.println();
         System.out.println("======================운동 메뉴 선택======================");
