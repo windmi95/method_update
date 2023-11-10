@@ -24,7 +24,7 @@ public class 체육관 {
             System.out.println("1 ~ 10의 중량을 입력해주세요.");
         } else if (캐릭터_레벨 < 51 && 캐릭터_등급 == 2) {
             System.out.println("1 ~ 50의 중량을 입력해주세요");
-        } else if (캐릭터_레벨 < 101 && 캐릭터_등급 == 3) {
+        } else if (캐릭터_레벨 < 71 && 캐릭터_등급 == 3) {
             System.out.println("1 ~ 70의 중량을 입력해주세요");
         } else if (캐릭터_레벨 <= 101 && 캐릭터_등급 == 4) {
             System.out.println("1 ~ 100의 중량을 입력해주세요");
@@ -72,7 +72,7 @@ public class 체육관 {
     public void 운동_메뉴() {
         System.out.println();
         System.out.println("======================운동 메뉴 선택======================");
-        System.out.println("1.운동 실행 2.아이템 사용 3.게임에서 나가기");
+        System.out.println("1.운동 실행 2.아이템 사용 3.중량 변경하기 4.게임에서 나가기");
         System.out.println("어떤 것을 선택하시겠습니까?");
     }
     public int 운동_메뉴_선택(int 운동_메뉴_선택지) {
@@ -86,6 +86,9 @@ public class 체육관 {
                 System.out.println("아이템 사용");
                 break;
             case 3:
+                System.out.println("중량을 변경합니다.");
+                break;
+            case 4:
                 System.out.println("메뉴로 이동합니다.");
                 break;
             default:

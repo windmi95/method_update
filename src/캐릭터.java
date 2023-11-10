@@ -3,6 +3,7 @@ public class 캐릭터 {
     int 근력 = 1;
     int 등급 = 1;
     int 경험치양 = 0;
+    int 경험치 = 0;
     int 보유한_골드 = 5000;
     int 레벨 = 1;
     int 중량_선택 = 0;
