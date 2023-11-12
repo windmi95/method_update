@@ -22,7 +22,6 @@ public class 캐릭터 {
     public void 손목보호대_벗기() {
         this.손목보호대.손목보호대_효과_제거(this);
         this.손목보호대 = null;
-
     }
     public void 리프팅웨어_장착(리프팅웨어 리프팅웨어, 가방 내가방){
         this.리프팅웨어 = 리프팅웨어;
@@ -120,7 +119,7 @@ public class 캐릭터 {
         return true;
     }
 
-    public void 캐릭터_스탯() {
+    public void 캐릭터_스탯(캐릭터 게임_캐릭터) {
         System.out.println("현재 체력 => " + 체력);
         System.out.println("현재 근력 => " + 근력);
     }
@@ -134,7 +133,6 @@ public class 캐릭터 {
             return false;
         }
     }
-
     public void 경험치_획득() {
         int 경험치 = 중량_선택 * 2;
         경험치양 = 경험치 + 경험치양;
@@ -150,7 +148,7 @@ public class 캐릭터 {
         }
     }
     public int 레벨업_이후_올릴_스탯_번호_선택(int 상승시킬_스탯_번호_선택) {
-        if (경험치양 > this.레벨 * 100) {
+        if (경험치양 >= this.레벨 * 100) {
         System.out.println("1.근력 2.체력");
         System.out.println("어떤 스탯을 올릴 것인지 선택하세요.");
         if (상승시킬_스탯_번호_선택 == 1) {
