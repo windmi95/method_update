@@ -5,7 +5,7 @@ public class 캐릭터 {
     int 경험치양 = 0;
     int 경험치 = 0;
     int 보유한_골드 = 5000;
-    int 레벨 = 1;
+    int 레벨 = 30;
     int 중량_선택 = 0;
     int 스탯_포인트 = 5;
     private 손목보호대 손목보호대 = null;
@@ -23,12 +23,12 @@ public class 캐릭터 {
         this.손목보호대.손목보호대_효과_제거(this);
         this.손목보호대 = null;
     }
-    public void 리프팅웨어_장착(리프팅웨어 리프팅웨어, 가방 내가방){
+    public void 리프팅웨어_장착(리프팅웨어 리프팅웨어, 가방 내가방) {
         this.리프팅웨어 = 리프팅웨어;
         this.리프팅웨어.캐릭터한테_장착되어있는지_여부 = true;
         this.리프팅웨어.리프팅웨어_장착_효과_적용하기(this);
     }
-    public void 리프팅웨어_벗기(){
+    public void 리프팅웨어_벗기() {
         this.리프팅웨어.리프팅웨어_장착_효과_제거하기(this);
         this.리프팅웨어 = null;
     }
@@ -124,7 +124,7 @@ public class 캐릭터 {
         System.out.println("현재 근력 => " + 근력);
     }
     public boolean 레벨업_했는지_여부_확인() {
-        if (경험치양 > this.레벨 * 100) {
+        if (경험치양 >= 레벨 * 100) {
             this.레벨 = 레벨 + 1;
             System.out.println("레벨이 상승했습니다.");
             return true;
@@ -148,7 +148,7 @@ public class 캐릭터 {
         }
     }
     public int 레벨업_이후_올릴_스탯_번호_선택(int 상승시킬_스탯_번호_선택) {
-        if (경험치양 >= this.레벨 * 100) {
+        if (경험치양 >= 레벨 * 100) {
         System.out.println("1.근력 2.체력");
         System.out.println("어떤 스탯을 올릴 것인지 선택하세요.");
         if (상승시킬_스탯_번호_선택 == 1) {
