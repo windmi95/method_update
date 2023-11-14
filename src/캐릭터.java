@@ -1,11 +1,14 @@
+
 public class 캐릭터 {
+    int  근력_스탯_올리기_선택_경우= 1;
+    int  체력_스탯_올리기_선택_경우= 2;
     int 체력 = 50;
     int 근력 = 1;
     int 등급 = 1;
     int 경험치양 = 0;
     int 경험치 = 0;
     int 보유한_골드 = 5000;
-    int 레벨 = 30;
+    int 레벨 = 1;
     int 중량_선택 = 0;
     int 스탯_포인트 = 5;
     private 손목보호대 손목보호대 = null;
@@ -13,6 +16,8 @@ public class 캐릭터 {
     private 역도화 역도화 = null;
     private 복압_벨트 복압벨트 = null;
     boolean 캐릭터_메뉴_확인중 = true;
+
+    boolean 스텟올리기_진행중_여부 = false;
 
     public void 손목보호대_장착(손목보호대 손목보호대, 가방 내가방) {
         this.손목보호대 = 손목보호대;
@@ -125,13 +130,16 @@ public class 캐릭터 {
     }
     public boolean 레벨업_했는지_여부_확인() {
         if (경험치양 >= 레벨 * 100) {
-            this.레벨 = 레벨 + 1;
             System.out.println("레벨이 상승했습니다.");
             return true;
         }
         else {
             return false;
         }
+    }
+    public void 레벨_상승() {
+            this.레벨 = 레벨 + 1;
+
     }
     public void 경험치_획득() {
         int 경험치 = 중량_선택 * 2;
@@ -147,21 +155,36 @@ public class 캐릭터 {
             System.out.println("체력이 부족하여 메인 메뉴로 이동하겠습니다.");
         }
     }
-    public int 레벨업_이후_올릴_스탯_번호_선택(int 상승시킬_스탯_번호_선택) {
-        if (경험치양 >= 레벨 * 100) {
+
+    public void 스탯_올리기_선택_메뉴판(){
+        System.out.println("남은 스탯포인트: " + this.스탯_포인트);
         System.out.println("1.근력 2.체력");
         System.out.println("어떤 스탯을 올릴 것인지 선택하세요.");
-        if (상승시킬_스탯_번호_선택 == 1) {
+    }
+
+    public void 스탯_올리기(int 스탯_번호_선택){
+        if(스탯_번호_선택 == 전역상수.근력_스탯_올리기_선택_경우){
             System.out.println("근력 +1이 상승했습니다.");
             this.근력 = this.근력 + 1;
-        } else if (상승시킬_스탯_번호_선택 == 2) {
+        } else if (스탯_번호_선택 == 전역상수.체력_스탯_올리기_선택_경우) {
             System.out.println("체력 +10이 상승했습니다.");
             this.체력 = this.체력 + 10;
         }
-        for (int i = this.스탯_포인트; i > 0; i--) {
-            System.out.println("남은 스탯포인트: " + i);
-        }
+        this.스탯_포인트 = this.스탯_포인트 -1;
+    }
+    public int 레벨업_이후_올릴_스탯_번호_선택(int 상승시킬_스탯_번호_선택) {
+            for (int i = this.스탯_포인트; i > 0; i--) {
+                System.out.println("남은 스탯포인트: " + i);
+                System.out.println("1.근력 2.체력");
+                System.out.println("어떤 스탯을 올릴 것인지 선택하세요.");
+                if (상승시킬_스탯_번호_선택 == 1) {
+                    System.out.println("근력 +1이 상승했습니다.");
+                    this.근력 = this.근력 + 1;
+                } else if (상승시킬_스탯_번호_선택 == 2) {
+                    System.out.println("체력 +10이 상승했습니다.");
+                    this.체력 = this.체력 + 10;
+                }
         }
         return 상승시킬_스탯_번호_선택;
+        }
     }
-}

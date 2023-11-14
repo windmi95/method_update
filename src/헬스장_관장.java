@@ -76,6 +76,7 @@ public class 헬스장_관장 {
             System.out.println();
             int 남은횟수 = 해야할_운동횟수 - 진행중인_퀘스트_운동_실행_횟수;
             System.out.println("남은 운동 횟수 -> "+ 남은횟수+ "회");
+            System.out.println();
         } else {
             // 퀘스트 진행중이 아니면 퀘스트가 없다고 출력
             System.out.println("현재 진행중인 퀘스트가 없습니다.");
