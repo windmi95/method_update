@@ -1,6 +1,7 @@
 //중량을 선택할 수 있는 클래스
 public class 체육관 {
     int 운동횟수 = 0;
+    int 승급심사_운동횟수 = 0;
     boolean 중량_선택_성공_여부 = true;
     int 초급_심사_중량 = 10;
     int 중급_심사_중량 = 50;
@@ -61,7 +62,7 @@ public class 체육관 {
                 System.out.println("아이템을 사용합니다.");
                 break;
             case 3:
-                System.out.println("게임을 종료합니다.");
+                System.out.println("승급 심사를 중단합니다.");
                 break;
             default:
                 System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");

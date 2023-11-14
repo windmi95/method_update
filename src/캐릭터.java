@@ -8,7 +8,7 @@ public class 캐릭터 {
     int 경험치양 = 0;
     int 경험치 = 0;
     int 보유한_골드 = 5000;
-    int 레벨 = 1;
+    int 레벨 = 30;
     int 중량_선택 = 0;
     int 스탯_포인트 = 5;
     private 손목보호대 손목보호대 = null;
@@ -77,7 +77,6 @@ public class 캐릭터 {
         if (this.복압벨트 != null && this.복압벨트.캐릭터한테_장착되어있는지_여부) {
             System.out.println("복압벨트");
         }
-
         return  true;
     }
 
