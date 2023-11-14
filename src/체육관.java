@@ -7,8 +7,14 @@ public class 체육관 {
     int 중급_심사_중량 = 50;
     int 고급_심사_중량 = 70;
     int 초월_심사_중량 = 100;
+    boolean 승급심사중량_보여줌여부 = false;
 
     public void 승급_심사_중량(int 캐릭터_레벨, int 캐릭터_등급) {
+
+        if(승급심사중량_보여줌여부){
+            return;
+        }
+
         if (캐릭터_레벨 < 31 && 캐릭터_등급 == 1) {
             System.out.println("10kg의 중량으로 승급 심사를 진행하겠습니다.");
         } else if (캐릭터_레벨 < 51 && 캐릭터_등급 == 2) {
@@ -18,6 +24,8 @@ public class 체육관 {
         } else if (캐릭터_레벨 <= 101 && 캐릭터_등급 == 4) {
             System.out.println("100kg의 중량으로 승급 심사를 진행하겠습니다.");
         }
+
+        승급심사중량_보여줌여부 = true;
     }
 
     public void 중량_선택(int 캐릭터_레벨, int 캐릭터_등급) {
@@ -51,7 +59,7 @@ public class 체육관 {
        System.out.println("1.운동 실행 2.아이템 사용 3.게임에서 나가기");
        System.out.println("어떤 것을 선택하시겠습니까?");
     }
-    public int 승급_심사_메뉴_선택(int 승급_심사_메뉴_번호_선택) {
+    public int 승급_심사_운동_메뉴_선택(int 승급_심사_메뉴_번호_선택) {
         switch (승급_심사_메뉴_번호_선택) {
             case 1:
                 System.out.println("운동을 실행하겠습니다.");

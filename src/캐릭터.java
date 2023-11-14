@@ -143,19 +143,35 @@ public class 캐릭터 {
     public void 경험치_획득() {
         int 경험치 = 중량_선택 * 2;
         경험치양 = 경험치 + 경험치양;
-        System.out.println("현재 경험치 => " + 경험치양);
+        System.out.println("현재 경험치 -> " + 경험치양);
 
     }
     public void 체력_감소() {//객체 변수에 아무런 값이 없음
         if (this.체력 > 0) {
             this.체력 = 체력 - (중량_선택 - 근력);
-            System.out.println("남은 체력 => "+ 체력);
+            System.out.println("남은 체력 -> "+ 체력);
         } else {
             System.out.println("체력이 부족하여 메인 메뉴로 이동하겠습니다.");
         }
     }
-
-    public void 스탯_올리기_선택_메뉴판(){
+    public void 승급_심사_진행중_체력_감소(체육관 체육관) {
+        if (this.레벨 == 30 && this.등급 == 1) {
+            this.체력 = 체력 - (체육관.초급_심사_중량 - 근력);
+            System.out.println("남은 체력 -> "+ 체력);
+        } else if (this.레벨 == 50 && this.등급 == 2) {
+            this.체력 = 체력 - (체육관.중급_심사_중량 - 근력);
+            System.out.println("남은 체력 -> "+ 체력);
+        } else if (this.레벨 == 70 && this.등급 == 3) {
+            this.체력 = 체력 - (체육관.고급_심사_중량 - 근력);
+            System.out.println("남은 체력 -> "+ 체력);
+        } else if (this.레벨 >= 100 && this.등급 == 4) {
+            this.체력 = 체력 - (체육관.초월_심사_중량 - 근력);
+            System.out.println("남은 체력 -> "+ 체력);
+        } else {
+            System.out.println("체력이 부족하여 메인 메뉴로 이동하겠습니다.");
+        }
+    }
+    public void 스탯_올리기_선택_메뉴판() {
         System.out.println("남은 스탯포인트: " + this.스탯_포인트);
         System.out.println("1.근력 2.체력");
         System.out.println("어떤 스탯을 올릴 것인지 선택하세요.");
