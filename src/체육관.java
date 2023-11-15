@@ -11,7 +11,7 @@ public class 체육관 {
 
     public void 승급_심사_중량(int 캐릭터_레벨, int 캐릭터_등급) {
 
-        if(승급심사중량_보여줌여부){
+        if(승급심사중량_보여줌여부) {
             return;
         }
 
