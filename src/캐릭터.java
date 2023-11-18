@@ -9,7 +9,7 @@ public class 캐릭터 {
     int 경험치양 = 0;
     int 경험치 = 0;
     int 보유한_골드 = 5000;
-    int 레벨 = 1;
+    int 레벨 = 30;
     int 중량_선택 = 0;
     int 스탯_포인트 = 5;
     private 손목보호대 손목보호대 = null;
@@ -227,6 +227,7 @@ public class 캐릭터 {
             System.out.println("남은 체력 -> "+ 체력);
         } else {
             System.out.println("체력이 부족하여 메인 메뉴로 이동하겠습니다.");
+            System.out.println("");
         }
     }
     public void 스탯_올리기_선택_메뉴판() {
