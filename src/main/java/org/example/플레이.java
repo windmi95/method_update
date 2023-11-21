@@ -3,6 +3,7 @@ package org.example;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.Scanner;
+import java.util.prefs.Preferences;
 
 
 //게임을 진행하는 클래스
@@ -18,6 +19,7 @@ public class 플레이 {
         장비_상점 장비_상점 = new 장비_상점();
         가방 가방 = new 가방();
         게임_설정 게임설정 = new 게임_설정();
+        Preferences preferences = Preferences.userRoot();
         ObjectMapper mapper = new ObjectMapper();
         게임_진행.프롤로그();
         System.out.println(게임_진행.캐릭터_이름_작성(scanner.next()) + "님 게임을 진행하겠습니다.");
@@ -295,9 +297,13 @@ public class 플레이 {
                             break;
                         }
                     } else if (퀘스트_번호_선택 == 2) { //승급 심사
+                        if (!퀘스트.승급심사_진행할_수_있는_단계가_아닌_경우_메뉴로_이동(게임_캐릭터)) {
+                            break;
+                        }
                         if (게임_캐릭터.체력 <= 0) {// 캐릭터 체력이 부족한 경우
                             게임_진행.운동_진행중 = false;
                             System.out.println("체력 부족으로 인해 메인 메뉴로 돌아갑니다.");
+                            System.out.println("============================================");
                             break;
                         }
                         퀘스트.승급심사_진행중 = true;
@@ -420,8 +426,13 @@ public class 플레이 {
                             System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
                         }
                     } else if (게임설정_메뉴_번호_선택 == 2) {
+                        System.out.println("게임 내용을 저장합니다.");
+                        게임설정.게임_저장하기(게임_캐릭터);
+                        break;
+                    } else if (게임설정_메뉴_번호_선택 == 3) {
                         System.out.println("메인 메뉴로 이동합니다.");
                         break;
+
                     } else {
                         System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
                     }
