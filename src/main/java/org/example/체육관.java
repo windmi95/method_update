@@ -50,14 +50,13 @@ public class 체육관 {
                 break;
             case 2:
                 System.out.println("아이템을 사용합니다.");
-                System.out.println("");
+                System.out.println("============================================");
                 break;
             case 3:
                 System.out.println("승급 심사를 중단합니다.");
-                System.out.println("");
+                System.out.println("============================================");
                 break;
             default:
-                System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
                 System.out.println("");
                 break;
         }

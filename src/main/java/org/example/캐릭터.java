@@ -12,11 +12,11 @@ public class 캐릭터 {
     @JsonProperty("근력")
     int 근력 = 1;
     @JsonProperty("등급")
-    int 등급 = 1;
+    int 등급 = 4;
     int 경험치양 = 0;
     int 경험치 = 0;
     int 보유한_골드 = 5000;
-    int 레벨 = 30;
+    int 레벨 = 100;
     int 중량_선택 = 0;
     int 스탯_포인트 = 5;
     private 손목보호대 손목보호대 = null;
