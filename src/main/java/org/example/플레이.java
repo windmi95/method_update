@@ -1,9 +1,8 @@
 package org.example;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 
 import java.util.Scanner;
-import java.util.prefs.Preferences;
+
 
 
 //게임을 진행하는 클래스
@@ -19,8 +18,7 @@ public class 플레이 {
         장비_상점 장비_상점 = new 장비_상점();
         가방 가방 = new 가방();
         게임_설정 게임설정 = new 게임_설정();
-        Preferences preferences = Preferences.userRoot();
-        ObjectMapper mapper = new ObjectMapper();
+
         게임_진행.프롤로그();
         System.out.println(게임_진행.캐릭터_이름_작성(scanner.next()) + "님 게임을 진행하겠습니다.");
         while (!게임_진행.게임_종료) {
@@ -310,6 +308,7 @@ public class 플레이 {
                         퀘스트.퀘스트_진행_여부();
                         퀘스트_승낙_여부_선택 = scanner.nextInt();
                         퀘스트.퀘스트_유형_선택(퀘스트_번호_선택, 퀘스트_승낙_여부_선택, 게임_캐릭터.레벨, 게임_캐릭터.등급); //1. 퀘스트 2.승급 심사 3.퀘스트 현황 4.퀘스트 보상
+                        게임_진행.운동_진행중 = true;
                         while (게임_진행.운동_진행중) {
                             if (게임_캐릭터.체력 <= 0) {// 캐릭터 체력이 부족한 경우
                                 게임_진행.운동_진행중 = false;
@@ -328,20 +327,12 @@ public class 플레이 {
                                     boolean 승급심사_체력이_부족한지_체크 = 게임_캐릭터.승급심사_운동_진행중_체력이_부족한_경우_메인_메뉴로_이동(체육관, 퀘스트);
                                     if (!승급심사_체력이_부족한지_체크) {
                                         break;
-
                                     }
                                     boolean 승급_통과 = 퀘스트.승급_심사_통과_체크(게임_캐릭터, 게임_진행);
                                     if (승급_통과) {
                                         게임_진행.운동_진행중 = false;
                                         퀘스트.승급심사_진행중 = false;
-                                        게임_진행.게임_종료 = true;
                                     }
-                                    /*if (퀘스트.승급_심사_통과_체크(게임_캐릭터, 게임_진행)) {
-                                        게임_진행.운동_진행중 = false;
-                                        퀘스트.승급심사_진행중 = false;
-                                        게임_진행.게임_종료 = true;
-                                    }*/
-
                                 } else if (승급_심사_메뉴_선택 == 2) {//아이템 사용
                                     가방.소모품_목록();
                                     가방.소모품_사용(scanner.nextInt(), 게임_캐릭터);
@@ -441,9 +432,13 @@ public class 플레이 {
                         게임설정.게임_저장하기(게임_캐릭터);
                         break;
                     } else if (게임설정_메뉴_번호_선택 == 3) {
-                        System.out.println("메인 메뉴로 이동합니다.");
+                        System.out.println("저장된 정보를 불러옵니다.");
+                        게임설정.게임_정보_불러오기();
                         break;
 
+                    } else if(게임설정_메뉴_번호_선택 == 4) {
+                        System.out.println("메인 메뉴로 이동합니다.");
+                        break;
                     } else {
                         System.out.println("잘 못 입력하셨습니다. 다시 입력해주세요.");
                     }
