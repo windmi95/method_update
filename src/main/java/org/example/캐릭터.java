@@ -8,9 +8,9 @@ public class 캐릭터 {
     int 근력_스탯_올리기_선택_경우= 1;
     int 체력_스탯_올리기_선택_경우= 2;
     @JsonProperty("체력")
-    int 체력 = 50;
+    public int 체력 = 50;
     @JsonProperty("근력")
-    int 근력 = 1;
+    public int 근력 = 1;
     @JsonProperty("등급")
     int 등급 = 1;
     int 경험치양 = 0;
